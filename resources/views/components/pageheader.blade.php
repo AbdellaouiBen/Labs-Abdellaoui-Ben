@@ -4,18 +4,16 @@
 		<div class="container text-right">
 			<div class="page-info">
 				<h2>
-					{{Request::route()->getName()=='blog'?'Blog':''}}
-					{{Request::route()->getName()=='services'?'Services':''}}
-					{{Request::route()->getName()=='contact'?'Contact':''}}
+					{{Request::route()->getName()=='blog.index'?'Blog':''}}
+					{{Request::route()->getName()=='service.index'?'Services':''}}
+					{{Request::route()->getName()=='contact.index'?'Contact':''}}
 				</h2>
 				<div class="page-links">
-					<a href="#">
-						
-					</a>
+					<a href="{{route('index.index')}}">Home</a>
 					<span>
-						{{Request::route()->getName()=='blog'?'Blog':''}}
-						{{Request::route()->getName()=='service'?'Services':''}}
-						{{Request::route()->getName()=='contact'?'Contact':''}}
+						{{Request::route()->getName()=='blog.index'?'Blog':''}}
+						{{Request::route()->getName()=='service.index'?'Services':''}}
+						{{Request::route()->getName()=='contact.index'?'Contact':''}}
 					</span>
 				</div>
 			</div>

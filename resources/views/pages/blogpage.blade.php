@@ -24,6 +24,6 @@
 	<!-- page section end-->
 
     
-    @include('partials.newsletter')
+    @include('components.newsletter')
     @include('components.footer')
 @endsection

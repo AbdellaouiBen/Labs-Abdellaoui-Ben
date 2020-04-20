@@ -47,10 +47,10 @@
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
-				<li class="{{Request::route()->getName()=='index'?'active':''}}"><a href="{{route('index.index')}}">Home</a></li>
-				<li class="{{Request::route()->getName()=='service'?'active':''}}"><a href="{{route('service.index')}}">Services</a></li>
-				<li class="{{Request::route()->getName()=='blog'?'active':''}}"><a href="{{route('blog.index')}}">Blog</a></li>
-				<li class="{{Request::route()->getName()=='contact'?'active':''}}"><a href="{{route('contact.index')}}">Contact</a></li>
+				<li class="{{Request::route()->getName()=='index.index'?'active':''}}"><a href="{{route('index.index')}}">Home</a></li>
+				<li class="{{Request::route()->getName()=='service.index'?'active':''}}"><a href="{{route('service.index')}}">Services</a></li>
+				<li class="{{Request::route()->getName()=='blog.index'?'active':''}}"><a href="{{route('blog.index')}}">Blog</a></li>
+				<li class="{{Request::route()->getName()=='contact.index'?'active':''}}"><a href="{{route('contact.index')}}">Contact</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -73,6 +73,8 @@
 	<script src="{{asset('js/magnific-popup.min.js')}}"></script>
 	<script src="{{asset('js/owl.carousel.min.js')}}"></script>
 	<script src="{{asset('js/circle-progress.min.js')}}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+	<script src="{{asset('js/map.js')}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
 </body>
 </html>
