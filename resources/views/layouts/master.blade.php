@@ -13,11 +13,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Roboto:300,400,600" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	{{-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/flaticon.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/style.css"/> --}}
+
+	<link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 
 	<!--[if lt IE 9]>
@@ -45,13 +47,32 @@
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
-				<li class="{{Request::route()->getName()=='index'?'active':''}}"><a href="{{route('index')}}">Home</a></li>
-				<li class="{{Request::route()->getName()=='servicepage'?'active':''}}"><a href="{{route('servicepage')}}">Services</a></li>
-				<li class="{{Request::route()->getName()=='blog'?'active':''}}"><a href="{{route('blog')}}">Blog</a></li>
-				<li class="{{Request::route()->getName()=='contact'?'active':''}}"><a href="{{route('contactpage')}}">Contact</a></li>
+				<li class="{{Request::route()->getName()=='index'?'active':''}}"><a href="{{route('index.index')}}">Home</a></li>
+				<li class="{{Request::route()->getName()=='service'?'active':''}}"><a href="{{route('service.index')}}">Services</a></li>
+				<li class="{{Request::route()->getName()=='blog'?'active':''}}"><a href="{{route('blog.index')}}">Blog</a></li>
+				<li class="{{Request::route()->getName()=='contact'?'active':''}}"><a href="{{route('contact.index')}}">Contact</a></li>
 			</ul>
 		</nav>
 	</header>
 	<!-- Header section end -->
 
     @yield('content')
+
+
+    
+	<!--====== Javascripts & Jquery ======-->
+	{{-- <script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/magnific-popup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/main.js"></script> --}}
+
+	<script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('js/magnific-popup.min.js')}}"></script>
+	<script src="{{asset('js/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('js/circle-progress.min.js')}}"></script>
+	<script src="{{asset('js/main.js')}}"></script>
+</body>
+</html>

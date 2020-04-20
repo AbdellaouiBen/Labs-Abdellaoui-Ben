@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.indexpage');
 });
 
 Auth::routes();
@@ -23,8 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::resource('index','IndexController')
-Route::resource('servicepage','ServicepageController')
-Route::resource('blog','BlogController')
-Route::resource('contactpage','ContactpageController')
+Route::resource('index','IndexpageController');
+Route::resource('service','ServicepageController');
+Route::resource('blog','BlogpageController');
+Route::resource('contact','ContactpageController');
 
