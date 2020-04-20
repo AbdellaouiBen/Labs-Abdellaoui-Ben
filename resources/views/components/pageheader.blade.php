@@ -7,6 +7,7 @@
 					{{Request::route()->getName()=='blog.index'?'Blog':''}}
 					{{Request::route()->getName()=='service.index'?'Services':''}}
 					{{Request::route()->getName()=='contact.index'?'Contact':''}}
+					{{-- {{ucfirst(Request::route()->getName())}} --}}
 				</h2>
 				<div class="page-links">
 					<a href="{{route('index.index')}}">Home</a>

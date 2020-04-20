@@ -51,6 +51,17 @@
 				<li class="{{Request::route()->getName()=='service.index'?'active':''}}"><a href="{{route('service.index')}}">Services</a></li>
 				<li class="{{Request::route()->getName()=='blog.index'?'active':''}}"><a href="{{route('blog.index')}}">Blog</a></li>
 				<li class="{{Request::route()->getName()=='contact.index'?'active':''}}"><a href="{{route('contact.index')}}">Contact</a></li>
+				@if (Route::has('login'))
+                    @auth
+                        <li><a href="{{ url('/home') }}">Home</a></li>
+                    @else
+                        <li><a href="{{ route('login') }}">Login</a></li>
+
+                        @if (Route::has('register'))
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @endif
+                    @endauth
+            	@endif
 			</ul>
 		</nav>
 	</header>

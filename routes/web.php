@@ -28,3 +28,7 @@ Route::resource('service','ServicepageController');
 Route::resource('blog','BlogpageController');
 Route::resource('contact','ContactpageController');
 
+
+Route::resource('user','UserController');
+Route::resource('myprofil','MyprofilController');
+Route::resource('role','RoleController');
