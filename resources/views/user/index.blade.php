@@ -12,7 +12,7 @@
         <div class="mb-5 container">
             <div class="text-center">
 
-                <h1 class="text-white shadow-lg p-3 mt-3 mb- bg-danger rounded">Users </h1>
+                <h1 class=" shadow-lg p-3 mt-3 mb- bg-danger rounded">Users </h1>
             </div>
             <table class="table table-striped table-secondary">
                 <thead class="bg-dark text-warning">
@@ -42,7 +42,12 @@
                                 <a class="btn btn-warning" href="{{route('user.edit',$user)}}">edit</a>   
                             {{-- @endcan --}}
                             {{-- @can('deleteUser',$user ,App\user::class) --}}
-                                <a class="btn btn-danger" href="{{route('user.destroy',$user)}}">delete</a>
+                            <form action="{{route('user.destroy',$user)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" href="">delete</button>
+
+                            </form>
                             {{-- @endcan --}}
                             {{-- @can('isAdmin',App\user::class) --}}
                                 <a class="btn btn-outline-primary" href="{{route('user.show',$user)}}">Show</a>

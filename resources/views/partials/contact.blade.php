@@ -1,5 +1,5 @@
 	<!-- Contact section -->
-	<div class="contact-section spad fix">
+	<div  class="contact-section spad fix">
 		<div class="container">
 			<div class="row">
 				<!-- contact info -->
@@ -14,10 +14,10 @@
 					<p class="con-item">{{$contact->email}}</p>
 				</div>
 				<!-- contact form -->
-				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form" method="POST">
+				<div id="form" class="col-md-6 col-pull">
+					<form action="{{route('form.store')}}" class="form-class" id="con_form" method="POST">
 						@csrf
-						@method('PUT')
+						
 						<div class="row">
 							<div class="col-sm-6">
 								<input type="text" name="name" placeholder="Your name">
@@ -27,12 +27,17 @@
 							</div>
 							<div class="col-sm-12">
 								<input type="text" name="subject" placeholder="Subject">
-								<textarea name="message" placeholder="Message"></textarea>
+								<textarea name="msg" placeholder="Message"></textarea>
+								@if(Session::has('success'))
+									<div class="alert alert-success">
+										{{ Session::get('success') }}
+									</div>
+								@endif
 								<button class="site-btn">send</button>
 							</div>
 						</div>
 					</form>
-				</div>
+					</div>
 			</div>
 		</div>
 	</div>

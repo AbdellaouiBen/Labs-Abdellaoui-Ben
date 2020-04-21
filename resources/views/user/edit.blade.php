@@ -10,7 +10,7 @@
 
         <div class="container">
             <div class="text-center">
-                <h1 class="text-white shadow-lg p-3 mb-5 bg-danger rounded">edit user</h1>
+                <h1 class=" shadow-lg p-3 mb-5 bg-danger rounded">edit user</h1>
             </div>
             <div class="card-body">
             <form action="{{route('user.update',$user)}}" method="post" enctype="multipart/form-data">

@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\User;
+use App\Form;
 use Illuminate\Contracts\Events\Dispatcher;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
@@ -58,8 +59,6 @@ class AppServiceProvider extends ServiceProvider
         });
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
             $event->menu->add('WEBSITE SETTINGS');
-            $users = User::where('role_id','!=',1)->get();
-            $nb = count($users);
             $event->menu->add(
                 [
                     'text' => 'HomePage',
@@ -119,9 +118,44 @@ class AppServiceProvider extends ServiceProvider
                             'url'  => '/contact',
 
                         ],
+                        [
+                            'text' => 'Footer', 
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/footer',
+                        ],
                     ],
                 ]
             );
-        });
+
+        });    
+            $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
+                $event->menu->add('INTERACTION');
+                $forms = Form::all();
+                $nb = count($forms);
+                $event->menu->add(
+                    [
+                        'text' => 'Messages',
+                        'url'  => '/form',
+                        'icon' => 'fas fa-users',
+                        'label' => $nb
+                    ]
+            
+                    // ,[
+                    //     'text'    => 'Roles',
+                    //     'icon'    => 'fas fa-fw fa-share',
+                    //     'submenu' => [
+                    //         [
+                    //             'text' => 'Roles',
+                    //             'url'  => '/role',
+                    //         ],
+                    //         [
+                    //             'text' => 'Ajout Role',
+                    //             'url'  => '/role/create',
+                    //         ],
+                    //     ],
+                    // ]
+                );
+            });
+        
     }
 }

@@ -39,3 +39,5 @@ Route::resource('banniere','BanniereController');
 Route::resource('independant','IndependantController');
 Route::resource('testimonial','TestimonialController');
 Route::resource('contact','ContactController');
+Route::resource('form','FormController');
+Route::resource('footer','FooterController');

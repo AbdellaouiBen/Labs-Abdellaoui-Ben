@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\logo;
 use App\Contact;
+use App\Footer;
 
 class ContactpageController extends Controller
 {
     public function index(){
+        $footer = Footer::first();
         $contact = Contact::first();
         $logo = Logo::first();
-        return view('pages.contactpage',compact('logo','contact'));
+        return view('pages.contactpage',compact('logo','contact','footer'));
     }
 }

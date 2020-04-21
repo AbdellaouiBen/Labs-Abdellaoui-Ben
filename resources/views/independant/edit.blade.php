@@ -14,7 +14,7 @@
         <div class="container">
             <div class="text-center">
                 
-                <h1 class="text-white shadow-lg p-3 mb-5 bg-danger rounded">update les elements independants</h1>
+                <h1 class=" shadow-lg p-3 mb-5 bg-danger rounded">update les elements independants</h1>
             </div>
             <div class="card-body">
             <form action="{{route('independant.update',$independant)}}" method="POST" enctype="multipart/form-data">
