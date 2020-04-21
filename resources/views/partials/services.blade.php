@@ -6,19 +6,26 @@
 				<h2>Get in <span>the Lab</span> and see the services</h2>
 			</div>
 			<div class="row">
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-023-flask"></i>
-						</div>
-						<div class="service-text">
-							<h2>Get in the lab</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+				@foreach ($services as $service)
+					<!-- single service -->
+					<div class="col-md-4 col-sm-6">
+						<div class="service">
+							<div class="icon">
+								<i class="{{$service->icon}}"></i>
+							</div>
+							<div class="service-text">
+								<h2>{{$service->titre}}</h2>
+								<p>{{$service->description}}</p>
+							</div>
 						</div>
 					</div>
+				@endforeach 
+				<div class="text-center">
+					{{Request::route()->getName()=='servicepage.index'? $services->links():''}}
 				</div>
-				<!-- single service -->
+					
+				
+				{{-- <!-- single service --> 
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
 						<div class="icon">
@@ -113,10 +120,10 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
 						</div>
 					</div>
-				</div>
-			</div>
+				</div>--}}
+			</div> 
 			<div class="text-center">
-				<a href="" class="site-btn">Browse</a>
+				<a href="{{Request::route()->getName()=='servicepage.index'?'#feature':'#team'}}" class="site-btn">Browse</a>
 			</div>
 		</div>
 	</div>

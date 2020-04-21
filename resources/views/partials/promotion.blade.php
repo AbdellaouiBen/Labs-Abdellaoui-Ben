@@ -3,8 +3,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<h2>Are you ready to stand out?</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
+					<h2>{{$independant->promotion_titre}}</h2>
+					<p>{{$independant->promotion_text}}</p>
 				</div>
 				<div class="col-md-3">
 					<div class="promo-btn-area">

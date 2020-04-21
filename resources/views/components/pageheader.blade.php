@@ -5,16 +5,16 @@
 			<div class="page-info">
 				<h2>
 					{{Request::route()->getName()=='blog.index'?'Blog':''}}
-					{{Request::route()->getName()=='service.index'?'Services':''}}
-					{{Request::route()->getName()=='contact.index'?'Contact':''}}
+					{{Request::route()->getName()=='servicepage.index'?'Services':''}}
+					{{Request::route()->getName()=='contactpage.index'?'Contact':''}}
 					{{-- {{ucfirst(Request::route()->getName())}} --}}
 				</h2>
 				<div class="page-links">
 					<a href="{{route('index.index')}}">Home</a>
 					<span>
 						{{Request::route()->getName()=='blog.index'?'Blog':''}}
-						{{Request::route()->getName()=='service.index'?'Services':''}}
-						{{Request::route()->getName()=='contact.index'?'Contact':''}}
+						{{Request::route()->getName()=='servicepage.index'?'Services':''}}
+						{{Request::route()->getName()=='contactpage.index'?'Contact':''}}
 					</span>
 				</div>
 			</div>

@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'email' => 'rea@ok.com',
             'password' => Hash::make('aa'),
             'img' => 'pp4.jpg',
-            'role_id' => 5,
+            'role_id' => 4,
         ]);
     }
 }

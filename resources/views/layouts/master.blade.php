@@ -32,7 +32,7 @@
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader">
-			<img src="img/logo.png" alt="">
+			<img style="width: 110px"  src="{{'storage/'.$logo->logo}}" alt="">
 			<h2>Loading.....</h2>
 		</div>
 	</div>
@@ -41,16 +41,16 @@
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="logo">
-			<img src="img/logo.png" alt=""><!-- Logo -->
+			<img style="width: 110px" src="{{'storage/'.$logo->logo}}" alt=""><!-- Logo -->
 		</div>
 		<!-- Navigation -->
 		<div class="responsive"><i class="fa fa-bars"></i></div>
 		<nav>
 			<ul class="menu-list">
 				<li class="{{Request::route()->getName()=='index.index'?'active':''}}"><a href="{{route('index.index')}}">Home</a></li>
-				<li class="{{Request::route()->getName()=='service.index'?'active':''}}"><a href="{{route('service.index')}}">Services</a></li>
+				<li class="{{Request::route()->getName()=='servicepage.index'?'active':''}}"><a href="{{route('servicepage.index')}}">Services</a></li>
 				<li class="{{Request::route()->getName()=='blog.index'?'active':''}}"><a href="{{route('blog.index')}}">Blog</a></li>
-				<li class="{{Request::route()->getName()=='contact.index'?'active':''}}"><a href="{{route('contact.index')}}">Contact</a></li>
+				<li class="{{Request::route()->getName()=='contactpage.index'?'active':''}}"><a href="{{route('contactpage.index')}}">Contact</a></li>
 				@if (Route::has('login'))
                     @auth
                         <li><a href="{{ url('/home') }}">Home</a></li>
@@ -79,13 +79,23 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/main.js"></script> --}}
 
-	<script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
+	{{-- <script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
-	<script src="{{asset('js/magnific-popup.min.js')}}"></script>
+	<script src="{{'js/magnific-popup.min.js'}}"></script>
 	<script src="{{asset('js/owl.carousel.min.js')}}"></script>
 	<script src="{{asset('js/circle-progress.min.js')}}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
 	<script src="{{asset('js/map.js')}}"></script>
-	<script src="{{asset('js/main.js')}}"></script>
+	<script src="{{asset('js/main.js')}}"></script>  --}}
+	{{-- <script src="{{asset('js/app.js')}}"></script> --}}
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/magnific-popup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/circle-progress.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+    <script src="js/map.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

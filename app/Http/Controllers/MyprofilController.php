@@ -21,7 +21,7 @@ class MyprofilController extends Controller
         $roles = Role::all();
         return view('myprofil.index',compact('roles'));
     }
-
+ 
 
     /**
      * Show the form for editing the specified resource.

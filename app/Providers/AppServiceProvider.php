@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
+    { 
         //
     }
 
@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
-            $event->menu->add('WEBSITE SETTINGS');
+            $event->menu->add('USER(S) SETTINGS');
             $users = User::where('role_id','!=',1)->get();
             $nb = count($users);
             $event->menu->add(
@@ -51,6 +51,73 @@ class AppServiceProvider extends ServiceProvider
                         [
                             'text' => 'Ajout Role',
                             'url'  => '/role/create',
+                        ],
+                    ],
+                ]
+            );
+        });
+        $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
+            $event->menu->add('WEBSITE SETTINGS');
+            $users = User::where('role_id','!=',1)->get();
+            $nb = count($users);
+            $event->menu->add(
+                [
+                    'text' => 'HomePage',
+                    'url'  => '/user',
+                    'icon' => 'fas fa-users',
+                    'submenu' => [
+                        [
+                            'text' => 'Header',  
+                            'submenu' => [
+                                [    'text' => 'logo',
+                                    'url'  => '/logo',
+                                ],
+                                [
+                                    'text' => 'banniere',
+                                    'url'  => '/banniere',
+                                ],
+
+                            ],
+                        ],
+                        [
+                            'text' => 'element homepage', 
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/independant',
+
+                        ],
+                        [ 
+                            'text' => 'Services', 
+                            'icon' => 'fas fa-tools',
+                            'submenu' => [
+                                [
+                                    'text' => 'services',
+                                    'url'  => '/service',
+                                ],
+                                [
+                                    'text' => 'ajouter un service',
+                                    'url'  => '/service/create',
+                                ],
+                            ],
+                        ],
+                        [
+                            'text' => 'Testimonials', 
+                            'icon' => 'fas fa-tools',
+                            'submenu' => [
+                                [
+                                    'text' => 'Testimonials existants',
+                                    'url'  => '/testimonial',
+                                ],
+                                [
+                                    'text' => 'ajouter un testimonial',
+                                    'url'  => '/testimonial/create',
+                                ],
+                            ],
+                        ],
+                        [
+                            'text' => 'Contact us', 
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/contact',
+
                         ],
                     ],
                 ]
