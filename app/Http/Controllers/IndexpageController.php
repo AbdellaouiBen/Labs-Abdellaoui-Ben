@@ -10,6 +10,7 @@ use App\Independant;
 use App\Testimonial;
 use App\Contact;
 use App\Footer;
+use App\User;
 
 class IndexpageController extends Controller
 {
@@ -22,6 +23,10 @@ class IndexpageController extends Controller
         $logo = Logo::first();
         $servicesRapides = Service::latest('id')->take(3)->get();
         $services = Service::inRandomOrder()->take(9)->get();
-        return view('pages.indexpage',compact('independant','servicesRapides','services','logo','bannieres','testimonials','contact','footer'));
+
+        $CEO = User::where('role_id','=', 1)->first();
+        $randomUsers = User::inRandomOrder()->where('role_id','!=', 3)->where('role_id','!=', 1)->get();
+
+        return view('pages.indexpage',compact('independant','servicesRapides','services','logo','bannieres','testimonials','contact','footer','CEO','randomUsers'));
     }
 }
