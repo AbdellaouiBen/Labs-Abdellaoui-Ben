@@ -123,7 +123,7 @@
 				</div>--}}
 			</div> 
 			<div class="text-center">
-				<a href="{{Request::route()->getName()=='servicepage.index'?'#feature':'#team'}}" class="site-btn">Browse</a>
+				<a href="{{Request::route()->getName()=='servicepage.index'?'#feature':"/servicepage"}}" class="site-btn">Browse</a>
 			</div>
 		</div>
 	</div>

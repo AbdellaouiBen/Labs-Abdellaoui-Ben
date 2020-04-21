@@ -14,7 +14,7 @@
 				</div>
 				@if ($independant->presentation_btn)
 					<div class="text-center mt60">
-						<a href="" class="site-btn">Browse</a>
+						<a href="{{route('contactpage.index')}}" class="site-btn">Browse</a>
 					</div>
 				@endif
 				<!-- popup video -->
