@@ -37,10 +37,10 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         $form = new Form();
-        $form->name = $request->input('name');
+        $form->name = $request->input('name'); 
         $form->email = $request->input('email');
         $form->subject = $request->input('subject');
         $form->msg = $request->input('msg');
