@@ -15,5 +15,6 @@ class BlogpageController extends Controller
         $logo = Logo::first();
         return view('pages.blogpage',compact('logo','footer','quote'));
     }
-    
+
 }
+ 
