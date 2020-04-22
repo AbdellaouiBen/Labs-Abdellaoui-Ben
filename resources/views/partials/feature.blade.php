@@ -14,7 +14,7 @@
                         <div class="service-text">
                             <h2>{{$feature->titre}}</h2>
                             <p>{{$feature->description}}</p>
-                        </div>
+                        </div> 
                         <div class="icon">
                             <i class="{{$feature->icon}}"></i>
                         </div>

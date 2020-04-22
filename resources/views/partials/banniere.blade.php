@@ -11,7 +11,6 @@
 			@foreach ($bannieres as $banniere)
 				<div class="item  hero-item" data-bg="{{asset('storage/'.$banniere->img)}}"></div>
 			@endforeach
-			{{-- <div class="item  hero-item" data-bg="img/02.jpg"></div> --}}
 		</div>
 	</div>
 	<!-- Intro Section -->

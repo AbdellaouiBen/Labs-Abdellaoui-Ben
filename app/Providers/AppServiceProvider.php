@@ -61,23 +61,17 @@ class AppServiceProvider extends ServiceProvider
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
             $event->menu->add('WEBSITE SETTINGS');
             $event->menu->add(
-                [
-                    'text' => 'HomePage',
-                    'url'  => '/user',
-                    'icon' => 'fas fa-users',
-                    'submenu' => [
-                        [
-                            'text' => 'Header',  
-                            'submenu' => [
-                                [    'text' => 'logo',
-                                    'url'  => '/logo',
-                                ],
-                                [
-                                    'text' => 'banniere',
-                                    'url'  => '/banniere',
-                                ],
+                
 
-                            ],
+                        [     
+                            'text' => 'logo',
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/logo',
+                        ],
+                        [
+                            'text' => 'banniere',
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/banniere',
                         ],
                         [
                             'text' => 'element homepage', 
@@ -114,7 +108,12 @@ class AppServiceProvider extends ServiceProvider
                             ],
                         ],
                         [
-                            'text' => 'Contact us', 
+                            'text' => 'Quote', 
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/quote',
+                        ],
+                        [
+                            'text' => 'Section Contact us', 
                             'icon' => 'fas fa-tools',
                             'url'  => '/contact',
 
@@ -123,9 +122,8 @@ class AppServiceProvider extends ServiceProvider
                             'text' => 'Footer', 
                             'icon' => 'fas fa-tools',
                             'url'  => '/footer',
-                        ],
-                    ],
-                ]
+                        ]
+                
             );
 
         });    

@@ -42,3 +42,4 @@ Route::resource('contact','ContactController');
 Route::resource('form','FormController');
 Route::resource('footer','FooterController');
 Route::resource('newsletter','NewsletterController');
+Route::resource('quote','QuoteController');
