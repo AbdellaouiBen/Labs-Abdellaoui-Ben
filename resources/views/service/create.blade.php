@@ -38,11 +38,36 @@
             </div>              --}}
             <div class="form-group">
                 <label class="d-block input-group-text" for="icon">icon</label> 
+
+                    <div class="d-flex row modImg">
+                        @foreach ($icons as $item)
+                        <div class="form-check col-3 my-2 d-flex align-items-center justify-content-between  flex-column-reverse">
+    
+                            <input  type="radio" name="icon" id="icon"
+                            value="{{$item->icon}}">
+                            <i  style="font-size: 40px" class="{{$item->icon}} my-2"></i>
+    
+                        </div>
+                        @endforeach
+                    </div>
+                    
+
+
+                @error('icon')
+                <div class="alert alert-danger">{{ $message }}</div> 
+                @enderror   
+            </div> 
+
+
+    
+          
+            {{-- <div class="form-group">
+                <label class="d-block input-group-text" for="icon">icon</label> 
                 <input class="form-control" placeholder="icon" type="text " name='icon' value="@if($errors->first('icon'))@else{{ old('icon') }}@endif">      
                 @error('icon')
                 <div class="alert alert-danger">{{ $message }}</div> 
                 @enderror   
-            </div>             
+            </div>              --}}
 
             <div class="form-group">
                 <label class="d-block input-group-text" for="titre">titre</label> 

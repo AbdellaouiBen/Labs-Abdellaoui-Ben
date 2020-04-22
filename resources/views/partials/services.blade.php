@@ -3,7 +3,8 @@
 	<div class="services-section spad">
 		<div class="container">
 			<div class="section-title dark">
-				<h2>Get in <span>the Lab</span> and see the services</h2>
+				<h2>{!! App\Helpers\ColorChanger::color(($independant->services_titre))!!}</h2>
+				
 			</div>
 			<div class="row">
 				@foreach ($services as $service)

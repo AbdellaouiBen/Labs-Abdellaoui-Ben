@@ -70,7 +70,7 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
-        if($request->hasFile('logo')){
+        if($request->hasFile('img')){
             $img = $request->file('img');
             $newName = Storage::disk('public')->put('',$img);
             Storage::disk('public')->delete($testimonial->img);

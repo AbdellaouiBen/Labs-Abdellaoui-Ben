@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<h2>{{$independant->promotion_titre}}</h2>
+					<h2>{!! App\Helpers\ColorChanger::color(($independant->promotion_titre))!!}</h2>
 					<p>{{$independant->promotion_text}}</p>
 				</div>
 				<div class="col-md-3">

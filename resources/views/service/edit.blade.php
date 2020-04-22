@@ -19,7 +19,18 @@
 
             <div class="form-group">
                 <label class="d-block input-group-text" for="icon">icon</label>
-                <input class="form-control" type="text" name='icon' value="{{old('icon',$service->icon)}}">
+           
+                    <div class="d-flex row modImg">
+                        @foreach ($icons as $item)
+                        <div class="form-check col-3 my-2 d-flex align-items-center justify-content-between  flex-column-reverse">
+    
+                            <input class="" class=" " type="radio" name="icon" id="icon"
+                            value="{{$item->icon}}" @if($item->icon==$service->icon) checked @endif>
+                            <i  style="font-size: 40px" class="{{$item->icon}} my-2"></i>
+    
+                        </div>
+                        @endforeach
+                    </div>
                 @error('icon')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

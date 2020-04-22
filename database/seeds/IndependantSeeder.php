@@ -20,9 +20,11 @@ class IndependantSeeder extends Seeder
             'video_img' => 'video.jpg',
             'video_url' => 'https://www.youtube.com/watch?v=kfBxUVY7Jwk',
             'testimonials_titre' => 'aWHAT OUR CLIENTS SAY',
+            'services_titre' => 'Get in the Lab and see the services',
             'team_titre' => 'aGET IN THE LAB AND MEET THE TEAM',
             'promotion_titre' => 'aAre you ready to stand out?',
             'promotion_text' => 'aLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.',
+            'feature_titre' => 'GET IN THE LAB AND DISCOVER THE WORLD',
         ]);
     }
 

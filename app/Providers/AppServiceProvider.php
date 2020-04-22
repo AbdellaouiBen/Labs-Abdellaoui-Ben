@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\User;
 use App\Form;
+use App\Newsletter;
 use Illuminate\Contracts\Events\Dispatcher;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
@@ -130,14 +131,22 @@ class AppServiceProvider extends ServiceProvider
         });    
             $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
                 $event->menu->add('INTERACTION');
-                $forms = Form::all();
-                $nb = count($forms);
-                $event->menu->add(
+                $form = Form::all();
+                $nb = count($form);
+                $newsletter = Newsletter::all();
+                $nb2 = count($newsletter);
+                $event->menu->add(  
                     [
                         'text' => 'Messages',
                         'url'  => '/form',
                         'icon' => 'fas fa-users',
                         'label' => $nb
+                    ],
+                    [
+                        'text' => 'Newsletter list',
+                        'url'  => '/newsletter',
+                        'icon' => 'fas fa-users',
+                        'label' => $nb2
                     ]
             
                     // ,[

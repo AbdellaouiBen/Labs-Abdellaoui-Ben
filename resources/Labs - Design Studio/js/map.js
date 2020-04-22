@@ -1,6 +1,6 @@
 function initialize() {
 	var myOptions = {
-		zoom: 15,
+		zoom: 18,
 		center: new google.maps.LatLng(50.85535461111111, 4.3411923055555555), //change the coordinates
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		scrollwheel: false,
@@ -17,4 +17,4 @@ function initialize() {
 		infowindow.open(map, marker);
 	});
 }
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize); 

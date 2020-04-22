@@ -23,9 +23,11 @@ class CreateIndependantsTable extends Migration
             $table->string('video_img');
             $table->string('video_url');
             $table->string('testimonials_titre');
+            $table->string('services_titre');
             $table->string('team_titre');
             $table->string('promotion_titre');
             $table->string('promotion_text');
+            $table->string('feature_titre');
             $table->timestamps();
         });
     }

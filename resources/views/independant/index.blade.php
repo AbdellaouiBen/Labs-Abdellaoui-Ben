@@ -8,7 +8,15 @@
 
 @section('content')
 
- 
+@section('css')
+<style>.color_helper{
+   background: #2be6ab;
+   padding: 0 3px 5px;
+   display: inline-block;
+   color: #0b1033;
+}; </style>
+    
+@endsection
 
 
 <div class="container">
@@ -18,24 +26,21 @@
             <h1 class="text-white shadow-lg p-3 mt-3 mb- bg-danger rounded">My profil </h1>
         </div>
         <table class="table table-striped table-secondary">
-            {{-- <thead class="bg-dark text-warning">
+            <thead class="bg-dark">
                 <tr>
                     
-                    <th scope="col" class="text-center">Nom</th>
-                    <th scope="col" class="text-center">Email</th>
-                    <th scope="col" class="text-center">role</th>
-                    <th scope="col" class="text-center">image</th>
-                    <th scope="col" class="text-center">Action</th>
+                    <th  colspan="2" scope="row" class="text-center">Mettez les caractères souhaité entre '[' et ']' dans les section contanant une '*' afin de le faire apparaitre en bleu avec une couleur de fond verte <br> <u>Exemple:</u>  <br> Ecrivez : Hello [World] ! <br> Obtenez: Hello <span class="color_helper">World</span> !</th>
+                   
                 </tr>
-            </thead> --}}
+            </thead> 
             <tbody>
                 
                 <tr>   
-                    <th scope="row" class="text-center border border-dark">banniere_text</th>
+                    <th scope="row" class="text-center border border-dark">banniere_text*</th>
                     <td class="text-center border border-dark">{{$independant->banniere_text}}</td>
                 </tr>
                 <tr> 
-                    <th scope="col" class="text-center border border-dark">presentation_titre</th>
+                    <th scope="col" class="text-center border border-dark">presentation_titre*</th>
                     <td class="text-center border border-dark">{{$independant->presentation_titre}}</td>
                 </tr>
                 <tr> 
@@ -59,20 +64,28 @@
                     <td class="text-center border border-dark"><a href="{{$independant->video_url}}">{{$independant->video_url}}</a></td>
                 </tr>
                 <tr> 
-                    <th scope="col" class="text-center border border-dark">testimonials_titre</th>
+                    <th scope="col" class="text-center border border-dark">testimonials_titre*</th>
                     <td class="text-center border border-dark">{{$independant->testimonials_titre}}</td>
                 </tr>
                 <tr> 
-                    <th scope="col" class="text-center border border-dark">team_titre</th>
+                    <th scope="col" class="text-center border border-dark">services_titre*</th>
+                    <td class="text-center border border-dark">{{$independant->services_titre}}</td>
+                </tr>
+                <tr> 
+                    <th scope="col" class="text-center border border-dark">team_titre*</th>
                     <td class="text-center border border-dark">{{$independant->team_titre}}</td>
                 </tr>
                 <tr> 
-                    <th scope="col" class="text-center border border-dark">promotion_titre</th>
+                    <th scope="col" class="text-center border border-dark">promotion_titre*</th>
                     <td class="text-center border border-dark">{{$independant->promotion_titre}}</td>
                 </tr>
                 <tr> 
                     <th scope="col" class="text-center border border-dark">promotion_text</th>
                     <td class="text-center border border-dark">{{$independant->promotion_text}}</td>
+                </tr>
+                <tr> 
+                    <th scope="col" class="text-center border border-dark">feature_titre*</th>
+                    <td class="text-center border border-dark">{{$independant->feature_titre}}</td>
                 </tr>
                 <tr> 
                     <td colspan="2" class="text-center border border-dark">  

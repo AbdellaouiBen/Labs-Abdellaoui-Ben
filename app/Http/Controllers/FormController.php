@@ -46,7 +46,7 @@ class FormController extends Controller
         $form->msg = $request->input('msg');
         $form->save();
         Mail::to($form->email)->send(new FormMail($form));
-        return redirect('/index#form')->with('success', 'Thanks for contacting us!');;
+        return redirect('/index#form')->with('success', 'Thanks for contacting us!');
     }
 
 

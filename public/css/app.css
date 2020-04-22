@@ -1957,3 +1957,10 @@ ul {
 	}
 }
 
+.color_helper {
+  background: #2be6ab;
+  padding: 0 3px 5px;
+  display: inline-block;
+  color: #0b1033;
+}
+

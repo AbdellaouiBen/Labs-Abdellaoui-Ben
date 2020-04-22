@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-4">
                 <div class="section-title left">
-                    <h2>{{$independant->testimonials_titre}}</h2>
+                    <h2>{!! App\Helpers\ColorChanger::color(($independant->testimonials_titre))!!}</h2>
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
                     @foreach ($testimonials as $testimonial)

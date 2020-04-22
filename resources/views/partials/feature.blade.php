@@ -3,7 +3,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="section-title">
-            <h2>Get in <span>the Lab</span> and  discover the world</h2>
+            <h2>{!! App\Helpers\ColorChanger::color(($independant->feature_titre))!!}</h2>
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-4 features">
@@ -54,7 +54,7 @@
                     @endif
                 @endif
             @endforeach
-            </div>
+            </div> 
         </div>
         <div class="text-center mt100">
             <a href="#articles-cards" class="site-btn">Browse</a>

@@ -3,7 +3,7 @@
 		<div class="hero-content">
 			<div class="hero-center">
 				<img src="{{'storage/'.$logo->logo}}" alt="">
-				<p>{{$independant->banniere_text}}</p>
+				<p>{!! App\Helpers\ColorChanger::color(($independant->banniere_text))!!}</p>
 			</div>
 		</div>
 		<!-- slider -->

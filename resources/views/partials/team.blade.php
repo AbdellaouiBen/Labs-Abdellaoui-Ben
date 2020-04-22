@@ -4,7 +4,7 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="section-title">
-				<h2>{{$independant->team_titre}}</h2>
+				<h2>{!! App\Helpers\ColorChanger::color(($independant->team_titre))!!}</h2>
 			</div>
 			<div class="row">
 				@foreach ($randomUsers as $index=>$user)

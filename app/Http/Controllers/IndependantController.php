@@ -29,7 +29,7 @@ class IndependantController extends Controller
     {
         return view('independant.edit',compact('independant'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -53,13 +53,15 @@ class IndependantController extends Controller
             $newName = Storage::disk('public')->put('',$img);
             Storage::disk('public')->delete($independant->video_img);
             $independant->video_img = $newName ;
-       
+            
         }
         $independant->video_url = $request->input('video_url');
         $independant->testimonials_titre = $request->input('testimonials_titre');
+        $independant->services_titre = $request->input('services_titre');
         $independant->team_titre = $request->input('team_titre');
         $independant->promotion_titre = $request->input('promotion_titre');
         $independant->promotion_text = $request->input('promotion_text');
+        $independant->feature_titre = $request->input('feature_titre');
         $independant->save();
         return redirect()->route('independant.index');
     }
