@@ -39,6 +39,14 @@ class FormController extends Controller
      */
     public function store(Request $request) 
     {
+        
+        $validatedData = $request->validate([
+            'name' => 'required|max:105',
+            'email' => 'required|email|max:105',
+            'subject' => 'required|max:105',
+            'msg' => 'required|max:305',
+        ]);
+
         $form = new Form();
         $form->name = $request->input('name'); 
         $form->email = $request->input('email');

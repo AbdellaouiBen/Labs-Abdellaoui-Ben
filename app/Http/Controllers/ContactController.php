@@ -40,6 +40,16 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
+        $validatedData = $request->validate([
+            'titre' => 'required|max:105',
+            'text' => 'required',
+            'sous_titre' => 'required|max:105',
+            'adress_un' => 'required|max:105',
+            'adress_deux' => 'required|max:105',
+            'tel' => 'required|max:55',
+            'email' => 'required|email|max:105',
+        ]);
+        
         $contact->titre = $request->input('titre');
         $contact->text = $request->input('text');
         $contact->sous_titre = $request->input('sous_titre');

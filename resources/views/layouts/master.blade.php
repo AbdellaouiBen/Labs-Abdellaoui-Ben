@@ -53,7 +53,7 @@
 				<li class="{{Request::route()->getName()=='contactpage.index'?'active':''}}"><a href="{{route('contactpage.index')}}">Contact</a></li>
 				@if (Route::has('login'))
                     @auth
-                        <li><a href="{{ url('/home') }}">Home</a></li>
+                        <li><a href="{{ url('/home') }}">ADMIN</a></li>
                     @else
                         <li><a href="{{ route('login') }}">Login</a></li>
 

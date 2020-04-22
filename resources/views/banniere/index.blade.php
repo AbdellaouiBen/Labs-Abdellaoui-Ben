@@ -15,10 +15,8 @@
         </a>
         <table class="table">
             <thead>
-              <tr  class="row bg-danger text-white">
-                <th class="col">Id</th>
+              <tr class="row bg-danger text-white text-center">
                 <th class="col">image</th>
-                <th class="col">texte</th>
                 <th class="col">Action</th>
               </tr>    
             </thead>
@@ -26,9 +24,7 @@
                 @foreach ($bannieres as $banniere)
                 
                     <tr class="row">
-                        <td class="col">{{$banniere->id}}</td>
-                        <td class="col"><img class="img-fluid" src="{{'storage/'.$banniere->img}}" alt=""></td>
-                        <td class="col">{{$banniere->text}}</td>
+                        <td class="col text-center"><img class="w-75" src="{{'storage/'.$banniere->img}}" alt=""></td>
                         <td class="col text-center">
                             <a href="{{route('banniere.edit',$banniere)}}" class="btn btn-warning">edit</a>
                             <form action="{{route('banniere.destroy',$banniere)}}" method="post">

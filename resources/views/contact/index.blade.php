@@ -32,11 +32,11 @@
                 
                 <tr>   
                     <th scope="col" class="text-center border border-dark">titre</th>
-                    <th scope="row" class="text-center border border-dark">{{$contact->titre}}</th>
+                    <td scope="row" class="text-center border border-dark">{{$contact->titre}}</td>
                 </tr>
                 <tr> 
                     <th scope="col" class="text-center border border-dark">text</th>
-                    <td class="text-center border border-dark">{{$contact->text}}</td>
+                    <td class="text-center border border-dark"><p class="text-break">{{$contact->text}}</p></td>
                 </tr>
                 <tr> 
                     <th scope="col" class="text-center border border-dark">sous_titre</th>

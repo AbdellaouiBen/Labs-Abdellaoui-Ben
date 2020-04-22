@@ -38,6 +38,10 @@ class BanniereController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'img' => 'required|image',
+        ]);
+
         $banniere = new Banniere();
         $img = $request->file('img');
         $newName = Storage::disk('public')->put('',$img);
@@ -77,6 +81,12 @@ class BanniereController extends Controller
      */
     public function update(Request $request, Banniere $banniere)
     {
+        
+        
+        $validatedData = $request->validate([
+            'img' => 'required|image',
+        ]);
+        
         if($request->hasFile('img')){
             $img = $request->file('img');
             $newName = Storage::disk('public')->put('',$img);

@@ -38,6 +38,12 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
+        
+        $validatedData = $request->validate([
+            'text' => 'required|max:105',
+            'text_link' => 'required|max:55',
+            'link' => 'required|url|max:105',
+        ]);
         $footer->text = $request->input('text');
         $footer->text_link = $request->input('text_link');
         $footer->link = $request->input('link');

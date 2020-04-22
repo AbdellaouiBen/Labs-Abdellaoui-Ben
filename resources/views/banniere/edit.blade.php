@@ -19,21 +19,14 @@
 
             <div class="form-group">
                 <label class="d-block input-group-text" for="img">image</label>
-                <input class="form-control" type="file" name='img' value="{{old('img',$banniere->img)}}">
+                <input class="m-3" type="file" name='img' value="{{old('img',$banniere->img)}}">
                 @error('img')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-             
-            <div class="form-group">
-                <label class="d-block input-group-text" for="text">text</label>
-                <input class="form-control" type="text" name='text' value="{{old('text',$banniere->text)}}">
-                @error('text')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div> 
 
-            <input type="submit" value="soumettre">
+
+            <input class="btn btn-success" type="submit" value="soumettre">
         </div> 
     </form>
     

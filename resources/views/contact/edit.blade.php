@@ -31,7 +31,7 @@
                 <div class="form-group row">
                     <label for="text" class="col-md-4 col-form-label text-md-right ">{{ __('text') }}</label>
                     <div class="col-md-6">
-                        <input id="text" type="text" class="form-control @error('text') is-invalid @enderror" name="text" value="{{ old('text',$contact->text) }}" >
+                       <textarea id="text" type="text" class="form-control @error('text') is-invalid @enderror" name="text" cols="30" rows="10">{{ old('text',$contact->text) }}</textarea>
                         @error('text')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

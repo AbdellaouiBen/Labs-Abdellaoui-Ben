@@ -20,14 +20,26 @@
 						
 						<div class="row">
 							<div class="col-sm-6">
-								<input type="text" name="name" placeholder="Your name">
+								<input class="@error('name') is-invalid @enderror" type="text" name="name" placeholder="Your name">
+								@error('name')
+								<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
 							</div>
 							<div class="col-sm-6">
-								<input type="text" name="email" placeholder="Your email">
+								<input class="@error('email') is-invalid @enderror" type="text" name="email" placeholder="Your email">
+								@error('email')
+								<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
 							</div>
 							<div class="col-sm-12">
-								<input type="text" name="subject" placeholder="Subject">
-								<textarea name="msg" placeholder="Message"></textarea>
+								<input class="@error('subject') is-invalid @enderror" type="text" name="subject" placeholder="Subject">
+								@error('subject')
+								<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+								<textarea class="@error('msg') is-invalid @enderror" name="msg" placeholder="Message"></textarea>
+								@error('msg')
+								<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
 								@if(Session::has('success'))
 									<div class="alert alert-success">
 										{{ Session::get('success') }}

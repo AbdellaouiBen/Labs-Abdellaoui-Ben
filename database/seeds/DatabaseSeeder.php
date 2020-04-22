@@ -22,11 +22,12 @@ class DatabaseSeeder extends Seeder
         $this->call(FooterSeeder::class);
         $this->call(IconSeeder::class);
         $this->call(QuoteSeeder::class);
-
         $this->call(CategorieSeeder::class);
         $this->call(TagSeeder::class);
         $this->call(ArticleSeeder::class);
         $this->call(CommentaireSeeder::class);
+        $this->call(TagSeeder::class);
+        $this->call(ArticleTagSeeder::class);
         
     }
 }

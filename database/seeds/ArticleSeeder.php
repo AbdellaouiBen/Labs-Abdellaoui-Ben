@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ArticleSeeder extends Seeder
 {
@@ -22,8 +23,9 @@ class ArticleSeeder extends Seeder
             
             Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem.',
             'categorie_id' => 1,  
-            'user_id' => 4,  
-        ]);
+            'user_id' => 4, 
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);   
         DB::table('articles')->insert([  
             'accepted' => true,  
             'img' => 'blog-2.jpg',  
@@ -35,6 +37,7 @@ class ArticleSeeder extends Seeder
             Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem.',
             'categorie_id' => 2,  
             'user_id' => 5,  
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('articles')->insert([  
             'accepted' => true,  
@@ -47,6 +50,7 @@ class ArticleSeeder extends Seeder
             Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem.',
             'categorie_id' => 4,  
             'user_id' => 4,  
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('articles')->insert([  
             'accepted' => false,  
@@ -59,6 +63,7 @@ class ArticleSeeder extends Seeder
             Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem.'  ,
             'categorie_id' => 7,  
             'user_id' => 4,  
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('articles')->insert([  
             'accepted' => true,  
@@ -71,6 +76,7 @@ class ArticleSeeder extends Seeder
             Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem.',
             'categorie_id' => 3,  
             'user_id' => 5,  
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('articles')->insert([  
             'accepted' => false,  
@@ -83,6 +89,7 @@ class ArticleSeeder extends Seeder
             Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem.',
             'categorie_id' => 8,  
             'user_id' => 5,  
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('articles')->insert([  
             'accepted' => false,  
@@ -95,6 +102,7 @@ class ArticleSeeder extends Seeder
             Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem.',
             'categorie_id' => 8,  
             'user_id' => 5,  
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
     }
 }
