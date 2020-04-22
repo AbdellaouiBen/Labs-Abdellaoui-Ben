@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Form;
 use Illuminate\Http\Request;
 
+use App\MAIL\FormMail;
+use Illuminate\Support\Facades\Mail;
+
 class FormController extends Controller
 {
     /**
@@ -42,6 +45,7 @@ class FormController extends Controller
         $form->subject = $request->input('subject');
         $form->msg = $request->input('msg');
         $form->save();
+        Mail::to($form->email)->send(new FormMail($form));
         return redirect('/index#form')->with('success', 'Thanks for contacting us!');;
     }
 

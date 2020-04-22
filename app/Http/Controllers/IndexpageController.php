@@ -30,3 +30,4 @@ class IndexpageController extends Controller
         return view('pages.indexpage',compact('independant','servicesRapides','services','logo','bannieres','testimonials','contact','footer','CEO','randomUsers'));
     }
 }
+      

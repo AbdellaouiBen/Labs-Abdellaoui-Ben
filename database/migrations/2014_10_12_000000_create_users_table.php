@@ -22,12 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('img');
             $table->bigInteger('role_id')->unsigned();
             $table->foreign('role_id')->on('roles')->references('id')->onUpdate('cascade')->onDelete('cascade');
-             $table->rememberToken();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
 
-    /**
+    /**  
      * Reverse the migrations.
      *
      * @return void
