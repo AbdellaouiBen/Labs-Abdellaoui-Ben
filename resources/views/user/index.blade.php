@@ -17,10 +17,10 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid"
+                <table style=" border: 2px solid #6922b4" id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid"
                     aria-describedby="example2_info">
-                    <thead>
-                        <tr role="row">
+                    <thead style="background-color: #2be6ab;">
+                        <tr role="row" >
                             <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                 aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                                 Nom</th>
@@ -36,34 +36,27 @@
                                 aria-label="CSS grade: activate to sort column ascending">Action</th>
                             </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         @foreach ($users as $user)
-                        <tr role="row" class="odd">
-                            <td tabindex="0" class="sorting_1">{{$user->name}} {{$user->firstname}}</td>
+                        <tr role="row" class="">
+                            <td tabindex="0" class="sorting_1">{{ucfirst($user->name)}} {{ucfirst($user->firstname)}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->role->role}}</td>
                             <td><img class="w-25" src="{{asset('storage/'.$user->img)}}" alt=""></td>
                             <td>{{$user->description}}</td>
-                            <td class="d-flex">
-                                <a class="btn btn-warning" href="{{route('user.edit',$user)}}">edit</a> 
+                            <td class="row">
+                                <a class="btn btn-warning col-12" href="{{route('user.edit',$user)}}">Modifier</a> 
                                 <form action="{{route('user.destroy',$user)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" href="">delete</button>
-                                    <a class="btn btn-outline-primary" href="{{route('user.show',$user)}}">Show</a>
+                                    <a class="btn btn-primary col-12" href="{{route('user.show',$user)}}">Montrer</a>
+                                    <button class="btn btn-danger col-12" href="">Supprimer</button>
                                 </form>  
 
                             </td>
                         </tr>
                         @endforeach
 
-                        {{-- <tr role="row" class="even">
-                            <td tabindex="0" class="sorting_1">Gecko</td>
-                            <td>Firefox 1.5</td>
-                            <td>Win 98+ / OSX.2+</td>
-                            <td>1.8</td>
-                            <td>A</td>
-                        </tr> --}}
 
                     </tbody>
                     <tfoot>

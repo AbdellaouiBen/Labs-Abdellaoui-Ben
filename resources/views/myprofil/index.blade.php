@@ -3,21 +3,21 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Dashboard</h1>
+    <h1 class="m-0 text-dark">Mon Profil</h1>
 @stop
 
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center mt-5">
     
-        <div class="card card-widget widget-user col-9">
+        <div class="card card-widget widget-user col-9 pt-2 "  style="border: 2px solid #2be6ab">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header" style="background-color: #6922b4; color: white; ">
               <h3 class="widget-user-username">{{ucfirst(Auth::user()->name)}}  {{ucfirst(Auth::user()->firstname)}}</h3>
               <h5 class="widget-user-desc">Founder &amp; CEO</h5>
             </div>
             <div class="widget-user-image">
-              <img class="img-circle elevation-2" src="{{asset('storage/'.Auth::user()->img)}}" alt="User Avatar">
+              <img class="img-circle  elevation-2" style="border-color: #2be6ab" src="{{asset('storage/'.Auth::user()->img)}}" alt="User Avatar">
             </div>
             <div class="card-footer">
               <div class="row">

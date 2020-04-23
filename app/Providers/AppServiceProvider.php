@@ -39,7 +39,8 @@ class AppServiceProvider extends ServiceProvider
                     'text' => 'Users',
                     'url'  => '/user',
                     'icon' => 'fas fa-users',
-                    'label' => $nb
+                    'label' => $nb,
+                    'label_color' => 'secondary'
                 ],
         
                 [
@@ -47,6 +48,29 @@ class AppServiceProvider extends ServiceProvider
                     'icon'    => 'fas fa-fw fa-share',
                     'url'  => '/role',
                 ]
+            );
+        });
+        $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
+            $event->menu->add('INTERACTION');
+            $form = Form::all();
+            $nb = count($form);
+            $newsletter = Newsletter::all();
+            $nb2 = count($newsletter);
+            $event->menu->add(  
+                [
+                    'text' => 'Messages',
+                    'url'  => '/form',
+                    'icon' => 'fas fa-users',
+                    'label' => $nb
+                ],
+                [
+                    'text' => 'Newsletter list',
+                    'url'  => '/newsletter',
+                    'icon' => 'fas fa-users',
+                    'label' => $nb2
+                ]
+        
+
             );
         });
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
@@ -114,42 +138,7 @@ class AppServiceProvider extends ServiceProvider
             );
 
         });    
-            $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
-                $event->menu->add('INTERACTION');
-                $form = Form::all();
-                $nb = count($form);
-                $newsletter = Newsletter::all();
-                $nb2 = count($newsletter);
-                $event->menu->add(  
-                    [
-                        'text' => 'Messages',
-                        'url'  => '/form',
-                        'icon' => 'fas fa-users',
-                        'label' => $nb
-                    ],
-                    [
-                        'text' => 'Newsletter list',
-                        'url'  => '/newsletter',
-                        'icon' => 'fas fa-users',
-                        'label' => $nb2
-                    ]
-            
-                    // ,[
-                    //     'text'    => 'Roles',
-                    //     'icon'    => 'fas fa-fw fa-share',
-                    //     'submenu' => [
-                    //         [
-                    //             'text' => 'Roles',
-                    //             'url'  => '/role',
-                    //         ],
-                    //         [
-                    //             'text' => 'Ajout Role',
-                    //             'url'  => '/role/create',
-                    //         ],
-                    //     ],
-                    // ]
-                );
-            });
+      
         
     }
 }

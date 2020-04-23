@@ -36,7 +36,13 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'categorie' => 'required|max:100|unique:categories',
+        ]);
+        $categorie = new Categorie();
+        $categorie->categorie = $request->input('categorie');
+        $categorie->save();
+        return redirect()->route('categorie.index');
     }
 
     /**
@@ -70,7 +76,12 @@ class CategorieController extends Controller
      */
     public function update(Request $request, Categorie $categorie)
     {
-        //
+        $validatedData = $request->validate([
+            'categorie' => 'required|max:100|unique:categories,categorie,'.$categorie->id,
+        ]);
+        $categorie->categorie = $request->input('categorie');
+        $categorie->save();
+        return redirect()->route('categorie.index');
     }
 
     /**
@@ -81,6 +92,7 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
-        //
+        $categorie->delete();
+        return redirect()->route('categorie.index');
     }
 }

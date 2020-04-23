@@ -4,7 +4,7 @@
     <!-- Post item -->
     <div class="post-item">
         <div class="post-thumbnail">
-            <img src="img/blog/blog-2.jpg" alt="">
+            <img src="{{asset('storage/'.$article->img)}}" alt="">
             <div class="post-date">
                 <h2>{{$article->created_at->format('d')}}</h2>
                 <h3>{{\Illuminate\Support\Str::limit(date('F',strtotime($article->created_at)), 3, $end='')}} {{$article->created_at->format('Y')}}</h3>

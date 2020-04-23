@@ -3,29 +3,40 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">edit Role</h1>
 @stop
 
 @section('content')
 
-
-
-    <h1 class="mt-5 text-center bg-danger text-white ">edit Role</h1>
-
-    <form action="{{route('role.update',$role)}}" method="POST" >
-        @method('PUT')
-        @csrf
-        <div class="text-center form-group container">    
-
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Modifier le role "{{$role->role}}"</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('role.update',$role)}}" method="post" >
+            @csrf
+            @method('PUT')
+          <div class="card-body">
             <div class="form-group">
-                <label class="d-block input-group-text" for="role">role</label>
-                <input class="form-control @error('role') is-invalid @enderror" type="text" name='role' value="{{old('role',$role->role)}}">
+                <label for="role">Role</label>
+                <input name="role" type="text" class="form-control @error('role') is-invalid @enderror" id="role" value="{{ old('role',$role->role) }}" placeholder="Role">
                 @error('role')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
-            </div> 
-            <input type="submit" value="soumettre">
-        </div> 
-    </form>
+            </div>
+        </div>
     
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <a href="{{route('role.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
 @stop

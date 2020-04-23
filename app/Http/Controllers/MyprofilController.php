@@ -46,9 +46,11 @@ class MyprofilController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:150',
+            'firstname' => 'sometimes|max:150',
             'email' => 'required|email|unique:users,email,'.$id,
             'img' => 'sometimes|image',
+            'description' => 'sometimes|max:400',
         ]);
             $users = User::find($id);
             if($request->hasFile('img')){
@@ -58,7 +60,9 @@ class MyprofilController extends Controller
                 $users->img = $newName ;
             }
             $users->name = $request->input('name');
+            $users->firstname = $request->input('firstname');
             $users->email = $request->input('email');
+            $users->description = $request->input('description');
             $users->save();
             return redirect()->route('myprofil.index');
     }

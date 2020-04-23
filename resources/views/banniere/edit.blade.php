@@ -3,31 +3,52 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">edit banniere</h1>
 @stop
 
 @section('content')
 
 
-
-    <h1 class="mt-5 text-center bg-danger text-white ">edit banniere</h1>
-
-    <form action="{{route('banniere.update',$banniere)}}" method="POST" enctype="multipart/form-data">
-        @method('PUT')
-        @csrf
-        <div class="text-center form-group container">    
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Modifier une banniere  </h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('banniere.update',$banniere)}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+          <div class="card-body">
 
             <div class="form-group">
-                <label class="d-block input-group-text" for="img">image</label>
-                <input class="m-3" class="@error('img') is-invalid @enderror" type="file" name='img' value="{{old('img',$banniere->img)}}">
+                <label for="img">Image de la banniere</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input name="img" type="file" class="custom-file-input  @error('img') is-invalid @enderror" id="img">
+                        <label class="custom-file-label" for="img">Choisir une image</label>
+                    </div>
+                </div>
                 @error('img')
-                <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
+        
             </div>
+         
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <a href="{{route('banniere.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
 
 
-            <input class="btn btn-success" type="submit" value="soumettre">
-        </div> 
-    </form>
+
+
+
+
+
     
 @stop

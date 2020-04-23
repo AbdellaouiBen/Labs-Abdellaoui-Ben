@@ -8,7 +8,8 @@
 
 @section('content')
 
- 
+
+
 
 <form action="{{route('banniere.store')}}" method="POST" enctype="multipart/form-data" >
     @csrf
