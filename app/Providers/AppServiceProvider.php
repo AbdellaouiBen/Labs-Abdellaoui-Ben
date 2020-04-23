@@ -89,17 +89,17 @@ class AppServiceProvider extends ServiceProvider
 
                         [     
                             'text' => 'logo',
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-image',
                             'url'  => '/logo',
                         ],
                         [
                             'text' => 'banniere',
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-images',
                             'url'  => '/banniere',
                         ],
                         [
                             'text' => 'element homepage', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-align-left',
                             'url'  => '/independant',
                         ],
                         [ 
@@ -109,38 +109,38 @@ class AppServiceProvider extends ServiceProvider
                         ],
                         [
                             'text' => 'Testimonials', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-comments',
                             'url'  => '/testimonial',
                         ],
                         [
                             'text' => 'Quote', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-quote-right',
                             'url'  => '/quote',
                         ],
                         [
                             'text' => 'Articles', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-newspaper',
                             'url'  => '/article',
                         ],
                         [
                             'text' => 'Section Contact us', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-phone-alt',
                             'url'  => '/contact',
 
                         ],
                         [
                             'text' => 'Footer', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-copyright',
                             'url'  => '/footer',
                         ],
                         [
                             'text' => 'Tags', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-hashtag',
                             'url'  => '/tag',
                         ],
                         [
                             'text' => 'Categories', 
-                            'icon' => 'fas fa-tools',
+                            'icon' => 'fas fa-list-ul',
                             'url'  => '/categorie',
                         ]
                 

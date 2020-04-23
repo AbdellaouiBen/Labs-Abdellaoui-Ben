@@ -7,7 +7,7 @@
 					
 				<div class="col-md-4 col-sm-6">
 					<div class="sv-card">
-						<a style="color: black" href="/index">
+						<a style="color: black" href="{{route('article.show',$article)}}">
 						<div class="card-img">
 							<img src="{{asset('storage/'.$article->img)}}" alt="">
 						</div>

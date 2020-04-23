@@ -15,9 +15,14 @@
             <div class="post-meta">
                 <a href="">{{$article->categorie->categorie}}</a>
                 <a href="">
-                @foreach ($article->tags->shuffle()->take(3) as $index=>$item) 
-                    {{$item->tag}}
+                    @foreach ($article->tags->shuffle()->take(3) as $index=>$item) 
+                        @if($loop->last)
+                            {{$item->tag}}
+                        @else
+                            {{$item->tag}} -
+                        @endif
                     @endforeach 
+                   
                 </a>
                 <a href="">2 Comments</a>  
             </div>

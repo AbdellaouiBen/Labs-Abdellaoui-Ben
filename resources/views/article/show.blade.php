@@ -22,7 +22,11 @@
 								<a href="">{{$article->categorie->categorie}}</a>
 								<a href="">
 									@foreach ($article->tags->shuffle()->take(3) as $index=>$item) 
-                    					{{$item->tag}}
+										@if($loop->last)
+											{{$item->tag}}
+										@else
+											{{$item->tag}} -
+										@endif
                     				@endforeach 
 								</a>
 								<a href="">{{count($commentairecount)}} Comments</a>
