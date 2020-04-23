@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.indexpage');
-});
+Route::get('/', 'IndexpageController@index')->name('welcome');
 
 Auth::routes();
 
@@ -45,3 +43,5 @@ Route::resource('newsletter','NewsletterController');
 Route::resource('quote','QuoteController');
 
 Route::resource('article','ArticleController');
+Route::resource('tag','TagController');
+Route::resource('categorie','CategorieController');

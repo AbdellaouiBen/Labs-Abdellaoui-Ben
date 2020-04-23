@@ -45,16 +45,7 @@ class AppServiceProvider extends ServiceProvider
                 [
                     'text'    => 'Roles',
                     'icon'    => 'fas fa-fw fa-share',
-                    'submenu' => [
-                        [
-                            'text' => 'Roles',
-                            'url'  => '/role',
-                        ],
-                        [
-                            'text' => 'Ajout Role',
-                            'url'  => '/role/create',
-                        ],
-                    ],
+                    'url'  => '/role',
                 ]
             );
         });
@@ -77,40 +68,26 @@ class AppServiceProvider extends ServiceProvider
                             'text' => 'element homepage', 
                             'icon' => 'fas fa-tools',
                             'url'  => '/independant',
-
                         ],
                         [ 
                             'text' => 'Services', 
                             'icon' => 'fas fa-tools',
-                            'submenu' => [
-                                [
-                                    'text' => 'services',
-                                    'url'  => '/service',
-                                ],
-                                [
-                                    'text' => 'ajouter un service',
-                                    'url'  => '/service/create',
-                                ],
-                            ],
+                            'url'  => '/service',
                         ],
                         [
                             'text' => 'Testimonials', 
                             'icon' => 'fas fa-tools',
-                            'submenu' => [
-                                [
-                                    'text' => 'Testimonials existants',
-                                    'url'  => '/testimonial',
-                                ],
-                                [
-                                    'text' => 'ajouter un testimonial',
-                                    'url'  => '/testimonial/create',
-                                ],
-                            ],
+                            'url'  => '/testimonial',
                         ],
                         [
                             'text' => 'Quote', 
                             'icon' => 'fas fa-tools',
                             'url'  => '/quote',
+                        ],
+                        [
+                            'text' => 'Articles', 
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/article',
                         ],
                         [
                             'text' => 'Section Contact us', 
@@ -122,6 +99,16 @@ class AppServiceProvider extends ServiceProvider
                             'text' => 'Footer', 
                             'icon' => 'fas fa-tools',
                             'url'  => '/footer',
+                        ],
+                        [
+                            'text' => 'Tags', 
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/tag',
+                        ],
+                        [
+                            'text' => 'Categories', 
+                            'icon' => 'fas fa-tools',
+                            'url'  => '/categorie',
                         ]
                 
             );

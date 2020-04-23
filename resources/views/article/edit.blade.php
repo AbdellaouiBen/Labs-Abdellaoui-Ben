@@ -96,18 +96,14 @@
                 @foreach ($tags as $tag)
                     @if ($articletag->where('tag_id',$tag->id)->first())
                         <div class="col-3">
-    
                             <label for="tag">{{$tag->tag}}</label>
-                            <input checked type="checkbox" name="tag[]" value="{{$tag->id}}" class=" @error('tag.') is-invalid @enderror" id="">
+                            <input checked type="checkbox" name="tag[]" value="{{$tag->id}}" class=" @error('tag') is-invalid @enderror" id="">
                         </div>
                     @else
-    
                         <div class="col-3">
                             <label for="tag">{{$tag->tag}}</label>
-                            <input  type="checkbox" name="tag[]" value="{{$tag->id}}" class=" @error('tag.') is-invalid @enderror" id="">
+                            <input  type="checkbox" name="tag[]" value="{{$tag->id}}" class=" @error('tag') is-invalid @enderror" id="">
                         </div>
-    
-    
                     @endif
                 @endforeach
                 @error('tag.*')

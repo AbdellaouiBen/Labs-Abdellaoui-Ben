@@ -62,10 +62,14 @@ class ArticleController extends Controller
         $article->accepted = false;
         $article->categorie_id = $request->input('categorie_id');
         $article->user_id = Auth::id();
+        // foreach ($request->tag as $tag_id) {
+        //     Tag::find($tag_id)->articles()->attach($article->id);
+        //     $article->tags()->attach($tag_id);
+        // }
         $article->save();
-        foreach ($request->tag as $tag_id) {
-            Tag::find($tag_id)->articles()->attach($article->id);
-            $article->tags()->attach($tag_id);
+        foreach($request->input('tag') as $tag){
+            $article->tags()->attach($tag);
+            $article->save();
         }
         return redirect()->route('article.index');
     }
@@ -131,22 +135,18 @@ class ArticleController extends Controller
         }
         $article->categorie_id = $request->input('categorie_id');
         $article->user_id = Auth::id();
-        $article->save();
-        // if ($request->has('tag')) {
-        //     $article->tags()->detach();
-        //     foreach ($request->tag as $tag_id) {
-        //         Tag::find($tag_id)->articles()->attach($article->id);
-        //         $article->tags()->attach($tag_id);
-        //     }
-        //     dd('hellooooo');
-        // }
-        if($request->has('tag')){
-            $article->tags()->detach();
-            foreach ($request->tag as $tag) {
-               Tag::find($tag)->articles()->attach($article->id);
-               $article->tags()->attach($tag);
+        if($request->has('tag')){ 
+
+            $articleTags = Article_Tag::all()->where('article_id','=',$article->id);
+            foreach($articleTags as $tag){
+                $tag->delete();
+            }
+            foreach($request->input('tag') as $tag){
+                $article->tags()->attach($tag);
+                $article->save();
             }
         }
+        $article->save();
         return redirect()->route('article.index');
     }
 
@@ -159,7 +159,10 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {            
         Storage::disk('public')->delete($article->img);
-        $article->tags()->detach();
+        $articleTags = Article_Tag::all()->where('article_id','=',$article->id);
+        foreach($articleTags as $tag){
+            $tag->delete();
+        }
         $article->delete();
         return redirect()->route('article.index');
     }

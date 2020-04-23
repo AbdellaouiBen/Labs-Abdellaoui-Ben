@@ -8,49 +8,85 @@
 
 @section('content')
 
-
-
 <div class="container">
-    <div class="mb-5 container">
-        <div class="text-center">
-                
-            <h1 class=" shadow-lg p-3 mt-3 mb- bg-danger rounded">{{$user->name}} </h1>
+    <div class="d-flex justify-content-center mt-5">
+    
+        <div class="card card-widget widget-user col-9">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header" style="background-color: #6922b4; color: white; ">
+              <h3 class="widget-user-username">{{ucfirst($user->name)}}  {{ucfirst($user->firstname)}}</h3>
+              <h5 class="widget-user-desc">Founder &amp; CEO</h5>
+            </div>
+            <div class="widget-user-image">
+              <img class="img-circle elevation-2" src="{{asset('storage/'.$user->img)}}" alt="User Avatar">
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                    <h5 class="description-header"> <a class="btn btn-warning " href="{{route('user.edit',$user)}}">Modifier ce compte</a>   </h5>
+                    <span class="description-text"></span>
+                  </div> 
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                      <span class="description-text">email</span>
+                    <h5 class="description-header">{{$user->email}}</h5>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4">
+                  <div class="description-block">
+                    <h5 class="description-header"> 
+                        @if (Auth::id()==1 || Auth::id()==2)
+                            <a class="btn btn-danger " data-toggle="modal" data-target="#myModal" href="">Supprimer le compte</a>
+                        @endif
+                    </h5>
+                    <span class="description-text"></span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
         </div>
-        <table class="table table-striped table-secondary">
-            <thead class="bg-dark text-warning">
-                <tr>
-                    <th scope="col" class="text-center">Id</th>
-                    <th scope="col" class="text-center">Nom</th>
-                    <th scope="col" class="text-center">Email</th>
-                    <th scope="col" class="text-center">role</th>
-                    <th scope="col" class="text-center">image</th>
-                    <th scope="col" class="text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                <tr>   
-                    <th scope="row" class="text-center">{{$user->id}}</th>
-                    <td class="text-center">{{$user->name}}</td>
-                    <td class="text-center">{{$user->email}}</td>
-                    <td class="text-center">
-                        {{$user->role->role}}
-                    </td>
-                    <td class="text-center"><img class="w-25" src="{{asset('storage/'.$user->img)}}" alt=""></td>
-
-                   
-                    <td class="text-center ">  
-                        {{-- @if ($user->role_id==1) --}}
-                            {{-- <a class="btn btn-warning " href="{{route('editUser',$user->id)}}">edit</a>    --}}
-                        {{-- @else  --}}
-                            <a class="btn btn-warning mr-2" href="{{route('user.edit',$user->id)}}">edit</a>   
-                            <a class="btn btn-danger ml-2" href="{{route('user.destroy',$user->id)}}">supprimer son compte</a>
-                        {{-- @endif --}}
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
+        
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content bg-danger">
+        <div class="modal-header ">
+          <h4 class="modal-title">Attention!!!</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p>Vous êtes sur le point de supprimer ce compte! <br> Cette action n'est pas reversible!</p>
+        </div>
+        <div class="modal-footer float-right">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+          <form action="{{route('user.destroy',$user->id)}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="button" class="btn btn-outline-light">Supprimer le compte</button>
+        </form>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+
+
+
+
+
+
 @stop
