@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 use App\User;
 use App\Form;
 use App\Newsletter;
+use App\Commentaire;
 use Illuminate\Contracts\Events\Dispatcher;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
@@ -56,12 +57,20 @@ class AppServiceProvider extends ServiceProvider
             $nb = count($form);
             $newsletter = Newsletter::all();
             $nb2 = count($newsletter);
+            $newsletter = Commentaire::all();
+            $nb3 = count($newsletter);
             $event->menu->add(  
                 [
                     'text' => 'Messages',
                     'url'  => '/form',
                     'icon' => 'fas fa-users',
                     'label' => $nb
+                ],
+                [
+                    'text' => 'Commentaires',
+                    'url'  => '/commentaire',
+                    'icon' => 'fas fa-users',
+                    'label' => $nb3
                 ],
                 [
                     'text' => 'Newsletter list',

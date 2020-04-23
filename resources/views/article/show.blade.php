@@ -25,7 +25,7 @@
                     					{{$item->tag}}
                     				@endforeach 
 								</a>
-								<a href="">2 Comments</a>
+								<a href="">{{count($commentairecount)}} Comments</a>
 							</div>
 							<p>{{$article->text}}</p>
 							
@@ -33,53 +33,68 @@
 						<!-- Post Author -->
 						<div class="author">
 							<div class="avatar">
-								<img src="{{asset('storage/'.$article->user->img)}}" alt="">
+								<img  src="{{asset('storage/'.$article->user->img)}}" alt="">
 							</div>
 							<div class="author-info">
-								<h2>{{$article->user->name}} <span>Author</span></h2>
+								<h2>{{$article->user->name}} <span>Auteur</span></h2>
 								<p>{{$article->user->description}}  </p>
 							</div>
 						</div>
 						<!-- Post Comments -->
 						<div class="comments">
-							<h2>Comments (2)</h2>
+							<h2>Comments ({{count($commentairecount)}})</h2>
+
 							<ul class="comment-list">
+								@foreach ($commentaires as $commentaire)
+									
+								
 								<li>
 									<div class="avatar">
-										<img src="img/avatar/01.jpg" alt="">
+										<img src="{{asset('storage/'.$commentaire->user->img)}}" alt="">
 									</div>
 									<div class="commetn-text">
-										<h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-										<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
+										<h3>{{$commentaire->user->name}} {{$commentaire->user->firstname}} | {{$commentaire->created_at->format('d')}} {{\Illuminate\Support\Str::limit(date('F',strtotime($article->created_at)), 3, $end='')}}, {{$commentaire->created_at->format('Y')}} | {{$commentaire->created_at->format('H')}}h{{$commentaire->created_at->format('i')}}</h3>
+										<p>{{$commentaire->commentaire}} </p>
 									</div>
+									<form class="text-right" action="{{route('commentaire.destroy',$commentaire)}}" method="post">
+										@csrf
+										@method('DELETE')
+										<p><a class="text-warning"   data-toggle="modal" data-target=".modal-{{$commentaire->id}}" style="border: none" type="submit">modifier</a> </p>
+										<p><button class="text-danger" style="border: none" type="submit">supprimer</button> </p>
+									</form>
 								</li>
-								<li>
-									<div class="avatar">
-										<img src="img/avatar/02.jpg" alt="">
+								<div class="modal fade modal-{{$commentaire->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg p-2" role="document">
+									  <div class="modal-content">
+										<h3 class="pb-2">Modifier mon commentaire</h3>
+										<form class="form-class" action="{{route('commentaire.update',$commentaire)}}" method="POST">
+										  @csrf
+										  @method('PUT')
+										  <div class="container row">
+											  
+											  <div class="col-sm-12 mt-5 ">
+												  <textarea style="width: 75%" name="commentaire" placeholder="Message"></textarea>
+											  </div>
+											  <button class="site-btn">Envoyer</button>
+										  </div>
+									  </form>
+									  </div>
 									</div>
-									<div class="commetn-text">
-										<h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-										<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
-									</div>
-								</li>
+								  </div>
+								@endforeach
 							</ul>
+							{{$commentaires->links()}}
 						</div>
 						<!-- Commert Form -->
 						<div class="row">
 							<div class="col-md-9 comment-from">
 								<h2>Leave a comment</h2>
-								<form class="form-class">
+								<form class="form-class" action="{{route('store.commentaire',$article)}}" method="POST">
+									@csrf
 									<div class="row">
-										<div class="col-sm-6">
-											<input type="text" name="name" placeholder="Your name">
-										</div>
-										<div class="col-sm-6">
-											<input type="text" name="email" placeholder="Your email">
-										</div>
 										<div class="col-sm-12">
-											<input type="text" name="subject" placeholder="Subject">
-											<textarea name="message" placeholder="Message"></textarea>
-											<button class="site-btn">send</button>
+											<textarea name="commentaire" placeholder="Message"></textarea>
+											<button class="site-btn">Envoyer</button>
 										</div>
 									</div>
 								</form>
@@ -87,6 +102,15 @@
 						</div>
 					</div>
 				</div> 
+
+
+
+			
+
+
+
+
+
 
 
                 <!-- Sidebar area -->

@@ -45,3 +45,7 @@ Route::resource('quote','QuoteController');
 Route::resource('article','ArticleController');
 Route::resource('tag','TagController');
 Route::resource('categorie','CategorieController');
+Route::resource('commentaire','CommentaireController');
+
+Route::post('commentaire/store/{article}','CommentaireController@store')->name('store.commentaire');
+Route::put('commentaire/update/{article}','CommentaireController@updatee')->name('update.commentaire');

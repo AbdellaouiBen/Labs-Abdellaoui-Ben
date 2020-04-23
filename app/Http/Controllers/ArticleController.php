@@ -10,6 +10,7 @@ use App\Tag;
 use App\Quote;
 use App\Footer;
 use App\Logo;
+use App\Commentaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -82,12 +83,14 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
+        $commentaires = Commentaire::where('article_id',$article->id)->latest('id')->paginate(2);
+        $commentairecount = Commentaire::where('article_id',$article->id)->get();
         $categories = Categorie::all();
         $tags = Tag::all();
         $quote = Quote::first();
         $footer = Footer::first();
         $logo = Logo::first();
-        return view('article.show',compact('article','categories','tags','quote','footer','logo'));
+        return view('article.show',compact('article','categories','tags','quote','footer','logo','commentaires','commentairecount'));
     }
 
     /**
