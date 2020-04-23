@@ -38,6 +38,9 @@ class QuoteController extends Controller
      */
     public function update(Request $request, Quote $quote)
     {
+        $validatedData = $request->validate([
+            'quote' => 'required|max:500',
+        ]);
         $quote->quote = $request->input('quote');
         $quote->save();
         return redirect()->route('quote.index');

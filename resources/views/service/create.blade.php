@@ -71,7 +71,7 @@
 
             <div class="form-group">
                 <label class="d-block input-group-text" for="titre">titre</label> 
-                <input class="form-control" placeholder="titre" type="text " name='titre' value="@if($errors->first('titre'))@else{{ old('titre') }}@endif">      
+                <input class="form-control @error('titre') is-invalid @enderror" placeholder="titre" type="text " name='titre' value="@if($errors->first('titre'))@else{{ old('titre') }}@endif">      
                 @error('titre')
                 <div class="alert alert-danger">{{ $message }}</div> 
                 @enderror   
@@ -79,13 +79,13 @@
 
             <div class="form-group">
                 <label class="d-block input-group-text" for="description">description</label> 
-                <input class="form-control" placeholder="description" type="text " name='description' value="@if($errors->first('description'))@else{{ old('description') }}@endif">      
+                <input class="form-control @error('description') is-invalid @enderror" placeholder="description" type="text " name='description' value="@if($errors->first('description'))@else{{ old('description') }}@endif">      
                 @error('description')
                 <div class="alert alert-danger">{{ $message }}</div> 
                 @enderror   
             </div>             
                 
-            <input type="submit" value="ajouter">
+            <input class="btn btn-site" type="submit" value="ajouter">
         </div>
     </form> 
     
@@ -94,4 +94,5 @@
 
 @section('css')
     <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/color-plus.css')}}">
 @endsection

@@ -59,8 +59,10 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'firstname' => 'sometimes|max:100',
             'email' => 'required|email|unique:users,email,'.$id,
             'img' => 'sometimes|image',
+            'description' => 'sometimes|max:300',
         ]);
 
         $users = User::find($id);
@@ -71,8 +73,10 @@ class UserController extends Controller
             $users->img = $newName ;
         }
         $users->name = $request->input('name');
+        $users->firstname = $request->input('firstname');
         $users->email = $request->input('email');
         $users->role_id = $request->input('role_id');
+        $users->description = $request->input('firstname');
         $users->save();
         
         return redirect()->route('user.index');

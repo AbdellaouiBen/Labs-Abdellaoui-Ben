@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use App\Article;
 
 class ArticleSeeder extends Seeder
 {
@@ -104,5 +105,7 @@ class ArticleSeeder extends Seeder
             'user_id' => 5,  
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+
     }
 }

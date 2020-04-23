@@ -13,7 +13,7 @@ class Article extends Model
         return $this->belongsTo('App\User','user_id');
     }
     public function tags(){
-        return $this->belongsToMany('App\Tag','article__tags','article_id','tag_id');
+        return $this->belongsToMany('App\Tag','article_tag','article_id','tag_id');
     }
 }
  

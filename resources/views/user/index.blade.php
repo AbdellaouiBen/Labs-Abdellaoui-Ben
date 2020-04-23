@@ -22,6 +22,7 @@
                         <th scope="col" class="text-center">Email</th>
                         <th scope="col" class="text-center">role</th>
                         <th scope="col" class="text-center">image</th>
+                        <th scope="col" class="text-center">description</th>
                         <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -29,8 +30,9 @@
                     @foreach ($users as $user)
                     <tr>
                         <th scope="row" class="text-center">{{$user->id}}</th>
-                        <td class="text-center">{{$user->name}}</td>
+                        <td class="text-center">{{$user->name}} {{$user->firstname}}</td>
                         <td class="text-center">{{$user->email}}</td>
+                        <td class="text-center">{{$user->description}}</td>
                         <td class="text-center">
                             {{$user->role->role}}
                         </td>

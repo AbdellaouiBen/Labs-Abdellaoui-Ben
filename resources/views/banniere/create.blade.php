@@ -17,7 +17,7 @@
         <h1 class="mt-5 text-center bg-danger text-white "><u>Ajouter une banniere</u> </h1>
             <div class="form-group">
                 <label class="d-block input-group-text" for="img">img</label> 
-                <input class="m-3" placeholder="img" type="file" name='img'>      
+                <input class="m-3 @error('img') is-invalid @enderror" placeholder="img" type="file" name='img'>      
                 @error('img')
                 <div class="alert alert-danger">{{ $message }}</div> 
                 @enderror   

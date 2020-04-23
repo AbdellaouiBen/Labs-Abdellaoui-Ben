@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label class="d-block input-group-text" for="img">image</label>
-                <input class="m-3" type="file" name='img' value="{{old('img',$banniere->img)}}">
+                <input class="m-3" class="@error('img') is-invalid @enderror" type="file" name='img' value="{{old('img',$banniere->img)}}">
                 @error('img')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

@@ -40,6 +40,10 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $validatedData = $request->validate([
+            'email' => 'required|email|max:105',
+        ]);
         $newsletter = new Newsletter();
         $newsletter->email = $request->input('email');
         $newsletter->save();

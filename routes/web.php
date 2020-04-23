@@ -43,3 +43,5 @@ Route::resource('form','FormController');
 Route::resource('footer','FooterController');
 Route::resource('newsletter','NewsletterController');
 Route::resource('quote','QuoteController');
+
+Route::resource('article','ArticleController');

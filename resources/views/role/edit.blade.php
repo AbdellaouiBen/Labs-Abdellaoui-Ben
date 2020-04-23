@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label class="d-block input-group-text" for="role">role</label>
-                <input class="form-control" type="text" name='role' value="{{old('role',$role->role)}}">
+                <input class="form-control @error('role') is-invalid @enderror" type="text" name='role' value="{{old('role',$role->role)}}">
                 @error('role')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

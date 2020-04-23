@@ -37,6 +37,13 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'img'=>'required|image',
+            'full_name'=>'required|max:250',
+            'role'=>'required',
+            'company'=>'required|max:250',
+            'text'=>'required|max:500',
+        ]);
         $testimonial = new Testimonial();
         $img = $request->file('img');
         $newName = Storage::disk('public')->put('',$img);
@@ -70,6 +77,13 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
+        $validatedData = $request->validate([
+            'img'=>'sometimes|image',
+            'full_name'=>'required|max:250',
+            'role'=>'required',
+            'company'=>'required|max:250',
+            'text'=>'required|max:500',
+        ]);
         if($request->hasFile('img')){
             $img = $request->file('img');
             $newName = Storage::disk('public')->put('',$img);

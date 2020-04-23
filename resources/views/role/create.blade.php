@@ -17,7 +17,7 @@
         <div class="text-center form-group container">    
             <div class="form-group">
                 <label class="d-block input-group-text" for="role">role</label> 
-                <input class="form-control" placeholder="role" type="text " name='role' value="@if($errors->first('role'))@else{{ old('role') }}@endif">      
+                <input class="form-control  @error('role') is-invalid @enderror" placeholder="role" type="text " name='role' value="@if($errors->first('role'))@else{{ old('role') }}@endif">      
                 @error('role')
                 <div class="alert alert-danger">{{ $message }}</div> 
                 @enderror   

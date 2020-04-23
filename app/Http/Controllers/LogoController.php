@@ -41,6 +41,9 @@ class LogoController extends Controller
      */ 
     public function update(Request $request, Logo $logo)
     {
+        $validatedData = $request->validate([
+            'logo' => 'sometimes|image',
+        ]);
         if($request->hasFile('logo')){
             $img = $request->file('logo');
             $newName = Storage::disk('public')->put('',$img);

@@ -1,0 +1,18 @@
+$site_color : hsl(269, 68%, 42%);
+$site_color_darker : hsl(269, 68%, 40%);
+
+
+
+.btn-site {
+    color: #fff;
+    background-color: $site_color;
+    border-color: $site_color_darker;
+};
+
+
+.btn-site:hover {
+    color: #fff;
+    background-color: $site_color;
+    border-color: $site_color_darker;
+};
+  

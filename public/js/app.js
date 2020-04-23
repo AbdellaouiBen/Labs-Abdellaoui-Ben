@@ -49928,6 +49928,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/color-plus.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/color-plus.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/flaticon.scss":
 /*!**************************************!*\
   !*** ./resources/sass/flaticon.scss ***!
@@ -49940,14 +49951,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/flaticon.scss ./resources/sass/app.scss ***!
-  \********************************************************************************************/
+/*!*****************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/flaticon.scss ./resources/sass/color-plus.scss ./resources/sass/app.scss ***!
+  \*****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /mnt/c/wamp64/www/molengeekwamp/Labs/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /mnt/c/wamp64/www/molengeekwamp/Labs/resources/sass/flaticon.scss */"./resources/sass/flaticon.scss");
+__webpack_require__(/*! /mnt/c/wamp64/www/molengeekwamp/Labs/resources/sass/color-plus.scss */"./resources/sass/color-plus.scss");
 module.exports = __webpack_require__(/*! /mnt/c/wamp64/www/molengeekwamp/Labs/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

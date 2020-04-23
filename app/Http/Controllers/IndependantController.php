@@ -38,7 +38,23 @@ class IndependantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Independant $independant)
-    {
+    {        
+        $validatedData = $request->validate([
+            'banniere_text' => 'required|max:255',
+            'presentation_titre' => 'required|max:255',
+            'presentation_text_un' => 'required|max:500',
+            'presentation_text_deux' => 'required|max:500',
+            'video_img' => 'sometimes|image',
+            'presentation_text_deux' => 'required|max:500',
+            'video_url' => 'required|max:255|url',
+            'testimonials_titre' => 'required|max:255',
+            'services_titre' => 'required|max:255',
+            'team_titre' => 'required|max:255',
+            'promotion_titre' => 'required|max:255',
+            'promotion_text' => 'required|max:500',
+            'feature_titre' => 'required|max:255',
+        ]);
+
         $independant->banniere_text = $request->input('banniere_text');
         $independant->presentation_titre = $request->input('presentation_titre');
         $independant->presentation_text_un = $request->input('presentation_text_un');
@@ -53,7 +69,6 @@ class IndependantController extends Controller
             $newName = Storage::disk('public')->put('',$img);
             Storage::disk('public')->delete($independant->video_img);
             $independant->video_img = $newName ;
-            
         }
         $independant->video_url = $request->input('video_url');
         $independant->testimonials_titre = $request->input('testimonials_titre');

@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('aa'),
             'img' => 'pp1.jpg',
             'role_id' => 1,
+            'firstname' => 'bedrzf',
+            'description' => 'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
         ]);
         DB::table('users')->insert([
             'name' => 'Albi',
@@ -24,6 +26,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('aa'),
             'img' => 'pp2.jpg',
             'role_id' => 2,
+            'firstname' => null,
+            'description' => 'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
         ]);
         DB::table('users')->insert([
             'name' => 'Harry Potter',
@@ -31,6 +35,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('aa'),
             'img' => 'pp3.jpg',
             'role_id' => 3,
+            'firstname' => null,
+            'description' => null,
         ]);
         DB::table('users')->insert([
             'name' => 'redacteuuur',
@@ -38,6 +44,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('aa'),
             'img' => 'pp4.jpg',
             'role_id' => 4,
+            'firstname' => 'bedrzf',
+            'description' => 'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
         ]);
         DB::table('users')->insert([
             'name' => 'redacteuuurdeux',
@@ -45,6 +53,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('aa'),
             'img' => 'pp4.jpg',
             'role_id' => 4,
+            'firstname' => null,
+            'description' =>'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
         ]);
         DB::table('users')->insert([
             'name' => 'erhgeq',
@@ -52,6 +62,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('aa'),
             'img' => 'pp3.jpg',
             'role_id' => 3,
+            'firstname' => 'bedrzf',
+            'description' =>  'bedrzf erte  thgrt het erthg et',
         ]);
     }
 }

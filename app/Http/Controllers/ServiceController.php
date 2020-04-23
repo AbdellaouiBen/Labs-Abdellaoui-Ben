@@ -35,13 +35,13 @@ class ServiceController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'icon'=>'required',
-            'titre'=>'required',
-            'description'=>'required',
+            'titre'=>'required|max:150',
+            'description'=>'required|max:300',
         ]);
         $service = new Service();
         $service->icon = $request->icon;
@@ -85,8 +85,8 @@ class ServiceController extends Controller
     {
         $validatedData = $request->validate([
             'icon'=>'required',
-            'titre'=>'required',
-            'description'=>'required',
+            'titre'=>'required|max:150',
+            'description'=>'required|max:300',
         ]);
         $service->icon = $request->icon;
         $service->titre = $request->titre;

@@ -20,12 +20,12 @@
 
             <div class="form-group">
                 {{-- <label class=" " for="logo">logo</label> --}}
-                <input class="" type="file" name='logo' >
+                <input class=" @error('logo') is-invalid @enderror" type="file" name='logo' >
                 @error('logo')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div> 
-            <a class="btn btn-primary" href="{{route('quote.index')}}">Annuler</a> 
+            <a class="btn btn-primary" href="{{route('logo.index')}}">Annuler</a> 
 
             <input class="btn btn-warning" type="submit" value="edit">
         </div> 
