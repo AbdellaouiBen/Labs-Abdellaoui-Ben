@@ -14,7 +14,7 @@
 					<div class="col-sm-4">
 						<div class="member">
 							<img src="{{'storage/'.$user->img}}" alt="">
-							<h2>{{$user->name}}</h2>
+							<h2>{{ucfirst($user->name)}} {{ucfirst($user->firstname)}}</h2>
 							<h3>{{$user->role->role}}</h3>
 						</div>
 					</div>
@@ -22,7 +22,7 @@
 					<div class="col-sm-4">
 						<div class="member">
 							<img src="{{'storage/'.$CEO->img}}" alt="">
-							<h2>{{$CEO->name}}</h2>
+							<h2>{{ucfirst($CEO->name)}} {{ucfirst($CEO->firstname)}}</h2>
 							<h3>{{$CEO->role->role}}</h3>
 						</div>
 					</div>
@@ -31,7 +31,7 @@
 					<div class="col-sm-4">
 						<div class="member">
 							<img src="{{'storage/'.$user->img}}" alt="">
-							<h2>{{$user->name}}</h2>
+							<h2>{{ucfirst($user->name)}} {{ucfirst($user->firstname)}}</h2>
 							<h3>{{$user->role->role}}</h3>
 						</div>
 					</div>

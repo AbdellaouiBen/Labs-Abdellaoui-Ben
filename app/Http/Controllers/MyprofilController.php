@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Storage;
 
 class MyprofilController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isMe')->only('edit','update');
+    // }
     /**
      * Display a listing of the resource.
      *  
@@ -31,6 +34,7 @@ class MyprofilController extends Controller
      */
     public function edit($id)
     {
+
         $user = User::find($id);
         $roles = Role::all();
         return view('myprofil.edit',compact('user','roles'));

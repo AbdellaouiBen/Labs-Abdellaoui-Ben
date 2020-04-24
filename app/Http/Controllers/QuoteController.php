@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Quote;
+use App\User;
 use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,7 @@ class QuoteController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $quote = Quote::first();
         return view('quote.index',compact('quote'));
     }
@@ -26,6 +31,7 @@ class QuoteController extends Controller
      */
     public function edit(Quote $quote)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('quote.edit',compact('quote'));
     }
 
@@ -38,6 +44,7 @@ class QuoteController extends Controller
      */
     public function update(Request $request, Quote $quote)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'quote' => 'required|max:500',
         ]);
@@ -45,6 +52,25 @@ class QuoteController extends Controller
         $quote->save();
         return redirect()->route('quote.index');
     }
-
+    public function create()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function store()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function destroy()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function show()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
 
 }

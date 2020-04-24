@@ -14,7 +14,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header" style="background-color: #6922b4; color: white; ">
               <h3 class="widget-user-username">{{ucfirst(Auth::user()->name)}}  {{ucfirst(Auth::user()->firstname)}}</h3>
-              <h5 class="widget-user-desc">Founder &amp; CEO</h5>
+              <h5 class="widget-user-desc">{{Auth::user()->role->role}}</h5>
             </div>
             <div class="widget-user-image">
               <img class="img-circle  elevation-2" style="border-color: #2be6ab" src="{{asset('storage/'.Auth::user()->img)}}" alt="User Avatar">
@@ -40,7 +40,7 @@
                 <div class="col-sm-4">
                   <div class="description-block">
                     <h5 class="description-header"> 
-                        @if (Auth::id()==1)
+                        @if (Auth::id()!=1)
                             <a class="btn btn-danger " data-toggle="modal" data-target="#myModal" href="">Supprimer mon compte</a>
                         @endif
                     </h5>

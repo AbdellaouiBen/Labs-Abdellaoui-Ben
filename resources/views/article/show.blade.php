@@ -17,7 +17,7 @@
 							</div>
 						</div>
 						<div class="post-content">
-							<h2 class="post-title">{{$article->titre}}</h2>
+							<h2 class="post-title">{{$article->titre}} <a href=""></a></h2>
 							<div class="post-meta">
 								<a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a>
 								<a href="">
@@ -60,33 +60,41 @@
 										<h3>{{$commentaire->user->name}} {{$commentaire->user->firstname}} | {{$commentaire->created_at->format('d')}} {{\Illuminate\Support\Str::limit(date('F',strtotime($article->created_at)), 3, $end='')}}, {{$commentaire->created_at->format('Y')}} | {{$commentaire->created_at->format('H')}}h{{$commentaire->created_at->format('i')}}</h3>
 										<p>{{$commentaire->commentaire}} </p>
 									</div>
-									<form class="text-right" action="{{route('commentaire.destroy',$commentaire)}}" method="post">
-										@csrf
-										@method('DELETE')
-										<p><a class="text-warning"   data-toggle="modal" data-target=".modal-{{$commentaire->id}}" style="border: none" type="submit">modifier</a> </p>
-										<p><button class="text-danger" style="border: none" type="submit">supprimer</button> </p>
-									</form>
+											
+									@can('adminWebWritter', $commentaire ,App\Commentaire::class)
+										<form class="text-right" action="{{route('commentaire.destroy',$commentaire)}}" method="post">
+											@csrf
+											@method('DELETE')
+											<p><a class="text-warning"   data-toggle="modal" data-target=".modal-{{$commentaire->id}}" style="border: none" type="submit">modifier</a> </p>
+											<p><button class="text-danger" style="border: none" type="submit">supprimer</button> </p>
+										</form>
+										@endcan
+
 								</li>
-								<div class="modal fade modal-{{$commentaire->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-lg p-2" role="document">
-									  <div class="modal-content">
-										<h3 class="pb-2">Modifier mon commentaire</h3>
-										<form class="form-class" action="{{route('commentaire.update',$commentaire)}}" method="POST">
-										  @csrf
-										  @method('PUT')
-										  <div class="container row">
-											  
-											  <div class="col-sm-12 mt-5 ">
-												  <textarea style="width: 75%" name="commentaire" placeholder="Message"></textarea>
-											  </div>
-											  <button class="site-btn">Envoyer</button>
-										  </div>
-									  </form>
-									  </div>
-									</div>
-								  </div>
+											@can('adminWebWritter', $commentaire ,App\Commentaire::class)
+												
+											<div class="modal fade modal-{{$commentaire->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+												<div class="modal-dialog modal-lg p-2" role="document">
+												<div class="modal-content">
+													<h3 class="pb-2">Modifier mon commentaire</h3>
+													<form class="form-class" action="{{route('commentaire.update',$commentaire)}}" method="POST">
+													@csrf
+													@method('PUT')
+													<div class="container row">
+														
+														<div class="col-sm-12 mt-5 ">
+															<textarea style="width: 75%" name="commentaire" placeholder="Message">{{old('commentaire',$commentaire->commentaire)}}</textarea>
+														</div>
+														<button class="site-btn">Envoyer</button>
+													</div>
+												</form>
+												</div>
+												</div>
+											</div>
+											@endcan
+
 								@endforeach
-							</ul>
+							</ul> 
 							{{$commentaires->links()}}
 						</div>
 						<!-- Commert Form -->

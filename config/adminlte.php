@@ -219,11 +219,12 @@ return [
             'can'  => 'manage-blog',
         ],
 
-        ['header' => 'account_settings'],
+        ['header' => 'account_settings' ],
         [
             'text' => 'profile',
             'url'  => '/myprofil',
             'icon' => 'fas fa-fw fa-user',
+            
         ],
         // [
         //     'text' => 'change_password',

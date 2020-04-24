@@ -205,6 +205,9 @@
 
             <div class="content-header">
                 <div class="{{config('adminlte.classes_content_header', 'container-fluid')}}">
+                    @error('msg')
+                    <div class="alert alert-danger">{{$message}}</div>
+                @enderror
                     @yield('content_header')
                 </div>
             </div>

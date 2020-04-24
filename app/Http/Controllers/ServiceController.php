@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use App\Icon;
+use App\User;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $services = Service::all();
         return view('service/index',compact('services'));
     }
@@ -26,6 +31,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
+        $this->authorize('adminWebmaser', User::class);
         $icons = Icon::all();
         return view('service/create',compact('icons'));
     }
@@ -38,6 +44,7 @@ class ServiceController extends Controller
      */ 
     public function store(Request $request)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'icon'=>'required',
             'titre'=>'required|max:150',
@@ -59,7 +66,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
     }
 
     /**
@@ -70,6 +78,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
+        $this->authorize('adminWebmaser', User::class);
         $icons = Icon::all();
         return view('service.edit',compact('service','icons'));
     }
@@ -83,6 +92,7 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'icon'=>'required',
             'titre'=>'required|max:150',
@@ -103,6 +113,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
+        $this->authorize('adminWebmaser', User::class);
         $service->delete();
         return redirect()->route('service.index');
     }

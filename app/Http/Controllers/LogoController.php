@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Logo;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 
 class LogoController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +20,8 @@ class LogoController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
+
         $logo = Logo::first();
         return view('logo.index',compact('logo'));
     }
@@ -29,6 +35,7 @@ class LogoController extends Controller
      */
     public function edit(Logo $logo)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('logo.edit',compact('logo'));
     }
 
@@ -41,6 +48,7 @@ class LogoController extends Controller
      */ 
     public function update(Request $request, Logo $logo)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'logo' => 'sometimes|image',
         ]);
@@ -53,5 +61,19 @@ class LogoController extends Controller
         }
         return redirect()->route('logo.index');
     }
-
+    public function create()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function store()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function destroy()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
 }

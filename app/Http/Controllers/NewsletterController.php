@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Newsletter;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\MAIL\NewsletterMail;
@@ -11,6 +12,9 @@ use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster')->only('index','create','destroy');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +22,7 @@ class NewsletterController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $newsletters = Newsletter::all();
         return view('newsletter.index',compact('newsletters'));
     }
@@ -29,7 +34,8 @@ class NewsletterController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
     }
 
     /**
@@ -59,7 +65,8 @@ class NewsletterController extends Controller
      */
     public function show(Newsletter $newsletter)
     {
-        //
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
     }
 
     /**
@@ -71,7 +78,8 @@ class NewsletterController extends Controller
      */
     public function update(Request $request, Newsletter $newsletter)
     {
-        //
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
     }
 
     /**
@@ -82,6 +90,7 @@ class NewsletterController extends Controller
      */
     public function destroy(Newsletter $newsletter)
     {
+        $this->authorize('adminWebmaser', User::class);
         $newsletter->delete();
         return redirect()->route('newsletter.index');
     }

@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\User;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,7 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $contact = Contact::first();
         return view('contact.index',compact('contact'));
     }
@@ -28,18 +33,14 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('contact.edit',compact('contact'));
     }
+   
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Contact $contact)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'titre' => 'required|max:105',
             'text' => 'required',
@@ -61,4 +62,20 @@ class ContactController extends Controller
         return redirect()->route('contact.index');
     }
 
+
+    public function create()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function store()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function destroy()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
 }

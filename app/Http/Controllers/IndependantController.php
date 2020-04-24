@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Independant;
 use Illuminate\Http\Request;
+use App\User;
 use Illuminate\Support\Facades\Storage;
 
 class IndependantController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,7 @@ class IndependantController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $independant = Independant::first();
         return view('independant.index',compact('independant'));
     }
@@ -27,6 +32,7 @@ class IndependantController extends Controller
      */
     public function edit(Independant $independant)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('independant.edit',compact('independant'));
     }
     
@@ -38,7 +44,8 @@ class IndependantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Independant $independant)
-    {        
+    {       
+        $this->authorize('adminWebmaser', User::class); 
         $validatedData = $request->validate([
             'banniere_text' => 'required|max:255',
             'presentation_titre' => 'required|max:255',
@@ -81,5 +88,19 @@ class IndependantController extends Controller
         return redirect()->route('independant.index');
     }
 
-
+    public function create()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function store()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function destroy()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
 }

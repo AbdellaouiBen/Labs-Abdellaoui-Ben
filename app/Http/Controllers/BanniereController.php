@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Banniere;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 
 class BanniereController extends Controller
 {
+    
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +21,7 @@ class BanniereController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $bannieres = Banniere::all();
         return view('banniere.index',compact('bannieres'));
     }
@@ -27,6 +33,7 @@ class BanniereController extends Controller
      */
     public function create()
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('banniere.create');
     }
 
@@ -38,6 +45,7 @@ class BanniereController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'img' => 'required|image',
         ]);
@@ -69,6 +77,7 @@ class BanniereController extends Controller
      */
     public function edit(Banniere $banniere)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('banniere.edit',compact('banniere'));
     }
 
@@ -82,6 +91,7 @@ class BanniereController extends Controller
     public function update(Request $request, Banniere $banniere)
     {
         
+        $this->authorize('adminWebmaser', User::class);
         
         $validatedData = $request->validate([
             'img' => 'required|image',
@@ -106,6 +116,7 @@ class BanniereController extends Controller
      */
     public function destroy(Banniere $banniere)
     {
+        $this->authorize('adminWebmaser', User::class);
         Storage::disk('public')->delete($banniere->img);
         $banniere->delete();
         return view('banniere.index');

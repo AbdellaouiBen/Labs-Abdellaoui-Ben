@@ -9,72 +9,67 @@
 @section('content')
 
 
-<div class="card-body">
-    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
-        <div class="row">
-            <div class="col-sm-12 col-md-6"></div>
-            <div class="col-sm-12 col-md-6"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <table style=" border: 2px solid #6922b4" id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid"
-                    aria-describedby="example2_info">
-                    <thead style="background-color: #2be6ab;">
-                        <tr role="row" >
-                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
-                                Nom</th>
-                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Browser: activate to sort column ascending">Email</th>
-                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Platform(s): activate to sort column ascending">role</th>
-                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="Engine version: activate to sort column ascending">image</th>
-                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="CSS grade: activate to sort column ascending">description</th>
-                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                                aria-label="CSS grade: activate to sort column ascending">Action</th>
-                            </tr>
-                    </thead>
-                    <tbody >
-                        @foreach ($users as $user)
-                        <tr role="row" class="">
-                            <td tabindex="0" class="sorting_1">{{ucfirst($user->name)}} {{ucfirst($user->firstname)}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->role->role}}</td>
-                            <td><img class="w-25" src="{{asset('storage/'.$user->img)}}" alt=""></td>
-                            <td>{{$user->description}}</td>
-                            <td class="row">
-                                <a class="btn btn-warning col-12" href="{{route('user.edit',$user)}}">Modifier</a> 
-                                <form action="{{route('user.destroy',$user)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a class="btn btn-primary col-12" href="{{route('user.show',$user)}}">Montrer</a>
-                                    <button class="btn btn-danger col-12" href="">Supprimer</button>
-                                </form>  
 
-                            </td>
-                        </tr>
-                        @endforeach
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Image</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($users as $user)
+            
+        <tr>
+            <th>{{ucfirst($user->name)}} {{ucfirst($user->firstname)}}</th>
+            <td>{{$user->email}}</td>
+            <td>{{$user->role->role}}</td>
+            <td><img class="w-25" src="{{asset('storage/'.$user->img)}}" alt=""></td>
+            <td>{{$user->description}}</td>
+            <td>                              
+                <a  class="d-block py-1 px-0 text-center btn btn-primary rounded-circle " href="{{route('user.show',$user)}}"><i class="fas fa-eye"></i></a>
+                <a  class="d-block py-1 px-0 btn btn-warning rounded-circle " href="{{route('user.edit',$user)}}"><i class="fas fa-pencil-alt"></i></a> 
+                @if ($user->id!=1)
+                <a class="d-block py-1 px-0 text-center rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deleteuser{{$user->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                @endif
+            </td>
+        </tr>
+                <div class="modal fade" id="deleteuser{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                    <div class="modal-content bg-danger">
+                        <div class="modal-header ">
+                        <h4 class="modal-title">Attention!!!</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                        <div class="modal-body text-center">
+                        <p>Vous êtes sur le point de supprimer le compte de {{ucfirst($user->name)}} {{ucfirst($user->firstname)}} ! <br> Cette action n'est pas reversible!</p>
+                        </div>
+                        <div class="modal-footer float-right">
+                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                        <form action="{{route('user.destroy',$user)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-light">Supprimer ce compte</button>
+                        </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+        @endforeach
+ 
+    </tbody>
+  </table>
 
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th rowspan="1" colspan="1">Nom</th>
-                            <th rowspan="1" colspan="1">Email</th>
-                            <th rowspan="1" colspan="1">role</th>
-                            <th rowspan="1" colspan="1">image</th>
-                            <th rowspan="1" colspan="1">description</th>
-                            <th rowspan="1" colspan="1">Action</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
 
-        </div>
-    </div>
-</div>
+
 
 @stop

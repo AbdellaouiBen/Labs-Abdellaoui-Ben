@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Form;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\MAIL\FormMail;
@@ -10,6 +11,9 @@ use Illuminate\Support\Facades\Mail;
 
 class FormController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster')->only('index','destroy');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -17,19 +21,12 @@ class FormController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $forms = Form::all();
         return view('form.index',compact('forms'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -66,7 +63,24 @@ class FormController extends Controller
      */
     public function destroy(Form $form)
     {
+        $this->authorize('adminWebmaser', User::class);
         $form->delete();
         return redirect()->route('form.index');
+    }
+    
+    public function create()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function edit()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function update()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
     }
 }

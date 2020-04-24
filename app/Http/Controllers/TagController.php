@@ -9,10 +9,14 @@ use App\Quote;
 use App\Article;
 use App\Tag;
 use App\Article_Tag;
+use App\User;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +24,7 @@ class TagController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $tags = Tag::all();
         return view('tag.index',compact('tags'));
     }
@@ -31,6 +36,7 @@ class TagController extends Controller
      */
     public function create()
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('tag.create');
     }
 
@@ -42,6 +48,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'tag' => 'required|max:100|unique:tags',
         ]);
@@ -61,9 +68,7 @@ class TagController extends Controller
     {
         $categories = Categorie::inRandomOrder()->take(6)->get();
         $tags = Tag::inRandomOrder()->take(9)->get();
-        // dd($tag->articles);
         $articles = $tag->articles()->paginate(3);
-        // $articles = Article::where('id', $articless->article_id )->latest('id')->paginate(3);
         $quote = Quote::first();
         $footer = Footer::first();
         $logo = Logo::first();
@@ -78,6 +83,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('tag.edit',compact('tag'));
     }
 
@@ -90,6 +96,7 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'tag' => 'required|max:100|unique:tags,tag,'.$tag->id,
         ]);
@@ -106,6 +113,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
+        $this->authorize('adminWebmaser', User::class);
         $tag->delete();
         return redirect()->route('tag.index');
     }

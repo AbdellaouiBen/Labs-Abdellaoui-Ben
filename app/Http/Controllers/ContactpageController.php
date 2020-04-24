@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\logo;
 use App\Contact;
 use App\Footer;
+use App\User;
 
 class ContactpageController extends Controller
 {

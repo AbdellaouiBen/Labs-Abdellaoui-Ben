@@ -15,7 +15,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header" style="background-color: #6922b4; color: white; ">
               <h3 class="widget-user-username">{{ucfirst($user->name)}}  {{ucfirst($user->firstname)}}</h3>
-              <h5 class="widget-user-desc">Founder &amp; CEO</h5>
+              <h5 class="widget-user-desc">{{$user->role->role}}</h5>
             </div>
             <div class="widget-user-image">
               <img class="img-circle elevation-2" style="border-color: #2be6ab" src="{{asset('storage/'.$user->img)}}" alt="User Avatar">

@@ -18,16 +18,7 @@
             <h1 class="text-white shadow-lg p-3 mt-3 mb- bg-danger rounded">Section Contact </h1>
         </div>
         <table class="table table-striped table-secondary">
-            {{-- <thead class="bg-dark text-warning">
-                <tr>
-                    <th scope="col" class="text-center">Id</th>
-                    <th scope="col" class="text-center">Nom</th>
-                    <th scope="col" class="text-center">Email</th>
-                    <th scope="col" class="text-center">role</th>
-                    <th scope="col" class="text-center">image</th>
-                    <th scope="col" class="text-center">Action</th>
-                </tr>
-            </thead> --}}
+ 
             <tbody>
                 
                 <tr>   
@@ -71,4 +62,24 @@
         </table>
     </div>
 </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @stop

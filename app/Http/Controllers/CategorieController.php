@@ -8,10 +8,14 @@ use App\Footer;
 use App\Quote;
 use App\Article;
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
-{
+{ 
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +23,7 @@ class CategorieController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $categories = Categorie::all();
         return view('categorie.index',compact('categories'));
     }
@@ -30,6 +35,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('categorie.create');
     }
 
@@ -41,6 +47,7 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'categorie' => 'required|max:100|unique:categories',
         ]);
@@ -75,6 +82,7 @@ class CategorieController extends Controller
      */
     public function edit(Categorie $categorie)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('categorie.edit',compact('categorie'));
     }
 
@@ -87,6 +95,7 @@ class CategorieController extends Controller
      */
     public function update(Request $request, Categorie $categorie)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'categorie' => 'required|max:100|unique:categories,categorie,'.$categorie->id,
         ]);
@@ -103,6 +112,7 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
+        $this->authorize('adminWebmaser', User::class);
         $categorie->delete();
         return redirect()->route('categorie.index');
     }

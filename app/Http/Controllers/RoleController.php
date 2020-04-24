@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdmin');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $roles = Role::all();
         return view('role/index',compact('roles'));
     }
@@ -25,6 +30,7 @@ class RoleController extends Controller
      */
     public function create()
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('role/create');
     }
 
@@ -36,6 +42,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     { 
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'role'=>'required|max:105',
         ]);
@@ -45,16 +52,7 @@ class RoleController extends Controller
         return redirect()->route('role.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Role  $role
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Role $role)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -64,6 +62,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('role/edit',compact('role'));
     }
 
@@ -76,6 +75,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'role'=>'required',
         ]);
@@ -92,7 +92,15 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {       
+        $this->authorize('adminWebmaser', User::class);
         $role->delete();
         return redirect()->route('role.index');
     }
+  
+    public function show()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    
 }

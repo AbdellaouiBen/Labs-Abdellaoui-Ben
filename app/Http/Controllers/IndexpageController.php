@@ -24,8 +24,8 @@ class IndexpageController extends Controller
         $servicesRapides = Service::latest('id')->take(3)->get();
         $services = Service::inRandomOrder()->take(9)->get();
 
-        $CEO = User::where('role_id','=', 1)->first();
-        $randomUsers = User::inRandomOrder()->where('role_id','!=', 3)->where('role_id','!=', 1)->take(2)->get();
+        $CEO = User::where('role_id','=', 2)->first();
+        $randomUsers = User::inRandomOrder()->where('role_id','>', 4)->take(2)->get();
 
         return view('pages.indexpage',compact('independant','servicesRapides','services','logo','bannieres','testimonials','contact','footer','CEO','randomUsers'));
     }

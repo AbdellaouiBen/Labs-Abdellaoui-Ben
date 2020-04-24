@@ -9,41 +9,65 @@
 @section('content')
 
 
-        <div class="mb-5 container">
-            <div class="text-center">
 
-                <h1 class=" shadow-lg p-3 mt-3 mb- bg-danger rounded">Messages </h1>
-            </div>
-            <table class="table table-striped table-secondary">
-                <thead class="bg-dark text-warning">
-                    <tr class="row">
-                        <th scope="col" class="text-center col-2">Nom</th>
-                        <th scope="col" class="text-center col-2">Email</th>
-                        <th scope="col" class="text-center col-2">Sujet</th>
-                        <th scope="col" class="text-center col-4">Message</th>
-                        <th scope="col" class="text-center col-2">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($forms as $form)
-                    <tr class="row">
-                        <th scope="row" class="text-center col-2">{{$form->name}}</th>
-                        <td class="text-center col-2">{{$form->email}}</td>
-                        <td class="text-center col-2">{{$form->subject}}</td>
-                        <td class="text-center col-4">{{$form->msg}}</td>
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr >
+                <th scope="col">Nom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Sujet</th>
+                <th scope="col">Message</th>
+                <th class="text-center" scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($forms as $form)
                     
-                        
-                        <td class="d-flex justify-content-around col-2 "> 
-                            <form action="{{route('form.destroy',$form)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" >delete</button>
-                            </form> 
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-   
+                <tr>
+                    <th>{{ucfirst($form->name)}} </th>
+                    <td>{{$form->email}}</td>
+                    <td>{{$form->subject}}</td>
+                    <td>{{$form->msg}}</td>
+                    <td>              
+                   
+                        <div class="text-center">
+                            <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deleteform{{$form->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    
+                    </td>
+                </tr>
+                        <div class="modal fade" id="deleteform{{$form->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog">
+                            <div class="modal-content bg-danger">
+                                <div class="modal-header ">
+                                <h4 class="modal-title">Attention!!!</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                <p>Vous êtes sur le point de supprimer le message de {{ucfirst($form->name)}}! <br> Cette action n'est pas reversible!</p>
+                                </div>
+                                <div class="modal-footer float-right">
+                                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                                <form action="{{route('form.destroy',$form)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-light">Supprimer ce message</button>
+                                </form>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                @endforeach
+         
+            </tbody>
+          </table>
+         
+
+
+
+
 @stop

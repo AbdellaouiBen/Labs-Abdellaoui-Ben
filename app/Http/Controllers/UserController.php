@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdmin');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('admin', User::class);
         $users = User::all();
         $roles = Role::all();
         return view('user.index',compact('users','roles'));
@@ -30,6 +34,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $this->authorize('admin', User::class);
         $user = User::find($id);
         $roles = Role::all();
         return view('user.show',compact('user','roles'));
@@ -43,6 +48,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin', User::class);
         $user = User::find($id);
         $roles = Role::all();
         return view('user.edit',compact('user','roles'));
@@ -57,6 +63,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('admin', User::class);
         $validatedData = $request->validate([
             'name' => 'required',
             'firstname' => 'sometimes|max:100',
@@ -90,8 +97,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $users = User::find($id);
-        Storage::disk('public')->delete($users->img);
+        $this->authorize('admin', User::class);
+        $user = User::find($id);
+        Storage::disk('public')->delete($user->img);
         $user->delete();
         return redirect()->route('user.index');
     }

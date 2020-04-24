@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Footer;
+use App\User;
 use Illuminate\Http\Request;
 
 class FooterController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,7 @@ class FooterController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $footer = Footer::first();
         return view('footer.index',compact('footer'));
     }
@@ -26,6 +31,7 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('footer.edit',compact('footer'));
     }
 
@@ -39,6 +45,7 @@ class FooterController extends Controller
     public function update(Request $request, Footer $footer)
     {
         
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'text' => 'required|max:105',
             'text_link' => 'required|max:55',
@@ -57,8 +64,20 @@ class FooterController extends Controller
      * @param  \App\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Footer $footer)
+ 
+    public function create()
     {
-        //
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function store()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
+    }
+    public function destroy()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
     }
 }

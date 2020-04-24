@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Icon;
+use App\User;
 use Illuminate\Http\Request;
 
 class IconController extends Controller

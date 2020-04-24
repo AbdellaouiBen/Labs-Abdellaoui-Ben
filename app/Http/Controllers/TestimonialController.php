@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Testimonial;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
+        $this->authorize('adminWebmaser', User::class);
         $testimonials = Testimonial::all();
         return view('testimonial.index',compact('testimonials'));
     }
@@ -26,7 +31,13 @@ class TestimonialController extends Controller
      */
     public function create()
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('testimonial.create');
+    }
+    public function show()
+    {
+        $this->authorize('adminWebmaser', User::class);
+        return redirect()->back();
     }
 
     /**
@@ -37,6 +48,7 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'img'=>'required|image',
             'full_name'=>'required|max:250',
@@ -65,6 +77,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonial)
     {
+        $this->authorize('adminWebmaser', User::class);
         return view('testimonial.edit',compact('testimonial'));
     }
 
@@ -77,6 +90,7 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, Testimonial $testimonial)
     {
+        $this->authorize('adminWebmaser', User::class);
         $validatedData = $request->validate([
             'img'=>'sometimes|image',
             'full_name'=>'required|max:250',
@@ -105,7 +119,8 @@ class TestimonialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Testimonial $testimonial)
-    {            
+    {          
+        $this->authorize('adminWebmaser', User::class);  
         Storage::disk('public')->delete($testimonial->img);
         $testimonial->delete() ;
         return redirect()->route('testimonial.index');

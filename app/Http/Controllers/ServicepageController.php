@@ -9,6 +9,7 @@ use App\Contact;
 use App\Footer;
 use App\Independant;
 use App\Article;
+use App\User;
 
 class ServicepageController extends Controller
 {

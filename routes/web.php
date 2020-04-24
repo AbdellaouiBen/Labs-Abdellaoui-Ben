@@ -43,7 +43,7 @@ Route::resource('newsletter','NewsletterController');
 Route::resource('quote','QuoteController');
 
 Route::resource('article','ArticleController');
-Route::get('article','ArticleController@search')->name('article.search');
+Route::get('/article/search','ArticleController@search')->name('article.search');
 Route::resource('tag','TagController');
 Route::resource('categorie','CategorieController');
 Route::resource('commentaire','CommentaireController');

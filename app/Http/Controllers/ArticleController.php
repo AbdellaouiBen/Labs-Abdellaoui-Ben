@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
+    // public function __construct(){
+    //     $this->middleware('isAdminOrWebmaster')->only('');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +31,7 @@ class ArticleController extends Controller
         return view('article.index',compact('articles'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,6 +39,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
+        $this->authorize('adminWebRedacteur', Article::class);
         $categories = Categorie::all();
         $tags = Tag::all();
         return view('article.create',compact('tags','categories'));
@@ -48,6 +53,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('adminWebRedacteur', Article::class);
         
         $validatedData = $request->validate([
             'img' => 'required|image',
@@ -63,10 +69,6 @@ class ArticleController extends Controller
         $article->accepted = false;
         $article->categorie_id = $request->input('categorie_id');
         $article->user_id = Auth::id();
-        // foreach ($request->tag as $tag_id) {
-        //     Tag::find($tag_id)->articles()->attach($article->id);
-        //     $article->tags()->attach($tag_id);
-        // }
         $article->save();
         foreach($request->input('tag') as $tag){
             $article->tags()->attach($tag);
@@ -100,7 +102,8 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
-    {
+    {        
+        $this->authorize('adminWebRedacteurOf',$article ,Article::class);
         $categories = Categorie::all();
         $tags = Tag::all();
         $articletag = Article_Tag::where('article_id',$article->id)->get();
@@ -116,6 +119,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+        $this->authorize('adminWebRedacteurOf',$article, User::class);
         $validatedData = $request->validate([
             'img' => 'sometimes|image',
             'titre' => 'required|max:150',
@@ -129,7 +133,7 @@ class ArticleController extends Controller
         }
         $article->titre = $request->input('titre');
         $article->text = $request->input('text');
-        if (Auth::id()==2) {
+        if (Auth::id()==3) {
             if($request->input('accepted')){
                 $article->accepted = true;
             }else{ 
@@ -161,6 +165,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {            
+        $this->authorize('adminWebRedacteurOf', User::class);
         Storage::disk('public')->delete($article->img);
         $articleTags = Article_Tag::all()->where('article_id','=',$article->id);
         foreach($articleTags as $tag){
