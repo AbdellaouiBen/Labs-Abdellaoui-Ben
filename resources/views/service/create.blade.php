@@ -3,91 +3,72 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Ajouter une nouvelle icon</h1>
 @stop
 
 @section('content')
 
- 
-    <h1 class="mt-5 text-center bg-danger text-white "><u>Ajouter une icon</u> </h1>
 
-    <form action="{{route('service.store')}}" method="POST" >
-        @csrf
-    
-        <div class="text-center form-group container">    
-            {{-- <div class="form-group">
-                <label class="d-block input-group-text" for="icon">icon</label> 
-                <select  name="icon"  >
-                    @php
-                        $icons = [
-                            ['code'=> 'f116','class'=>'fa fa-shopping-bag'],
-                            ['code'=> 'f080','class'=>"fa fa-bar-chart"],
-                            ['code'=> 'f1d8','class'=>"fa fa-paper-plane"],
-                            ['code'=> 'f03e','class'=>"far fa-image"],
-                            ['code'=> 'f018','class'=>"fas fa-road"]
-                        ];
-                        @endphp
-                      
-                    @foreach ($icons as $key => $value)
-                        <option  value="{{$icons[$key]['class']}}"> &#x{{$icons[$key]['code']}}  </option>
-                    @endforeach
-                </select>     
-                @error('icon')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>              --}}
-            <div class="form-group">
-                <label class="d-block input-group-text" for="icon">icon</label> 
-
-                    <div class="d-flex row modImg">
-                        @foreach ($icons as $item)
-                        <div class="form-check col-3 my-2 d-flex align-items-center justify-content-between  flex-column-reverse">
-    
-                            <input  type="radio" name="icon" id="icon"
-                            value="{{$item->icon}}">
-                            <i  style="font-size: 40px" class="{{$item->icon}} my-2"></i>
-    
-                        </div>
-                        @endforeach
-                    </div>
-                    
-
-
-                @error('icon')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div> 
-
-
-    
-          
-            {{-- <div class="form-group">
-                <label class="d-block input-group-text" for="icon">icon</label> 
-                <input class="form-control" placeholder="icon" type="text " name='icon' value="@if($errors->first('icon'))@else{{ old('icon') }}@endif">      
-                @error('icon')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>              --}}
-
-            <div class="form-group">
-                <label class="d-block input-group-text" for="titre">titre</label> 
-                <input class="form-control @error('titre') is-invalid @enderror" placeholder="titre" type="text " name='titre' value="@if($errors->first('titre'))@else{{ old('titre') }}@endif">      
-                @error('titre')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>             
-
-            <div class="form-group">
-                <label class="d-block input-group-text" for="description">description</label> 
-                <input class="form-control @error('description') is-invalid @enderror" placeholder="description" type="text " name='description' value="@if($errors->first('description'))@else{{ old('description') }}@endif">      
-                @error('description')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>             
-                
-            <input class="btn btn-site" type="submit" value="ajouter">
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Ajouter un nouveau service </h3>
         </div>
-    </form> 
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('service.store')}}" method="post" >
+            @csrf
+          <div class="card-body">
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <input name="titre" type="text" class="form-control @error('titre') is-invalid @enderror" id="titre" value="@if($errors->first('titre'))@else{{ old('titre') }}@endif" placeholder="Titre">
+                @error('titre')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="role">Icon</label>
+                <div class="d-flex row modImg">
+                    @foreach ($icons as $item)
+                    <div class="form-check col-3 my-2 d-flex align-items-center justify-content-between  flex-column-reverse">
+
+                        <input  type="radio" name="icon" id="icon"
+                        value="{{$item->icon}}">
+                        <i  style="font-size: 40px" class="{{$item->icon}} my-2"></i>
+
+                    </div>
+                    @endforeach
+                </div>
+                @error('icon')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="description">description</label>
+                <input name="description" type="text" class="form-control @error('description') is-invalid @enderror" id="description" value="@if($errors->first('description'))@else{{ old('description') }}@endif" placeholder="Description">
+                @error('description')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+        </div>
+    
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <a href="{{route('role.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
     
     
 @stop 

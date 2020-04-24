@@ -3,70 +3,71 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">editer section "footer"</h1>
 @stop
 
 @section('content')
 
-        <div class="container">
-            <div class="text-center">
-                <h1 class=" shadow-lg p-3 mb-5 bg-danger rounded">editer section "footer"</h1>
-            </div>
 
-            <div class="card-body">
 
-            <form action="{{route('footer.update',$footer)}}" method="post" >
-                @method('PUT')
-                @csrf
-          
-                <div class="form-group row">
-                    <label for="text" class="col-md-4 col-form-label text-md-right ">{{ __('text') }}</label>
-                    <div class="col-md-6">
-                        <input id="text" type="text" class="form-control @error('text') is-invalid @enderror" name="text" value="{{ old('text',$footer->text) }}" >
-                        @error('text')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                
-                <div class="form-group row">
-                    <label for="text_link" class="col-md-4 col-form-label text-md-right ">{{ __('text_link') }}</label>
-                    <div class="col-md-6">
-                        <input id="text_link" type="text" class="form-control @error('text_link') is-invalid @enderror" name="text_link" value="{{ old('text_link',$footer->text_link) }}" >
-                        @error('text_link')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-                
-                <div class="form-group row">
-                    <label for="link" class="col-md-4 col-form-label text-md-right ">{{ __('link') }}</label>
-                    <div class="col-md-6">
-                        <input id="link" type="text" class="form-control @error('link') is-invalid @enderror" name="link" value="{{ old('link',$footer->link) }}" >
-                        @error('link')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                </div>
-       
-      
-
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">UPDATE</button>
-                    <a href="{{route('footer.index')}}" class="btn btn-primary">ANNULER</a>
-                </div>
-               
-            </form>
-
-            </div>
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Modifier la section "footer"</h3>
         </div>
-       
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('footer.update',$footer)}}" method="post" enctype="multipart/form-data" >
+            @csrf
+            @method('PUT')
+          <div class="card-body">
+            <div class="form-group">
+                <label for="text">Texte</label>
+                <input name="text" type="text" class="form-control @error('text') is-invalid @enderror" id="text" value="{{ old('text',$footer->text) }}" placeholder="Texte">
+                @error('text')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="text_link">Texte contenant un lien</label>
+                <input name="text_link" type="text" class="form-control @error('text_link') is-invalid @enderror" id="text_link" value="{{ old('text_link',$footer->text_link) }}" placeholder="Texte contenant un lien">
+                @error('text_link')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="link">Le lien</label>
+                <input name="link" type="text" class="form-control @error('link') is-invalid @enderror" id="link" value="{{ old('link',$footer->link) }}" placeholder="Sous-titre">
+                @error('link')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+           
+
+
+        </div>
+    
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+            <a href="{{route('footer.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
 
     
 @stop

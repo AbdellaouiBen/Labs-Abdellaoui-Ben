@@ -169,4 +169,15 @@ class ArticleController extends Controller
         $article->delete();
         return redirect()->route('article.index');
     }
+    public function search(Request $request)
+    {            
+        $search = $request->input('search');
+        $articles = Article::where('titre','LIKE','%'.$search.'%' )->latest('id')->paginate(3);
+        $categories = Categorie::inRandomOrder()->take(6)->get();
+        $tags = Tag::inRandomOrder()->take(9)->get();
+        $quote = Quote::first();
+        $footer = Footer::first();
+        $logo = Logo::first();
+        return view('pages.blogpage',compact('logo','footer','quote','articles','tags','categories'));
+    }
 }

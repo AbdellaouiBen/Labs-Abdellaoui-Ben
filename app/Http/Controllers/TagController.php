@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Categorie;
+use App\Logo;
+use App\Footer;
+use App\Quote;
+use App\Article;
 use App\Tag;
+use App\Article_Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -53,7 +59,15 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        $categories = Categorie::inRandomOrder()->take(6)->get();
+        $tags = Tag::inRandomOrder()->take(9)->get();
+        // dd($tag->articles);
+        $articles = $tag->articles()->paginate(3);
+        // $articles = Article::where('id', $articless->article_id )->latest('id')->paginate(3);
+        $quote = Quote::first();
+        $footer = Footer::first();
+        $logo = Logo::first();
+        return view('pages.blogpage',compact('logo','footer','quote','articles','tags','categories'));
     }
 
     /**

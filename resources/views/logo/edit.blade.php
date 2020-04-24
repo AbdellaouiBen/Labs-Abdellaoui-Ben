@@ -22,17 +22,15 @@
 
             <div class="form-group">
                 <label for="logo">Logo</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input name="logo" type="file" class="custom-file-input  @error('logo') is-invalid @enderror" id="logo">
-                        <label class="custom-file-label" for="logo">Choisir une image</label>
-                    </div>
-                </div>
+                <label for="logo">Image à rajouter a la banniere</label>
+                <input name="logo" type="file" class="form-control @error('logo') is-invalid @enderror" id="logo">
+        
                 @error('logo')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
+       
         
             </div>
          

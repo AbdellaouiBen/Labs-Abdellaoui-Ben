@@ -11,7 +11,7 @@
     <div class="container">
         <h1 class="text-center">Services</h1>
         <a href="{{route('service.create')}}">
-            <button class="btn btn-success d-block mx-auto">Service</button>
+            <button class="btn btn-success d-block mx-auto">Ajouter un service</button>
         </a>
         <table class="table">
             <thead>

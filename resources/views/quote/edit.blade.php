@@ -3,7 +3,6 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Edit quote</h1>
 @stop
 
 @section('content')
@@ -11,22 +10,41 @@
 
 
 <div class="container">
-    <h1 class="mt-5 text-center bg-danger text-white ">edit quote</h1>
 
-    <form action="{{route('quote.update',$quote)}}" method="POST"  >
-        @method('PUT')
-        @csrf
-        <div class="text-center form-group container">    
 
+    
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Modifier la citation</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('quote.update',$quote)}}" method="post" >
+            @csrf
+            @method('PUT')
+          <div class="card-body">
             <div class="form-group">
-                <textarea name="quote" id="quote" cols="30" rows="10">{{ old('quote',$quote->quote) }}</textarea>
+                <label for="quote">Citation</label>
+                <input name="quote" type="text" class="form-control @error('quote') is-invalid @enderror" id="quote" value="{{ old('quote',$quote->quote) }}" placeholder="quote">
                 @error('quote')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <span class="invalid-feedback" quote="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
-            <a class="btn btn-primary" href="{{route('quote.index')}}">Annuler</a> 
-            <input class="btn btn-warning" type="submit" value="edit">
-        </div> 
-    </form>
-</div> 
+        </div>
+    
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <a href="{{route('quote.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
 @stop

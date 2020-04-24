@@ -3,32 +3,47 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Ajouter une banniere</h1>
 @stop
 
 @section('content')
 
-
-
-
-<form action="{{route('banniere.store')}}" method="POST" enctype="multipart/form-data" >
-    @csrf
-    
-    <div class="text-center form-group container">    
-        <h1 class="mt-5 text-center bg-danger text-white "><u>Ajouter une banniere</u> </h1>
-            <div class="form-group">
-                <label class="d-block input-group-text" for="img">img</label> 
-                <input class="m-3 @error('img') is-invalid @enderror" placeholder="img" type="file" name='img'>      
-                @error('img')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>             
-
-      
-                
-            <input class="btn btn-success" type="submit" value="ajouter">
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Modifier une banniere </h3>
         </div>
-    </form> 
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('banniere.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+          <div class="card-body">
+
+            <div class="form-group">
+                <label for="img">Image à rajouter a la banniere</label>
+                <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img">
+        
+                @error('img')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+        
+            </div>
+         
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">ajouter</button>
+            <a href="{{route('banniere.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
     
     
 @stop 

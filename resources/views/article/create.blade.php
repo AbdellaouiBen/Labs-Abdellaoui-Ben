@@ -3,49 +3,52 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Ajouter un article</h1>
 @stop
 
 @section('content')
 
- 
-    <h1 class="mt-5 text-center bg-danger text-white "><u>Ajouter un article</u> </h1>
 
-    <form action="{{route('article.store')}}" method="POST" class="pb-5" enctype="multipart/form-data" >
-        @csrf
-    
-        <div class="text-center form-group container">   
 
+
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Ajouter un Article </h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('article.store')}}" method="post" enctype="multipart/form-data"  >
+            @csrf
+          <div class="card-body">
             <div class="form-group">
-                <label class="d-block input-group-text" for="img">img</label> 
-                <input class="form-control  @error('article') is-invalid @enderror" type="file" name='img' >      
-                @error('img')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>             
-            
-            <div class="form-group">
-                <label class="d-block input-group-text" for="titre">titre</label> 
-                <input class="form-control  @error('titre') is-invalid @enderror" placeholder="titre" type="text " name='titre' value="@if($errors->first('titre'))@else{{ old('titre') }}@endif">      
+                <label for="titre">Titre</label>
+                <input name="titre" type="text" class="form-control @error('titre') is-invalid @enderror" id="titre" value="@if($errors->first('titre'))@else{{ old('titre') }}@endif" placeholder="Titre">
                 @error('titre')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>             
-            
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
             <div class="form-group">
-                <label class="d-block input-group-text" for="text">text</label> 
-                <textarea class="form-control  @error('text') is-invalid @enderror" name="text"cols="30" placeholder="text" rows="10">@if($errors->first('text'))@else{{ old('text') }}@endif</textarea>    
+                <label for="img">Image</label>
+                <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img" >
+                @error('img')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="text">Article</label>
+                <textarea placeholder="Article" name="text"  class="form-control @error('text') is-invalid @enderror" id="text" cols="30" rows="20">@if($errors->first('text'))@else{{ old('text') }}@endif</textarea>
                 @error('text')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>       
-          
-                  
-
-
-            
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
             <div class="form-group">
-                <label class="d-block input-group-text" for="categorie_id">categorie</label>
+                <label for="categorie_id">Fonction du client</label>
                 <select class="form-control @error('categorie_id') is-invalid @enderror" name="categorie_id" id="categorie_id">
                     @foreach ($categories as $categorie)
                 @if ($categorie->id == old('categorie_id'))
@@ -56,12 +59,13 @@
                     @endforeach
                 </select>
                 @error('categorie_id')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
-            </div>       
-            
+            </div>
             <div class="form-group">
-                <label class="d-block input-group-text" for="tag">tags</label>
+                <label for="tag">Tags</label>
                 <div class="row">
                     @foreach ($tags as $tag)
                     <div class="col-2">
@@ -70,14 +74,29 @@
                     </div>
                     @endforeach
                 </div>
+
+
                 @error('tag')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
-            </div>       
- 
-            <input class="btn btn-warning" type="submit" value="ajouter">
+            </div>
+
+
+
         </div>
-    </form> 
+    
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <a href="{{route('article.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
     
     
 @stop 

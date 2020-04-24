@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         
                 [
                     'text'    => 'Roles',
-                    'icon'    => 'fas fa-fw fa-share',
+                    'icon'    => 'fas fa-user-tag',
                     'url'  => '/role',
                 ]
             );
@@ -63,19 +63,19 @@ class AppServiceProvider extends ServiceProvider
                 [
                     'text' => 'Messages',
                     'url'  => '/form',
-                    'icon' => 'fas fa-users',
+                    'icon' => 'fas fa-envelope',
                     'label' => $nb
                 ],
                 [
                     'text' => 'Commentaires',
                     'url'  => '/commentaire',
-                    'icon' => 'fas fa-users',
+                    'icon' => 'fas fa-comment-dots',
                     'label' => $nb3
                 ],
                 [
                     'text' => 'Newsletter list',
                     'url'  => '/newsletter',
-                    'icon' => 'fas fa-users',
+                    'icon' => 'fas fa-list-alt',
                     'label' => $nb2
                 ]
         
@@ -142,7 +142,7 @@ class AppServiceProvider extends ServiceProvider
                             'text' => 'Categories', 
                             'icon' => 'fas fa-list-ul',
                             'url'  => '/categorie',
-                        ]
+                        ]    
                 
             );
 

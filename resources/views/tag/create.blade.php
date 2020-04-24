@@ -3,30 +3,43 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Ajouter un Tag</h1>
 @stop
 
 @section('content')
 
- 
-    <h1 class="mt-5 text-center bg-danger text-white "><u>Ajouter un Tag</u> </h1>
-
-    <form action="{{route('tag.store')}}" method="POST" >
-        @csrf
-    
-        <div class="text-center form-group container">    
-            <div class="form-group">
-                <label class="d-block input-group-text" for="tag">tag</label> 
-                <input class="form-control @error('tag') is-invalid @enderror" placeholder="tag" type="text " name='tag' value="@if($errors->first('tag'))@else{{old('tag')}}@endif">      
-                @error('tag')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>             
-                
-            <a class="btn btn-primary" href="{{route('tag.index')}}">annuler</a>
-            <input class="btn btn-success" type="submit" value="ajouter">
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Creer un tag </h3>
         </div>
-    </form> 
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('tag.store')}}" method="post" >
+            @csrf
+          <div class="card-body">
+            <div class="form-group">
+                <label for="tag">Nom du tag</label>
+                <input name="tag" type="text" class="form-control @error('tag') is-invalid @enderror" id="tag" value="@if($errors->first('tag'))@else{{ old('tag') }}@endif" placeholder="Nom du tag">
+                @error('tag')
+                <span class="invalid-feedback" tag="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+        </div>
     
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <a href="{{route('tag.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+ 
+
+
     
 @stop 

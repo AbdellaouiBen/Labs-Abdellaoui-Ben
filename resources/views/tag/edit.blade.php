@@ -3,31 +3,47 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">edit Tag</h1>
 @stop
 
 @section('content')
 
-
-
-    <h1 class="mt-5 text-center bg-danger text-white ">edit Tag</h1>
-
-    <form action="{{route('tag.update',$tag)}}" method="POST" >
-        @method('PUT')
-        @csrf
-        <div class="text-center form-group container">    
-
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Modifier le tag "{{$tag->tag}}"</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('tag.update',$tag)}}" method="post" >
+            @csrf
+            @method('PUT')
+          <div class="card-body">
             <div class="form-group">
-                <label class="d-block input-group-text" for="tag">Tag</label>
-                <input class="form-control @error('tag') is-invalid @enderror" type="text" name='tag' value="{{old('tag',$tag->tag)}}">
+                <label for="tag">tag</label>
+                <input name="tag" type="text" class="form-control @error('tag') is-invalid @enderror" id="tag" value="{{ old('tag',$tag->tag) }}" placeholder="tag">
                 @error('tag')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
-            </div> 
+            </div>
+        </div>
+    
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <a href="{{route('tag.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
 
-            <a class="btn btn-primary" href="{{route('tag.index')}}">annuler</a>
-            <input class="btn btn-warning" type="submit" value="editer">
-        </div> 
-    </form>
+
+
+
+
+
     
 @stop

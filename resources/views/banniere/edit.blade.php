@@ -21,16 +21,14 @@
           <div class="card-body">
 
             <div class="form-group">
-                <label for="img">Image de la banniere</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input name="img" type="file" class="custom-file-input  @error('img') is-invalid @enderror" id="img">
-                        <label class="custom-file-label" for="img">Choisir une image</label>
-                    </div>
-                </div>
-                @error('img')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+              <label for="img">Image à rajouter a la banniere</label>
+              <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img">
+      
+              @error('img')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+              @enderror
         
             </div>
          

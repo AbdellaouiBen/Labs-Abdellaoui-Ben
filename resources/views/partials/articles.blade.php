@@ -1,4 +1,14 @@
 <div class="col-md-8 col-sm-7 blog-posts">
+    @if (count($articles)==0)
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Oupss!</h4>
+        <p>Désolé... il n'y a pas encore d'article </p>    
+      </div>
+
+        
+    @else
+        
+    
     
     @foreach ($articles as $article)
     <!-- Post item -->
@@ -13,7 +23,7 @@
         <div class="post-content">
             <h2 class="post-title">{{$article->titre}}</h2>
             <div class="post-meta">
-                <a href="">{{$article->categorie->categorie}}</a>
+                <a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a>
                 <a href="">
                     @foreach ($article->tags->shuffle()->take(3) as $index=>$item) 
                         @if($loop->last)
@@ -39,4 +49,5 @@
         <a href="">02.</a>
         <a href="">03.</a> --}}
     </div>
+    @endif
 </div>  

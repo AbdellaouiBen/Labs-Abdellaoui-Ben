@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Categorie;
+use App\Logo;
+use App\Footer;
+use App\Quote;
+use App\Article;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -53,7 +58,13 @@ class CategorieController extends Controller
      */
     public function show(Categorie $categorie)
     {
-        //
+        $categories = Categorie::inRandomOrder()->take(6)->get();
+        $tags = Tag::inRandomOrder()->take(9)->get();
+        $articles = Article::where('categorie_id', $categorie->id )->latest('id')->paginate(3);
+        $quote = Quote::first();
+        $footer = Footer::first();
+        $logo = Logo::first();
+        return view('pages.blogpage',compact('logo','footer','quote','articles','tags','categories'));
     }
 
     /**

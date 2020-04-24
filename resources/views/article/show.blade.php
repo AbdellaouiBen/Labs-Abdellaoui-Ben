@@ -19,7 +19,7 @@
 						<div class="post-content">
 							<h2 class="post-title">{{$article->titre}}</h2>
 							<div class="post-meta">
-								<a href="">{{$article->categorie->categorie}}</a>
+								<a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a>
 								<a href="">
 									@foreach ($article->tags->shuffle()->take(3) as $index=>$item) 
 										@if($loop->last)

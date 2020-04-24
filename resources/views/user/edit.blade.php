@@ -62,13 +62,8 @@
             </div>
 
             <div class="form-group">
-              <label for="img">File input</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input name="img" type="file" class="custom-file-input  @error('img') is-invalid @enderror" id="img">
-                  <label class="custom-file-label" for="img">Choisir une image</label>
-                </div>
-            </div>
+              <label for="img">Photo de profil</label>
+              <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img" >
             @error('img')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
