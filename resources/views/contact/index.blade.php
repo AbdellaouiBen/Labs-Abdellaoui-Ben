@@ -11,65 +11,59 @@
  
 
 
-<div class="container">
-    <div class="mb-5 container">
-        <div class="text-center">
+
+<table class="table table-striped table-dark container">
+    <thead>
+     
+            <th > </th>
+
+      
+    </thead> 
+    <tbody>
+            
+        <tr>
+            <th class="border border-dark" scope="col">Titre</th>
+            <th class="border border-dark">{{$contact->titre}} </th> 
+        </tr> 
+        <tr>
+            <th class="border border-dark" scope="col">Texte</th>
+            <td class="border border-dark"><p class="text-break">{{$contact->text}}</p></td> 
+        </tr>
+        <tr>
+            <th class="border border-dark" scope="col">Sous titre</th>
+            <td class="border border-dark">{{$contact->sous_titre}}</td> 
+        </tr>
+         <tr>
+            <th class="border border-dark" scope="col">Ligne haute de l'adresse</th>
+            <td class="border border-dark">{{$contact->adress_un}}</td> 
+        </tr>
+         <tr>
+            <th class="border border-dark" scope="col">Ligne basse de l'adresse</th>
+            <td class="border border-dark">{{$contact->adress_deux}}</td> 
+        </tr>
+         <tr>
+            <th class="border border-dark" scope="col">Numero de télephone</th>
+            <td class="border border-dark">{{$contact->tel}}</td> 
+        </tr>
+         <tr>
+            <th class="border border-dark" scope="col">Adresse email</th>
+            <td class="border border-dark">{{$contact->email}}</td> 
+        </tr>
+        
+        <tr>
+            <th  class="border border-dark"scope="col">Action</th>
+            <td class="border border-dark">              
+                <div class=" mb-2">
+                    <a  class="  btn btn-warning  " href="{{route('contact.edit',$contact)}}">Modifier<i class="fas fa-pencil-alt"></i></a> 
+                </div>
+      
+            
+            </td>
+        </tr>
                 
-            <h1 class="text-white shadow-lg p-3 mt-3 mb- bg-danger rounded">Section Contact </h1>
-        </div>
-        <table class="table table-striped table-secondary">
- 
-            <tbody>
-                
-                <tr>   
-                    <th scope="col" class="text-center border border-dark">titre</th>
-                    <td scope="row" class="text-center border border-dark">{{$contact->titre}}</td>
-                </tr>
-                <tr> 
-                    <th scope="col" class="text-center border border-dark">text</th>
-                    <td class="text-center border border-dark"><p class="text-break">{{$contact->text}}</p></td>
-                </tr>
-                <tr> 
-                    <th scope="col" class="text-center border border-dark">sous_titre</th>
-                    <td class="text-center border border-dark">{{$contact->sous_titre}}</td>
-                </tr>
-                <tr> 
-                    <th scope="col" class="text-center border border-dark">adress_un</th>
-                    <td class="text-center border border-dark"> {{$contact->adress_un}}</td>
-                </tr>
-                <tr> 
-                    <th scope="col" class="text-center border border-dark">adress_deux</th>
-                    <td class="text-center border border-dark"> {{$contact->adress_deux}}</td>
-                </tr>
-                <tr> 
-                    <th scope="col" class="text-center border border-dark">tel</th>
-                    <td class="text-center border border-dark"> {{$contact->tel}}</td>
-                </tr>
-                <tr> 
-                    <th scope="col" class="text-center border border-dark">email</th>
-                    <td class="text-center border border-dark"> {{$contact->email}}</td>
-                </tr>
- 
-                <tr> 
-                    <th scope="col" class="text-center border border-dark">Action</th>
-
-                    <td class="text-center border border-dark ">  
-                            <a class="btn btn-warning " href="{{route('contact.edit',$contact)}}">edit</a>   
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
-</div> 
-
-
-
-
-
-
-
-
+  
+    </tbody>
+  </table> 
 
 
 
@@ -83,3 +77,4 @@
 
 
 @stop
+

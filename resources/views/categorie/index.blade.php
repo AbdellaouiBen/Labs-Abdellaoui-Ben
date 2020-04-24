@@ -8,34 +8,57 @@
 
 @section('content')
 
-    <div class="container">
-        <h1 class="text-center">Categories</h1>
-        <a href="{{route('categorie.create')}}">
-            <button class="btn btn-success d-block mx-auto">Ajouter une categorie</button>
-        </a>
-        <table class="table">
-            <thead>
-              <tr  class="row bg-danger text-white">
-                <th class="col">categorie</th>
-                <th class="col">Action</th>
-              </tr>    
-            </thead>
-            <tbody>
-                @foreach ($categories as $categorie)
-                    <tr class="row">
-                        <td class="col">{{$categorie->categorie}}</td>
-                        <td class="col d-flex">
-                            <a href="{{route('categorie.edit',$categorie)}}" class="btn btn-warning">edit</a>
-                            <form action="{{route('categorie.destroy',$categorie)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type='submit' class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </td>
-                    </tr> 
-                @endforeach
-            </tbody>
-          </table>  
+          
 
-    
+<table class="table table-striped table-dark container">
+    <thead>
+      <tr class="text-center"  >
+        <th scope="col">Categorie</th>
+        <th class="text-center" scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($categories as $categorie)
+            
+        <tr class="text-center">
+            <td>{{$categorie->categorie}}</td>
+            <td>              
+                <div class="text-center mb-2">
+                    <a  class="  btn btn-warning rounded-circle " href="{{route('categorie.edit',$categorie)}}"><i class="fas fa-pencil-alt"></i></a> 
+                </div>
+                <div class="text-center">
+                    <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deletecategorie{{$categorie->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                </div>
+            
+            </td>
+        </tr>
+                <div class="modal fade" id="deletecategorie{{$categorie->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                    <div class="modal-content bg-danger">
+                        <div class="modal-header ">
+                        <h4 class="modal-title">Attention!!!</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                        <div class="modal-body text-center">
+                        <p>Vous êtes sur le point de supprimer la categorie "{{ucfirst($categorie->categorie)}}"! <br> Cette action n'est pas reversible!</p>
+                        </div>
+                        <div class="modal-footer float-right">
+                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                        <form action="{{route('categorie.destroy',$categorie)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-light">Supprimer cette categorie</button>
+                        </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+        @endforeach
+  
+    </tbody>
+  </table> 
 @stop

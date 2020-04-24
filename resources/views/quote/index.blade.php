@@ -8,25 +8,28 @@
 
 @section('content')
 
-    <div class="container">
-        <h1 class="text-center">Quote</h1>
 
-        <table class="table">
-            <thead>
-              <tr  class="row bg-danger text-white">
-                <th class="col-9">Quote</th>
-                <th class="col-3">Action</th>
-              </tr>    
-            </thead>
-            <tbody>
-                    <tr class="row">
-                        <td class="col-9">{{$quote->quote}}</td>
-                        <td class="col-3">
-                            <a href="{{route('quote.edit',$quote)}}" class="btn btn-warning">edit</a>
-                        </td>
-                    </tr> 
-            </tbody>
-          </table>  
+          
+<table class="table table-striped table-dark">
+  <thead>
+    <tr >
+      <th scope="col">Quote</th>
+      <th class="text-center" scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+          
+      <tr>
+     
+          <td>{{$quote->quote}}</td>
+          <td>              
+              <div class="text-center mb-2">
+                  <a  class="  btn btn-warning rounded-circle " href="{{route('quote.edit',$quote)}}"><i class="fas fa-pencil-alt"></i></a> 
+              </div>
+          </td>
+      </tr>
 
+  </tbody>
+</table> 
     
 @stop

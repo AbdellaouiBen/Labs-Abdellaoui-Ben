@@ -23,18 +23,18 @@
         <div class="post-content">
             <h2 class="post-title">{{$article->titre}}</h2>
             <div class="post-meta">
-                <a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a>
-                <a href="">
-                    @foreach ($article->tags->shuffle()->take(3) as $index=>$item) 
+                <span><a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a></span>
+               <span>
+                    @foreach ($article->tags->shuffle()->take(3) as $index=>$tag) 
                         @if($loop->last)
-                            {{$item->tag}}
+                           <a href="{{route('tag.show',$tag)}}">{{$tag->tag}}</a> 
                         @else
-                            {{$item->tag}} -
+                           <a href="{{route('tag.show',$tag)}}">{{$tag->tag}} -</a>
                         @endif
                     @endforeach 
                    
-                </a>
-                <a href="">2 Comments</a>  
+                </span> 
+               <span> <a href="{{route('article.show',$article)}}#comments">{{$article->comments->count()}} Comments</a>  </span>
             </div>
             <p>{{Illuminate\Support\Str::limit($article->text,450,'...')}}</p>
             <a href="{{route('article.show',$article)}}" class="read-more">Read More</a>
@@ -46,8 +46,8 @@
     <div class="page-pagination">
         {{$articles->links()}}
         {{-- <a class="active" href="">01.</a>
-        <a href="">02.</a>
-        <a href="">03.</a> --}}
+        <a href="/blog?page=2">02.</a>
+        <a href="/blog?page=3">03.</a> --}}
     </div>
     @endif
 </div>  

@@ -8,34 +8,59 @@
 
 @section('content')
 
-    <div class="container">
-        <h1 class="text-center">Tags</h1>
-        <a href="{{route('tag.create')}}">
-            <button class="btn btn-success d-block mx-auto">Ajouter un tag</button>
-        </a>
-        <table class="table">
+
+
+          <table class="table table-striped table-dark">
             <thead>
-              <tr  class="row bg-danger text-white">
-                <th class="col">tag</th>
-                <th class="col">Action</th>
-              </tr>    
+              <tr class="text-center">
+                <th scope="col">Tag</th>
+                <th class="text-center" scope="col">Action</th>
+              </tr>
             </thead>
             <tbody>
                 @foreach ($tags as $tag)
-                    <tr class="row">
-                        <td class="col">{{$tag->tag}}</td>
-                        <td class="col d-flex">
-                            <a href="{{route('tag.edit',$tag)}}" class="btn btn-warning">edit</a>
-                            <form action="{{route('tag.destroy',$tag)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type='submit' class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </td>
-                    </tr> 
+                    
+                <tr class="text-center">
+                    <td>{{$tag->tag}}</td>
+                    <td>              
+                        <div class="text-center mb-2">
+                            <a  class="  btn btn-warning rounded-circle " href="{{route('tag.edit',$tag)}}"><i class="fas fa-pencil-alt"></i></a> 
+                        </div>
+                        <div class="text-center">
+                            <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deletetag{{$tag->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    
+                    </td>
+                </tr>
+                        <div class="modal fade" id="deletetag{{$tag->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog">
+                            <div class="modal-content bg-danger">
+                                <div class="modal-header ">
+                                <h4 class="modal-title">Attention!!!</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                <p>Vous êtes sur le point de supprimer le tag "{{ucfirst($tag->tag)}}"! <br> Cette action n'est pas reversible!</p>
+                                </div>
+                                <div class="modal-footer float-right">
+                                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                                <form action="{{route('tag.destroy',$tag)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-light">Supprimer ce tag</button>
+                                </form>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
                 @endforeach
+          
             </tbody>
-          </table>  
+          </table> 
 
     
 @stop

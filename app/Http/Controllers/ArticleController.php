@@ -165,7 +165,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {            
-        $this->authorize('adminWebRedacteurOf', User::class);
+        $this->authorize('adminWebRedacteurOf',$article ,Article::class);
         Storage::disk('public')->delete($article->img);
         $articleTags = Article_Tag::all()->where('article_id','=',$article->id);
         foreach($articleTags as $tag){

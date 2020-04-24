@@ -8,35 +8,63 @@
 
 @section('content')
 
-    <div class="container">
-        <h1 class="text-center">Bannieres</h1>
-        <a href="{{route('banniere.create')}}">
-            <button class="btn btn-success d-block mx-auto">Ajouter une banniere</button>
-        </a>
-        <table class="table">
-            <thead>
-              <tr class="row bg-danger text-white text-center">
-                <th class="col">image</th>
-                <th class="col">Action</th>
-              </tr>    
-            </thead>
-            <tbody>
-                @foreach ($bannieres as $banniere)
-                
-                    <tr class="row">
-                        <td class="col text-center"><img class="w-75" src="{{'storage/'.$banniere->img}}" alt=""></td>
-                        <td class="col text-center">
-                            <a href="{{route('banniere.edit',$banniere)}}" class="btn btn-warning">edit</a>
-                            <form action="{{route('banniere.destroy',$banniere)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type='submit' class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </td>
-                    </tr> 
-                @endforeach
-            </tbody>
-          </table>  
 
+
+
+
+
+             
+<table class="table table-striped table-dark">
+    <thead>
+      <tr c >
+        <th class="text-center"  scope="col">Image</th>
+        <th class="text-center" scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($bannieres as $banniere)
+            
+        <tr>
+            <th class="text-center"><img class="w-25" src="{{'storage/'.$banniere->img}}" alt=""></th>
+            <td>              
+                <div class="text-center mb-2">
+                    <a  class="  btn btn-warning rounded-circle " href="{{route('banniere.edit',$banniere)}}"><i class="fas fa-pencil-alt"></i></a> 
+                </div>
+                <div class="text-center">
+                    <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deletebanniere{{$banniere->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                </div>
+            
+            </td>
+        </tr>
+                <div class="modal fade" id="deletebanniere{{$banniere->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                    <div class="modal-content bg-danger">
+                        <div class="modal-header ">
+                        <h4 class="modal-title">Attention!!!</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                        <div class="modal-body text-center">
+                        <p>Vous êtes sur le point de supprimer une image des bannieres! <br> Cette action n'est pas reversible!</p>
+                        </div>
+                        <div class="modal-footer float-right">
+                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                        <form action="{{route('banniere.destroy',$banniere)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-light">Supprimer cette immage</button>
+                        </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+        @endforeach
+  
+    </tbody>
+  </table> 
     
 @stop
+

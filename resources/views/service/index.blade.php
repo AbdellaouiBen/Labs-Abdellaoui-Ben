@@ -8,42 +8,72 @@
 
 @section('content')
 
-    <div class="container">
-        <h1 class="text-center">Services</h1>
-        <a href="{{route('service.create')}}">
-            <button class="btn btn-success d-block mx-auto">Ajouter un service</button>
-        </a>
-        <table class="table">
-            <thead>
-              <tr  class="row bg-danger text-white">
-                <th class="col">Id</th>
-                <th class="col">icon</th>
-                <th class="col">titre</th>
-                <th class="col">icon</th>
-                <th class="col">Action</th>
-              </tr>    
-            </thead>
-            <tbody>
-                @foreach ($services as $service)
-                    <tr class="row">
-                        <td class="col">{{$service->id}}</td>
-                        <td class="col"><i style="font-size: 40px" class="{{$service->icon}}"></i></td>
-                        <td class="col">{{$service->titre}}</td>
-                        <td class="col">{{$service->description}}</td>
-                        <td class="col text-center ">
-                            <a href="{{route('service.edit',$service)}}" class="btn btn-warning">editer</a>
-                            <form action="{{route('service.destroy',$service)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type='submit' class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </td>
-                    </tr> 
-                @endforeach
-            </tbody>
-          </table>  
+
+
+          
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr >
+        <th scope="col">Titre</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Description</th>
+        <th class="text-center" scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($services as $service)
+            
+        <tr>
+            <th>{{$service->id}} </th>
+            <td><i style="font-size: 40px" class="{{$service->icon}}"></i></td>
+            <td>{{$service->titre}}</td>
+            <td>{{$service->description}}</td>
+            <td>              
+                <div class="text-center mb-2">
+                    <a  class="  btn btn-warning rounded-circle " href="{{route('service.edit',$service)}}"><i class="fas fa-pencil-alt"></i></a> 
+                </div>
+                <div class="text-center">
+                    <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deleteservice{{$service->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                </div>
+            
+            </td>
+        </tr>
+                <div class="modal fade" id="deleteservice{{$service->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog">
+                    <div class="modal-content bg-danger">
+                        <div class="modal-header ">
+                        <h4 class="modal-title">Attention!!!</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                        <div class="modal-body text-center">
+                        <p>Vous êtes sur le point de supprimer le service "{{ucfirst($service->titre)}}"! <br> Cette action n'est pas reversible!</p>
+                        </div>
+                        <div class="modal-footer float-right">
+                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                        <form action="{{route('service.destroy',$service)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-light">Supprimer ce service</button>
+                        </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+        @endforeach
+  
+    </tbody>
+  </table>  
+
+
 @stop
 
 @section('css')
     <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
 @endsection
+
+

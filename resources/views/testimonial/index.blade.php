@@ -8,43 +8,71 @@
 
 @section('content')
 
-    <div class="container">
-        <h1 class="text-center">Testimonials</h1>
-        <a href="{{route('testimonial.create')}}">
-            <button class="btn btn-success d-block mx-auto">Ajouter un testimonial</button>
-        </a>
-        <table class="table">
+
+
+
+          <table class="table table-striped table-dark">
             <thead>
-              <tr  class="row bg-danger text-white">
-                <th class="col">Full name</th>
-                <th class="col">image</th>
-                <th class="col">function</th>
-                <th class="col">companie</th>
-                <th class="col">text</th>
-                <th class="col">Action</th>
-              </tr>    
+              <tr >
+                <th scope="col">Nom complet du partenaire</th>
+                <th scope="col">Phot du partenaire</th>
+                <th scope="col">Function du partenaire</th>
+                <th scope="col">Companie du partenaire</th>
+                <th scope="col">Commentaire du partenaire</th>
+                <th class="text-center" scope="col">Action</th>
+              </tr>
             </thead>
             <tbody>
                 @foreach ($testimonials as $testimonial)
-                
-                    <tr class="row">
-                        <td class="col">{{$testimonial->full_name}}</td>
-                        <td class="col"><img class="img-fluid" src="{{'storage/'.$testimonial->img}}" alt=""></td>
-                        <td class="col">{{$testimonial->role}}</td>
-                        <td class="col">{{$testimonial->company}}</td>
-                        <td class="col">{{$testimonial->text}}</td>
-                        <td class="col text-center">
-                            <a href="{{route('testimonial.edit',$testimonial)}}" class="btn btn-warning">edit</a>
-                            <form action="{{route('testimonial.destroy',$testimonial)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type='submit' class="btn btn-danger">Supprimer</button>
-                            </form>
-                        </td>
-                    </tr> 
+                    
+                <tr>
+                    <th>{{$testimonial->full_name}}</th>
+                    <td><img class="img-fluid" src="{{'storage/'.$testimonial->img}}" alt=""></td>
+                    <td>{{$testimonial->role}}</td>
+                    <td>{{$testimonial->company}}</td>
+                    <td>{{$testimonial->text}}</td>
+                    <td>              
+                        <div class="text-center mb-2">
+                            <a  class="  btn btn-warning rounded-circle " href="{{route('testimonial.edit',$testimonial)}}"><i class="fas fa-pencil-alt"></i></a> 
+                        </div>
+                        <div class="text-center">
+                            <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deletetestimonial{{$testimonial->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    
+                    </td>
+                </tr>
+                        <div class="modal fade" id="deletetestimonial{{$testimonial->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog">
+                            <div class="modal-content bg-danger">
+                                <div class="modal-header ">
+                                <h4 class="modal-title">Attention!!!</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                <p>Vous êtes sur le point de supprimer le testimonial de la companie {{ucfirst($testimonial->company)}}! <br> Cette action n'est pas reversible!</p>
+                                </div>
+                                <div class="modal-footer float-right">
+                                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                                <form action="{{route('testimonial.destroy',$testimonial)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-outline-light">Supprimer ce testimonial</button>
+                                </form>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
                 @endforeach
+          
             </tbody>
-          </table>  
+          </table>   
 
-    
+
+
+
+
 @stop

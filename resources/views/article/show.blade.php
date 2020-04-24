@@ -19,17 +19,19 @@
 						<div class="post-content">
 							<h2 class="post-title">{{$article->titre}} <a href=""></a></h2>
 							<div class="post-meta">
-								<a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a>
-								<a href="">
-									@foreach ($article->tags->shuffle()->take(3) as $index=>$item) 
+								<span><a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a></span>
+								
+								<span>
+									@foreach ($article->tags->shuffle()->take(3) as $index=>$tag) 
 										@if($loop->last)
-											{{$item->tag}}
+											<a href="{{route('tag.show',$tag)}}">{{$tag->tag}}</a>
 										@else
-											{{$item->tag}} -
+											<a href="{{route('tag.show',$tag)}}">{{$tag->tag}} -</a>
 										@endif
                     				@endforeach 
-								</a>
-								<a href="">{{count($commentairecount)}} Comments</a>
+								</span>
+								
+								<span><a href="">{{count($commentairecount)}} Comments</a></span>
 							</div>
 							<p>{{$article->text}}</p>
 							
@@ -45,7 +47,7 @@
 							</div>
 						</div>
 						<!-- Post Comments -->
-						<div class="comments">
+						<div id="comments" class="comments">
 							<h2>Comments ({{count($commentairecount)}})</h2>
 
 							<ul class="comment-list">
