@@ -55,7 +55,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([  
             'accepted' => false,  
-            'img' => 'blog-2.jpg',  
+            'img' => 'blog-4.jpg',  
             'titre' => '4 salut je vais bien     ',
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -68,7 +68,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([  
             'accepted' => true,  
-            'img' => 'blog-1.jpg',  
+            'img' => 'blog-5.jpg',  
             'titre' => '5 Salut je vais mal  ',  
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -81,7 +81,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([  
             'accepted' => false,  
-            'img' => 'blog-3.jpg',  
+            'img' => 'blog-6.jpg',  
             'titre' => '6 loremmm',  
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -94,7 +94,7 @@ class ArticleSeeder extends Seeder
         ]);
         DB::table('articles')->insert([  
             'accepted' => false,  
-            'img' => 'blog-2.jpg',  
+            'img' => 'blog-7.jpg',  
             'titre' => '7 loremmm',  
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 

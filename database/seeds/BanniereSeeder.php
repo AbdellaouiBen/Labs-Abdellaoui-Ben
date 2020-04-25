@@ -18,7 +18,7 @@ class BanniereSeeder extends Seeder
             'img' => 'banniere2.jpg',
         ]);
         DB::table('bannieres')->insert([  
-            'img' => 'banniere1.jpg',
+            'img' => 'banniere3.jpg',
         ]);
     }
 }

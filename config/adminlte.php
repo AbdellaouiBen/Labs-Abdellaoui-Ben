@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'L.A.B.S',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -47,7 +47,7 @@ return [
 
     'logo' => '<b>L.A.B.S</b>',
     'logo_img' => 'storage/logo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_class' => 'brand-image elevation-3 img-fluid ',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Labs',
@@ -220,6 +220,12 @@ return [
         ],
 
         ['header' => 'account_settings' ],
+        [
+            'text' => 'dashboard',
+            'url'  => '/home',
+            'icon' => 'fas fa-tachometer-alt',
+            
+        ],
         [
             'text' => 'profile',
             'url'  => '/myprofil',

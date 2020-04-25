@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
                 $event->menu->add('USER(S) SETTINGS');
                 }
             } 
-            $users = User::where('role_id','!=',1)->get();
+            $users = User::all();
             $nb = count($users);
             $event->menu->add(
                 

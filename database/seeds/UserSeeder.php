@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class UserSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class UserSeeder extends Seeder
             'role_id' => 1,
             'firstname' => 'bedrzf',
             'description' => 'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'Harry Potter',
@@ -28,6 +30,7 @@ class UserSeeder extends Seeder
             'role_id' => 2,
             'firstname' => null,
             'description' => null,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'Albi',
@@ -37,6 +40,7 @@ class UserSeeder extends Seeder
             'role_id' => 3,
             'firstname' => null,
             'description' => 'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'namereda',
@@ -46,60 +50,67 @@ class UserSeeder extends Seeder
             'role_id' => 5,
             'firstname' => 'prebedrzf',
             'description' => 'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'nameredacturdeux',
             'email' => 'reda@ok.com',
             'password' => Hash::make('aa'),
-            'img' => 'pp4.jpg',
+            'img' => 'pp5.jpg',
             'role_id' => 5,
             'firstname' => null,
             'description' =>'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'nameutili',
             'email' => 'utili@ok.com',
             'password' => Hash::make('aa'),
-            'img' => 'pp3.jpg',
+            'img' => 'pp6.jpg',
             'role_id' => 4,
             'firstname' => 'preutilifr',
             'description' =>  'bedrzf erte  thgrt het erthg et',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'nameuser',
             'email' => 'user@ok.com',
             'password' => Hash::make('aa'),
-            'img' => 'pp3.jpg',
+            'img' => 'pp7.jpg',
             'role_id' => 4,
             'firstname' => null,
             'description' =>  'bedrzf erte  thgrt het erthg et',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'namedesign',
             'email' => 'design@ok.com',
             'password' => Hash::make('aa'),
-            'img' => 'pp2.jpg',
+            'img' => 'pp8.jpg',
             'role_id' => 6,
             'firstname' => null,
             'description' =>  'bedrzf erte  thgrt het erthg et',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'nameJunior',
             'email' => 'Junior@ok.com',
             'password' => Hash::make('aa'),
-            'img' => 'pp2.jpg',
+            'img' => 'pp9.jpg',
             'role_id' => 7,
             'firstname' => 'preJuniored',
             'description' =>  null,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
             'name' => 'nameManager',
             'email' => 'Manager@ok.com',
             'password' => Hash::make('aa'),
-            'img' => 'pp1.jpg',
+            'img' => 'pp10.jpg',
             'role_id' => 8,
             'firstname' => 'preManager',
             'description' =>  ' Manager Manageredrb ghergsManagere t',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
     }
 }

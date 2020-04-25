@@ -23,7 +23,7 @@ class NewsletterController extends Controller
     public function index()
     {
         $this->authorize('adminWebmaser', User::class);
-        $newsletters = Newsletter::all();
+        $newsletters = Newsletter::latest('id')->get();
         return view('newsletter.index',compact('newsletters'));
     }
 

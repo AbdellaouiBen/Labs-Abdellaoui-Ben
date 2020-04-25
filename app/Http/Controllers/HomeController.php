@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use App\Form;
+use App\Commentaire;
+use App\Newsletter;
+use App\Article;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = User::all();
+        $usersss = User::latest('id')->take(8)->get();
+        $forms = Form::all();
+        $commentaires = Commentaire::all();
+        $newsletters = Newsletter::all();
+        $articles = Article::latest('id')->paginate(6);
+        return view('home',compact('users','forms','commentaires','newsletters','usersss','articles'));
     }
 }

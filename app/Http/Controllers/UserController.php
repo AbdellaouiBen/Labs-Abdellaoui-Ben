@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index()
     {
         $this->authorize('admin', User::class);
-        $users = User::all();
+        $users = User::latest('id')->get();
         $roles = Role::all();
         return view('user.index',compact('users','roles'));
     }

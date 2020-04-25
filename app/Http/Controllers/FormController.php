@@ -21,8 +21,8 @@ class FormController extends Controller
      */
     public function index()
     {
-        $this->authorize('adminWebmaser', User::class);
-        $forms = Form::all();
+        $this->authorize('adminWebmaser', User::class); 
+        $forms = Form::latest('id')->get();
         return view('form.index',compact('forms'));
     }
 

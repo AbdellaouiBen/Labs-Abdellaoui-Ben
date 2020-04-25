@@ -10,9 +10,9 @@
 <div class="container">
     <div class="d-flex justify-content-center mt-5">
     
-        <div class="card card-widget widget-user col-9 pt-2 "  style="border: 2px solid #2be6ab">
+        <div class="card card-widget widget-user col-7 pt-2 "  style="border: 2px solid #2be6ab">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header" style="background-color: #6922b4; color: white; ">
+            <div class="widget-user-header bg-dark" style="">
               <h3 class="widget-user-username">{{ucfirst(Auth::user()->name)}}  {{ucfirst(Auth::user()->firstname)}}</h3>
               <h5 class="widget-user-desc">{{Auth::user()->role->role}}</h5>
             </div>

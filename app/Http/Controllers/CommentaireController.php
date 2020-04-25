@@ -23,7 +23,7 @@ class CommentaireController extends Controller
     public function index()
     {
         $this->authorize('adminWebmaser', User::class);
-        $commentaires = Commentaire::all();
+        $commentaires = Commentaire::latest('id')->get();
         return view('commentaire.index',compact('commentaires'));
     }
 

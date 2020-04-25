@@ -25,13 +25,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */ 
-    public function index()
+    public function index()      
     {
-        $articles = Article::all();
+        $this->authorize('adminWebRedacteur', Article::class); 
+        $articles = Article::latest('id')->get();
         return view('article.index',compact('articles'));
     }
-
-
+   
+       
     /**
      * Show the form for creating a new resource.
      *
@@ -47,7 +48,7 @@ class ArticleController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
