@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Modifier l'article "".$article->titre)
+@section('title', "Modifier l'article ".$article->titre)
 
 @section('content_header')
 @stop
@@ -21,7 +21,7 @@
           <div class="card-body">
             <div class="form-group">
                 <label for="accepted">Validation de l'article</label>
-                <input name="accepted" type="checkbox" class="form-control @error('accepted') is-invalid @enderror" id="accepted" value="{{ old('accepted',$article->accepted) }}"@if (old('accepted',$article->accepted))
+                <input name="accepted" type="checkbox" class="form-control @error('accepted') is-invalid @enderror" id="accepted" @if(old('accepted',$article->accepted))
                 checked
             @endif value='1'  >
                 @error('accepted')

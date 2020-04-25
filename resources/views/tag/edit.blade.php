@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Modifier le tag '.{{$tag->tag}})
+@section('title', 'Modifier le tag '.$tag->tag)
 
 @section('content_header')
 @stop

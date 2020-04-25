@@ -31,7 +31,7 @@
                 <label for="role">Icon</label>
                 <div class="d-flex row modImg">
                     @foreach ($icons as $item)
-                    <div class="form-check col-3 my-2 d-flex align-items-center justify-content-between  flex-column-reverse">
+                    <div class="form-check col-3 my-2 d-flex align-items-center justify-content-between  flex-column-reverse @error('icon') is-invalid @enderror">
 
                         <input  type="radio" name="icon" id="icon"
                         value="{{$item->icon}}">
@@ -39,12 +39,12 @@
 
                     </div>
                     @endforeach
+                    @error('icon')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
-                @error('icon')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
             </div>
 
             <div class="form-group">

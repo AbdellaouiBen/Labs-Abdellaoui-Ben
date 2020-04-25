@@ -25,7 +25,7 @@
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
-                @enderror
+                @enderror  
             </div>
             <div class="form-group">
                 <label for="firstname">Prenom (facultatif)</label>
@@ -45,7 +45,8 @@
               </span>
               @enderror
             </div>
-
+            @if ($user->id!=1)
+                
             <div class="form-group">
                 <label  for="role_id">Role</label>
                 <select class="form-control" name="role_id" id="role_id">
@@ -60,6 +61,7 @@
                     @endforeach
                 </select>
             </div>
+            @endif
 
             <div class="form-group">
               <label for="img">Photo de profil</label>

@@ -135,7 +135,7 @@ class ArticleController extends Controller
         }
         $article->titre = $request->input('titre');
         $article->text = $request->input('text');
-        if (Auth::id()==3 || Auth::id()==1) {
+        if (Auth::user()->role_id==3 || Auth::user()->role_id==1) {
             if($request->input('accepted')){
                 $article->accepted = true;
             }else{ 

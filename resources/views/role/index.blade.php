@@ -29,12 +29,15 @@
                 <tr class="text-center">
                     <td>{{$role->role}}</td>
                     <td>      
+                        @if ($role->id!=1)
+                            
                         <div class="text-center">
                             <a  class=" btn btn-warning px-5 mb-1  " href="{{route('role.edit',$role)}}"><i class="fas fa-pencil-alt"></i></a> 
                         </div>                        
                         <div class="text-center">
                             <a class=" px-5 btn btn-danger "  data-toggle="modal" data-target="#deleterole{{$role->id}}" href=""><i class="fas fa-trash-alt"></i></a>
                         </div>                        
+                        @endif
                     </td>
                 </tr>
                         <div class="modal fade" id="deleterole{{$role->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

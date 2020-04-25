@@ -14,7 +14,7 @@ use App\User;
 class ServicepageController extends Controller
 {
     public function index(){
-        $articles = Article::latest('id')->take(3)->get();
+        $articles = Article::where('accepted', true )->latest('id')->take(3)->get();
         $independant = Independant::first();
         $features = Service::latest('id')->take(6)->get();
         $footer = Footer::first();

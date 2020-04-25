@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Modifier le role '.{{$role->role}}')
+@section('title', 'Modifier le role '.$role->role)
 
 @section('content_header')
 @stop

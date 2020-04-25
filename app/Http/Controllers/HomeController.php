@@ -32,7 +32,7 @@ class HomeController extends Controller
         $forms = Form::all();
         $commentaires = Commentaire::all();
         $newsletters = Newsletter::all();
-        $articles = Article::latest('id')->paginate(6);
+        $articles = Article::latest('id')->paginate(5);
         return view('home',compact('users','forms','commentaires','newsletters','usersss','articles'));
     }
 }

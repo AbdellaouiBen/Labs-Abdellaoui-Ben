@@ -47,7 +47,12 @@
                     <td>   
                         @can('adminWebRedacteurOf',$article, App\Article::class)
                             
-                                  
+                     
+                                @if (Auth::id()==$article->user_id || Auth::id()==1 || Auth::id()==3)
+                                <div class="text-center mb-2">
+                                    <a  class="d-block py-1 px-0  btn btn-primary rounded-circle " href="{{route('article.show',$article)}}"><i class="fas fa-eye"></i></a>
+                                </div>
+                                @endif 
                             <div class="text-center mb-2">
                                 <a  class="  btn btn-warning rounded-circle " href="{{route('article.edit',$article)}}"><i class="fas fa-pencil-alt"></i></a> 
                             </div>

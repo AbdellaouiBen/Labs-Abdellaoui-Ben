@@ -29,7 +29,7 @@
                 <p>Utilisateurs</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fas fa-users"></i>
             </div>
             <a href="{{route('user.index')}}" class="small-box-footer">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
@@ -45,7 +45,7 @@
                 <p>Messages</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fa fa-envelope"></i>
             </div>
             <a href="{{route('form.index')}}" class="small-box-footer">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
@@ -61,7 +61,7 @@
                 <p>Commentaires</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fas fa-comment-dots"></i>
             </div>
             <a href="{{route('commentaire.index')}}" class="small-box-footer">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
@@ -77,7 +77,7 @@
                 <p>Newsletters</p>
             </div>
             <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="far fa-newspaper"></i>
             </div>
             <a href="{{route('newsletter.index')}}" class="small-box-footer">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
@@ -89,9 +89,9 @@
 
 <div class="row">
     <div class="col-6">
-        <div class="card">
+        <div class="card card-danger">
             <div class="card-header">
-                <h3 class="card-title">Derniers membres</h3>
+                <h3 class="card-title ">Derniers membres</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -101,7 +101,7 @@
                 </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body p-0">
+            <div class="card-body ">
                 <ul class="users-list clearfix">
 
                     @foreach ($usersss as $user)
@@ -127,16 +127,14 @@
 
 
     <div class="col-6">
-        <div class="card">
+        <div class="card card-purple">
             <div class="card-header ui-sortable-handle">
                 <h3 class="card-title">
                     <a href="{{route('article.index')}}">Derniers articles</a>
                 </h3>
 
                 <div class="card-tools">
-                    <ul class="pagination pagination-sm">
-                        {{$articles->links()}}
-                    </ul>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
             <!-- /.card-header -->
@@ -171,27 +169,46 @@
                 </ul>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer clearfix">
-                <a href="{{route('article.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add
-                    item</a>
+            <div class="card-footer clearfix row">
+                <div class="col-6">
+
+                    <span class="pagination-sm  d-inline">
+                        {{$articles->links()}}
+                    </span>
+                </div>
+                <div class="col-6">
+                    
+                    <a href="{{route('article.create')}}" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add
+                        item</a>
+                </div>
             </div>
         </div>
-    </div>
+    </div> 
 
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
 @endcan
 
 
 
-<div class="card bg-gradient-success" style="position: relative; left: 0px; top: 0px;">
+<div class="card bg-gradient-teal" style="position: relative; left: 0px; top: 0px;">
     <div class="card-header border-0 ui-sortable-handle">
 
         <h3 class="card-title">
             <i class="far fa-calendar-alt"></i>
-            Calendar
-        </h3>
+            Calendrier
+        </h3>  
         <!-- tools card -->
         <div class="card-tools">
             <!-- button with a dropdown -->
@@ -407,3 +424,5 @@
     <!-- /.card-body -->
 </div>
 @stop
+
+

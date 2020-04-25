@@ -12,7 +12,7 @@ class LogoSeeder extends Seeder
     public function run()
     {
         DB::table('logos')->insert([  
-            'logo' => 'logo.png',
+            'logo' => 'logo1.png',
         ]);
     }
 }
