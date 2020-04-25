@@ -58,7 +58,7 @@
             <div class="inner">
                 <h3>{{count($commentaires)}}</h3>
 
-                <p>Commentaires</p>
+                <p class="text-white">Commentaires</p>
             </div>
             <div class="icon">
                 <i class="fas fa-comment-dots"></i>
@@ -68,7 +68,7 @@
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-3 col-6"> 
         <!-- small box -->
         <div class="small-box bg-danger">
             <div class="inner">
@@ -193,14 +193,11 @@
 
 
 
-
-
-
-
+  
 
 @endcan
 
-
+ 
 
 <div class="card bg-gradient-teal" style="position: relative; left: 0px; top: 0px;">
     <div class="card-header border-0 ui-sortable-handle">
@@ -208,7 +205,7 @@
         <h3 class="card-title">
             <i class="far fa-calendar-alt"></i>
             Calendrier
-        </h3>  
+        </h3>     
         <!-- tools card -->
         <div class="card-tools">
             <!-- button with a dropdown -->
@@ -289,12 +286,12 @@
                                             <td data-action="selectDay" data-day="04/23/2020" class="day">23</td>
                                             <td data-action="selectDay" data-day="04/24/2020" class="day">24</td>
                                             <td data-action="selectDay" data-day="04/25/2020"
-                                                class="day active today weekend">25</td>
+                                                class="day ">25</td>
                                         </tr>
                                         <tr>
                                             <td data-action="selectDay" data-day="04/26/2020" class="day weekend">26
                                             </td>
-                                            <td data-action="selectDay" data-day="04/27/2020" class="day">27</td>
+                                            <td data-action="selectDay" data-day="04/27/2020" class="day active today weekend">27</td>
                                             <td data-action="selectDay" data-day="04/28/2020" class="day">28</td>
                                             <td data-action="selectDay" data-day="04/29/2020" class="day">29</td>
                                             <td data-action="selectDay" data-day="04/30/2020" class="day">30</td>
@@ -423,6 +420,8 @@
     </div>
     <!-- /.card-body -->
 </div>
+
+
+
+
 @stop
-
-

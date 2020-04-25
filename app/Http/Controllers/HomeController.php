@@ -27,6 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
+
+
+
+
+
+
+
         $users = User::all();
         $usersss = User::latest('id')->take(8)->get();
         $forms = Form::all();
