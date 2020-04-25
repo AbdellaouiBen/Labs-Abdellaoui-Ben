@@ -9518,7 +9518,18 @@ ul {
 .post-meta {
 	margin-bottom: 40px;
 }
+.post-meta form{
+	display: inline;
+	color: #0b1033;
+}
 .post-meta a{
+	display: inline;
+	color: #0b1033;
+}
+.post-meta button{
+	padding: 0;
+	border: none;
+	background-color: transparent;
 	color: #0b1033;
 	font-size: 12px;
 }

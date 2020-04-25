@@ -177,7 +177,8 @@ class ArticleController extends Controller
         return redirect()->route('article.index');
     }
     public function search(Request $request)
-    {            
+    {     
+    
         $search = $request->input('search');
         $articles = Article::where('titre','LIKE','%'.$search.'%' )->latest('id')->paginate(3);
         $categories = Categorie::inRandomOrder()->take(6)->get();

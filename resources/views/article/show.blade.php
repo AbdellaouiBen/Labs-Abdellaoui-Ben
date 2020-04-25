@@ -19,15 +19,23 @@
 						<div class="post-content">
 							<h2 class="post-title">{{$article->titre}} <a href=""></a></h2>
 							<div class="post-meta">
-								<span><a href="{{route('categorie.show',$article->categorie)}}">{{$article->categorie->categorie}}</a></span>
+								<span>
+									<form action="{{route('categorie.show',$article->categorie)}}" method="get">
+										@csrf
+										<button  type="submit">{{$article->categorie->categorie}}</button>
+									</form>
+								</span>
 								
 								<span>
 									@foreach ($article->tags->shuffle()->take(3) as $index=>$tag) 
+									<form action="{{route('tag.show',$tag)}}" method="get">
+										@csrf
 										@if($loop->last)
-											<a href="{{route('tag.show',$tag)}}">{{$tag->tag}}</a>
+											<button type="submit">{{$tag->tag}}</button>
 										@else
-											<a href="{{route('tag.show',$tag)}}">{{$tag->tag}} -</a>
+											<button type="submit">{{$tag->tag}} -</button>
 										@endif
+									</form>
                     				@endforeach 
 								</span>
 								

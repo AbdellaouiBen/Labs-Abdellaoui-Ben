@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\MAIL\FormMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class FormController extends Controller
 {
@@ -35,23 +36,28 @@ class FormController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) 
-    {
-        
-        $validatedData = $request->validate([
-            'name' => 'required|max:105',
-            'email' => 'required|email|max:105',
-            'subject' => 'required|max:105',
-            'msg' => 'required|max:305',
-        ]);
+    {        
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:105',
+        'mail' => 'required|email|max:105',
+        'subject' => 'required|max:105',
+        'msg' => 'required|max:305',    ]);
+
+    if ($validator->fails()) {
+        return redirect()->to(url()->previous().'#form')
+                    ->withErrors($validator)
+                    ->withInput();
+    }
+
 
         $form = new Form();
         $form->name = $request->input('name'); 
-        $form->email = $request->input('email');
+        $form->email = $request->input('mail');
         $form->subject = $request->input('subject');
         $form->msg = $request->input('msg');
         $form->save();
         Mail::to($form->email)->send(new FormMail($form));
-        return redirect('/index#form')->with('success', 'Thanks for contacting us!');
+        return redirect()->to(url()->previous().'#form')->with('success', 'Thanks for contacting us!');
     }
 
 

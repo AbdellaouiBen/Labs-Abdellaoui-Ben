@@ -26,8 +26,8 @@
 								@enderror
 							</div>
 							<div class="col-sm-6">
-								<input class="@error('email') is-invalid @enderror" type="text" name="email" placeholder="Your email">
-								@error('email')
+								<input class="@error('mail') is-invalid @enderror" type="text" name="mail" placeholder="Your email">
+								@error('mail')
 								<div class="alert alert-danger">{{ $message }}</div>
 								@enderror
 							</div>
