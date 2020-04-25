@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Modifier une banniere')
 
 @section('content_header')
 @stop

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Mofifier mon profil')
 
 @section('content_header')
 @stop

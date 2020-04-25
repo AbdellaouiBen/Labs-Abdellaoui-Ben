@@ -1,9 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Quote')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">quote</h1>
 @stop
 
 @section('content')
@@ -12,6 +11,11 @@
           
 <table class="table table-striped table-dark">
   <thead>
+    <tr class="text-center">
+        <th colspan="2" class="">
+            <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Quote</span>  </h1> 
+        </th>
+    </tr>
     <tr >
       <th scope="col">Quote</th>
       <th class="text-center" scope="col">Action</th>

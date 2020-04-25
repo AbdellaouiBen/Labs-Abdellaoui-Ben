@@ -1,9 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Bannières')
 
 @section('content_header')
-    <h1 class="m-0 text-dark"> Bannieres</h1>
 @stop
 
 @section('content')
@@ -16,7 +15,13 @@
              
 <table class="table table-striped table-dark">
     <thead>
-      <tr c >
+        <tr class="text-center">
+            <th colspan="6" class="">
+                <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Bannières</span>  </h1> 
+                <a href="{{route('banniere.create')}}"><i class="fas fa-plus-square fa-2x text-success"></i></a>
+            </th>
+        </tr>
+      <tr  >
         <th class="text-center"  scope="col">Image</th>
         <th class="text-center" scope="col">Action</th>
       </tr>
@@ -26,7 +31,8 @@
             
         <tr>
             <th class="text-center"><img class="w-25" src="{{'storage/'.$banniere->img}}" alt=""></th>
-            <td>              
+            <td>          
+                    
                 <div class="text-center mb-2">
                     <a  class="  btn btn-warning rounded-circle " href="{{route('banniere.edit',$banniere)}}"><i class="fas fa-pencil-alt"></i></a> 
                 </div>

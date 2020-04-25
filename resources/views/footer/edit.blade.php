@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Modifier la section "footer"')
 
 @section('content_header')
 @stop

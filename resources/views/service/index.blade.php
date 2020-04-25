@@ -1,19 +1,23 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Services')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Services</h1>
 @stop
 
 @section('content')
-
 
 
           
 
 <table class="table table-striped table-dark">
     <thead>
+        <tr class="text-center">
+            <th colspan="6" class="">
+                <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Services</span>  </h1> 
+                <a href="{{route('service.create')}}"><i class="fas fa-plus-square fa-2x text-success"></i></a>
+            </th>
+        </tr>
       <tr >
         <th scope="col">Titre</th>
         <th scope="col">Icon</th>

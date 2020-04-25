@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', "Modifier l'article "".$article->titre)
 
 @section('content_header')
 @stop
@@ -19,6 +19,19 @@
             @csrf
             @method('PUT')
           <div class="card-body">
+            <div class="form-group">
+                <label for="accepted">Validation de l'article</label>
+                <input name="accepted" type="checkbox" class="form-control @error('accepted') is-invalid @enderror" id="accepted" value="{{ old('accepted',$article->accepted) }}"@if (old('accepted',$article->accepted))
+                checked
+            @endif value='1'  >
+                @error('accepted')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+ 
+            <div class="card-body">
             <div class="form-group">
                 <label for="titre">Titre</label>
                 <input name="titre" type="text" class="form-control @error('titre') is-invalid @enderror" id="titre" value="{{ old('titre',$article->titre) }}" placeholder="Titre">

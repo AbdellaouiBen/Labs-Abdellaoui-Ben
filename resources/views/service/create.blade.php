@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Ajouter un nouveau service')
 
 @section('content_header')
 @stop
@@ -63,7 +63,7 @@
     
           <div class="card-footer">
             <button type="submit" class="btn btn-primary">Ajouter</button>
-            <a href="{{route('role.index')}}" class="btn btn-danger">Annuler</a>
+            <a href="{{route('service.index')}}" class="btn btn-danger">Annuler</a>
           </div>
         </form>
       </div>

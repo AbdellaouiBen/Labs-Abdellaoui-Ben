@@ -1,9 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Articles')
 
 @section('content_header')
-    <h1 class="m-0 text-dark"> Article</h1>
 @stop
 
 @section('content')
@@ -11,12 +10,19 @@
 
           <table class="table table-striped table-dark">
             <thead>
+                <tr class="text-center">
+                    <th colspan="8" class="">
+                        <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Articles</span>  </h1> 
+                        <a href="{{route('article.create')}}"><i class="fas fa-plus-square fa-2x text-success"></i></a>
+                    </th>
+                </tr>
               <tr >
                 <th scope="col">Image</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Texte</th>
                 <th scope="col">Statut</th>
                 <th scope="col">Categorie</th>
+                <th scope="col">Auteur</th>
                 <th scope="col">Tags</th>
                 <th class="text-center" scope="col">Action</th>
               </tr>

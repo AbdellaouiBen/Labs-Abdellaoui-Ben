@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Modifier des elements du site')
 
 @section('content_header')
 @stop
@@ -15,7 +15,7 @@
 @endsection
 @section('content')
 
- 
+        
 
 
 

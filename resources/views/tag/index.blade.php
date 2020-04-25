@@ -1,9 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Tags')
 
 @section('content_header')
-    <h1 class="m-0 text-dark"> Tags</h1>
 @stop
 
 @section('content')
@@ -12,6 +11,12 @@
 
           <table class="table table-striped table-dark">
             <thead>
+                <tr class="text-center">
+                    <th colspan="2" class="">
+                        <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Tags</span>  </h1> 
+                        <a href="{{route('tag.create')}}"><i class="fas fa-plus-square fa-2x text-success"></i></a>
+                    </th>
+                </tr>
               <tr class="text-center">
                 <th scope="col">Tag</th>
                 <th class="text-center" scope="col">Action</th>

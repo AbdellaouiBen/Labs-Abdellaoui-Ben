@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Ajouter un testimonial')
 
 @section('content_header')
 @stop

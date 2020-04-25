@@ -1,9 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Elements independants')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Dashboard</h1>
 @stop
 
 @section('content')
@@ -20,7 +19,11 @@
 
 <table class="table table-striped table-dark container">
     <thead>
-     
+        <tr class="text-center">
+            <th colspan="6" class="">
+                <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Elements independants</span>  </h1> 
+            </th>
+        </tr>
             <th  colspan="2" scope="row" class="text-center">Mettez les caractères souhaité entre '[' et ']' dans les section contanant une '*' afin de le faire apparaitre en bleu avec une couleur de fond verte <br> <u>Exemple:</u>  <br> Ecrivez : Hello [World] ! <br> Obtenez: Hello <span class="color_helper">World</span> !</th>
 
       

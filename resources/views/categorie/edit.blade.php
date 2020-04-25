@@ -1,33 +1,46 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Modifier la categorie '.$categorie->categorie)
 
 @section('content_header')
-    <h1 class="m-0 text-dark">edit Categorie</h1>
 @stop
 
 @section('content')
 
 
-
-    <h1 class="mt-5 text-center bg-danger text-white ">edit Categorie</h1>
-
-    <form action="{{route('categorie.update',$categorie)}}" method="POST" >
-        @method('PUT')
-        @csrf
-        <div class="text-center form-group container">    
-
-            <div class="form-group">
-                <label class="d-block input-group-text" for="categorie">categorie</label>
-                <input class="form-control @error('categorie') is-invalid @enderror" type="text" name='categorie' value="{{old('categorie',$categorie->categorie)}}">
-                @error('categorie')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div> 
-
-            <a class="btn btn-primary" href="{{route('categorie.index')}}">annuler</a>
-            <input class="btn btn-warning" type="submit" value="editer">
-        </div> 
-    </form>
+    <div class="d-flex justify-content-center mt-3">
+        <div class="card card-primary w-75 ">
+            <div class="card-header">
+              <h3 class="card-title">Modifier la categorie "{{$categorie->categorie}}"</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form action="{{route('categorie.update',$categorie)}}" method="post" >
+                @csrf
+                @method('PUT')
+              <div class="card-body">
+                <div class="form-group">
+                    <label for="categorie">categorie</label>
+                    <input name="categorie" type="text" class="form-control @error('categorie') is-invalid @enderror" id="categorie" value="{{ old('categorie',$categorie->categorie) }}" placeholder="Categorie">
+                    @error('categorie')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+        
+        
+              <!-- /.card-body -->
+        
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Modifier</button>
+                <a href="{{route('categorie.index')}}" class="btn btn-danger">Annuler</a>
+              </div>
+            </form>
+          </div>
+        </div>
     
+
+
 @stop

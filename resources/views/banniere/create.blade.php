@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Creer une banniere')
 
 @section('content_header')
 @stop
@@ -10,7 +10,7 @@
 <div class="d-flex justify-content-center mt-3">
     <div class="card card-primary w-75 ">
         <div class="card-header">
-          <h3 class="card-title">Modifier une banniere </h3>
+          <h3 class="card-title">Creer une banniere </h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->

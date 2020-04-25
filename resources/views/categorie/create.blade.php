@@ -1,32 +1,47 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Creer une Categorie')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Ajouter une Categorie</h1>
 @stop
 
 @section('content')
 
- 
-    <h1 class="mt-5 text-center bg-danger text-white "><u>Ajouter une Categorie</u> </h1>
 
-    <form action="{{route('categorie.store')}}" method="POST" >
-        @csrf
+
     
-        <div class="text-center form-group container">    
-            <div class="form-group">
-                <label class="d-block input-group-text" for="categorie">categorie</label> 
-                <input class="form-control @error('categorie') is-invalid @enderror" placeholder="categorie" type="text " name='categorie' value="@if($errors->first('categorie'))@else{{old('categorie')}}@endif">      
-                @error('categorie')
-                <div class="alert alert-danger">{{ $message }}</div> 
-                @enderror   
-            </div>             
-                
-            <a class="btn btn-primary" href="{{route('categorie.index')}}">annuler</a>
-            <input class="btn btn-success" type="submit" value="ajouter">
+<div class="d-flex justify-content-center mt-3">
+    <div class="card card-primary w-75 ">
+        <div class="card-header">
+          <h3 class="card-title">Creer une Categorie </h3>
         </div>
-    </form> 
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="{{route('categorie.store')}}" method="post" >
+            @csrf
+          <div class="card-body">
+            <div class="form-group">
+                <label for="categorie">Categorie</label>
+                <input name="categorie" type="text" class="form-control @error('categorie') is-invalid @enderror" id="categorie" value="@if($errors->first('categorie'))@else{{ old('categorie') }}@endif" placeholder="categorie">
+                @error('categorie')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+        </div>
     
+    
+          <!-- /.card-body -->
+    
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <a href="{{route('categorie.index')}}" class="btn btn-danger">Annuler</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
     
 @stop 

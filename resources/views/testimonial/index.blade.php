@@ -1,9 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Testimonials')
 
 @section('content_header')
-    <h1 class="m-0 text-dark"> Testimonials</h1>
 @stop
 
 @section('content')
@@ -13,6 +12,12 @@
 
           <table class="table table-striped table-dark">
             <thead>
+                <tr class="text-center">
+                    <th colspan="6" class="">
+                        <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Testimonials</span>  </h1> 
+                        <a href="{{route('testimonial.create')}}"><i class="fas fa-plus-square fa-2x text-success"></i></a>
+                    </th>
+                </tr>
               <tr >
                 <th scope="col">Nom complet du partenaire</th>
                 <th scope="col">Phot du partenaire</th>

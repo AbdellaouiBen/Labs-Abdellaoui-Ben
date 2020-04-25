@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title',ucfirst($user->name))
 
 @section('content_header')
     <h1 class="m-0 text-dark">User {{$user->name}}</h1>

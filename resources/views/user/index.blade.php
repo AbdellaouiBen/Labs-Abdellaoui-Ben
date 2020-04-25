@@ -1,9 +1,8 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Users')
 
 @section('content_header')
-<h1 class="m-0 text-dark">Users </h1>
 @stop
 
 @section('content')
@@ -12,6 +11,11 @@
 
 <table class="table table-striped table-dark">
     <thead>
+        <tr class="text-center">
+            <th colspan="6" class="">
+                <h1><span class="text-black font-weight-bold bg-teal px-2 rounded">Users</span> </h1> 
+            </th>
+        </tr>
       <tr>
         <th scope="col">Nom</th>
         <th scope="col">Email</th>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Modifier le service '.{{$service->titre}}')
 
 @section('content_header')
 @stop
