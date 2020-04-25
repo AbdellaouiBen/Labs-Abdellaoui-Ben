@@ -44,16 +44,22 @@
                     <td>{{$article->user->name}}</td>
                     <td>{{$article->categorie->categorie}}</td>
                     <td><ul style="padding-left: 20px">@foreach ($article->tags as $item)<li>{{$item->tag}}  </li>@endforeach</ul></td>
-                    <td>              
-                        <div class="text-center mb-2">
-                            <a  class="  btn btn-warning rounded-circle " href="{{route('article.edit',$article)}}"><i class="fas fa-pencil-alt"></i></a> 
-                        </div>
-                        <div class="text-center">
-                            <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deletearticle{{$article->id}}" href=""><i class="fas fa-trash-alt"></i></a>
-                        </div>
-                    
+                    <td>   
+                        @can('adminWebRedacteurOf',$article, App\Article::class)
+                            
+                                  
+                            <div class="text-center mb-2">
+                                <a  class="  btn btn-warning rounded-circle " href="{{route('article.edit',$article)}}"><i class="fas fa-pencil-alt"></i></a> 
+                            </div>
+                            <div class="text-center">
+                                <a class="   rounded-circle btn btn-danger "  data-toggle="modal" data-target="#deletearticle{{$article->id}}" href=""><i class="fas fa-trash-alt"></i></a>
+                            </div>
+
+                        @endcan 
                     </td>
                 </tr>
+                @can('adminWebRedacteurOf',$article, App\Article::class)
+
                         <div class="modal fade" id="deletearticle{{$article->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog">
                             <div class="modal-content bg-danger">
@@ -79,6 +85,8 @@
                             </div>
                             <!-- /.modal-dialog -->
                         </div>
+                        @endcan 
+
                 @endforeach
           
             </tbody>

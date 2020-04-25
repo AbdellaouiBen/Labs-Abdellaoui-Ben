@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Testimonial;
-use App\User;
+use App\User;  
+use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

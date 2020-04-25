@@ -43,17 +43,17 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
-            'name' => 'namereda',
+            'name' => 'redacJhon',
             'email' => 'rea@ok.com',
             'password' => Hash::make('aa'),
             'img' => 'pp4.jpg',
             'role_id' => 5,
-            'firstname' => 'prebedrzf',
+            'firstname' => 'Doe',
             'description' => 'uihbzenvoizedze ijdvz,edziojedcozed pordvp,dv okzokezofkzr^vrzkvze oezfcvoefez,f,,f kz,  zedo;fze ',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
-            'name' => 'nameredacturdeux',
+            'name' => 'redacAdaline ',
             'email' => 'reda@ok.com',
             'password' => Hash::make('aa'),
             'img' => 'pp5.jpg',
@@ -63,17 +63,17 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
-            'name' => 'nameutili',
+            'name' => 'userReichel',
             'email' => 'utili@ok.com',
             'password' => Hash::make('aa'),
             'img' => 'pp6.jpg',
             'role_id' => 4,
-            'firstname' => 'preutilifr',
+            'firstname' => 'Lexi ',
             'description' =>  'bedrzf erte  thgrt het erthg et',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
-            'name' => 'nameuser',
+            'name' => 'userGracie ',
             'email' => 'user@ok.com',
             'password' => Hash::make('aa'),
             'img' => 'pp7.jpg',
@@ -83,7 +83,7 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
-            'name' => 'namedesign',
+            'name' => 'Emmett ',
             'email' => 'design@ok.com',
             'password' => Hash::make('aa'),
             'img' => 'pp8.jpg',
@@ -92,7 +92,7 @@ class UserSeeder extends Seeder
             'description' =>  'bedrzf erte  thgrt het erthg et',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
-        DB::table('users')->insert([
+        DB::table('users')->insert([      
             'name' => 'nameJunior',
             'email' => 'Junior@ok.com',
             'password' => Hash::make('aa'),
@@ -105,7 +105,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'nameManager',
             'email' => 'Manager@ok.com',
-            'password' => Hash::make('aa'),
+            'password' => Hash::make('aa'),  
             'img' => 'pp10.jpg',
             'role_id' => 8,
             'firstname' => 'preManager',

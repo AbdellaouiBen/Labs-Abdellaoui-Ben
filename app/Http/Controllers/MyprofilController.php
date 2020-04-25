@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Storage;
 
 class MyprofilController extends Controller
 {
-    // public function __construct(){
-    //     $this->middleware('isMe')->only('edit','update');
-    // }
+    public function __construct(){
+        $this->middleware('isUser')->only('edit','update');
+    }
     /**
      * Display a listing of the resource.
      *  

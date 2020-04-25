@@ -22,14 +22,14 @@ class UserPolicy
     public function adminWebmaser(User $user){
         if (Auth::check()) {
 
-        if ($user->id == 1 || $user->id == 3) {
+        if ($user->role_id == 1 || $user->role_id == 3) {
             return true;
         } 
         } 
     }
     public function admin(User $user){
         if (Auth::check()) {
-            if ($user->id == 1 ) {
+            if ($user->role_id == 1 ) {
                 return true;
             } 
         }
@@ -38,7 +38,7 @@ class UserPolicy
     public function isMe(User $user,$id){
         if (Auth::check()) {
 
-        if ($user->id == $id ) {
+        if ($user->role_id == $id ) {
             return true;
         } 
         } 

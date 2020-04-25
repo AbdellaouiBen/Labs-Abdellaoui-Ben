@@ -3,8 +3,14 @@
                     <h2 class="widget-title">Categories</h2>
                     <ul>
                         @foreach ($categories as $categorie)
-                            
-                        <li><a href="{{route('categorie.show',$categorie)}}">{{$categorie->categorie}}</a></li>
+                        <li>
+                        <form action="{{route('categorie.show',$categorie)}}" method="get">
+                            @csrf
+                            <a href="">
+                                <button style="border: none; background-color: white" type="submit">{{$categorie->categorie}}</button>
+                            </a>
+                        </form>
+                            </li>
                         @endforeach
 
                     </ul>

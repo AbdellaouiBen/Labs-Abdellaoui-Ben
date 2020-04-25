@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
+
     // public function __construct(){
     //     $this->middleware('isAdminOrWebmaster')->only('');
     // }

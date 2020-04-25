@@ -4,7 +4,11 @@
 						<ul class="tag">
 							@foreach ($tags as $tag)
 								
-							<li><a href="{{route('tag.show',$tag)}}">{{$tag->tag}}</a></li>
+							<li>
+								<form action="{{route('tag.show',$tag)}}" method="get">
+								@csrf
+								<a href=""><button  style="border: none; background-color: transparent" type="submit">{{$tag->tag}}</button></a></li>
+								</form>
 							@endforeach
 				
 						</ul>

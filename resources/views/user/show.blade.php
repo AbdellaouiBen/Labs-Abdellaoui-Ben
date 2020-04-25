@@ -1,12 +1,15 @@
 @extends('adminlte::page')
 
-@section('title',ucfirst($user->name))
+@section('title',ucfirst($user->name)) 
 
 @section('content_header')
-    <h1 class="m-0 text-dark">User {{$user->name}}</h1>
+<div class="text-center">
+
+  <h1 class="m-0 "><span style="color: black" class="bg-dark rounded p-2 px-5 ">Utilisateur: {{$user->name}} </span></h1>
+</div>
 @stop
 
-@section('content')
+@section('content') 
 
 <div class="container">
     <div class="d-flex justify-content-center mt-5">

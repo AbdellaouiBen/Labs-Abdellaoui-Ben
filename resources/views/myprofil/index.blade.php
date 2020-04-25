@@ -3,7 +3,9 @@
 @section('title', 'Mon Profil')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Mon Profil</h1>
+<div class="text-center">
+  <h1 ><span style="color: black" class="bg-dark rounded p-2 px-5 ">Mon Profil</span> </h1>
+</div>
 @stop
 
 @section('content')

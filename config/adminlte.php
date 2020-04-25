@@ -208,20 +208,19 @@ return [
     */
 
     'menu' => [
-        [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-
+        // [
+        //     'text' => 'search',
+        //     'search' => true,
+        //     'topnav' => true,
+        // ],
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
         ['header' => 'account_settings' ],
         [
-            'text' => 'dashboard',
+            'text' => 'Dashboard',
             'url'  => '/home',
             'icon' => 'fas fa-tachometer-alt',
             
@@ -231,7 +230,7 @@ return [
             'url'  => '/myprofil',
             'icon' => 'fas fa-fw fa-user',
             
-        ],
+        ], 
         // [
         //     'text' => 'change_password',
         //     'url'  => 'admin/settings',
@@ -242,7 +241,6 @@ return [
         //     'url'  => '/user',
         //     'icon' => 'fas fa-users',
         // ],
-
         // [
         //     'text'    => 'Roles',
         //     'icon'    => 'fas fa-fw fa-share',
